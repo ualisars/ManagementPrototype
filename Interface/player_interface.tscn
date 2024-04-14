@@ -42,6 +42,7 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_x4q11")
+scene_file = "res://Scenes/arena_scene.tscn"
 
 [node name="Camp" parent="." instance=ExtResource("1_rlvvm")]
 layout_mode = 1
