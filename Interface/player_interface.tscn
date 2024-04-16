@@ -53,6 +53,7 @@ offset_top = -96.0
 offset_bottom = 96.0
 grow_vertical = 2
 texture = ExtResource("5_msls1")
+scene_file = "res://Scenes/camp_scene.tscn"
 
 [node name="Market" parent="." instance=ExtResource("1_rlvvm")]
 layout_mode = 1

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnkw0cr7hs1bg"]
+
+[ext_resource type="Script" path="res://Scenes/camp_scene.gd" id="1_ox27c"]
+
+[node name="CampScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ox27c")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+columns = 4
