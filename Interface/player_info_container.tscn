@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c45vn5g0rmckg"]
+
+[ext_resource type="Script" path="res://Scenes/BackButton.gd" id="1_jn74u"]
+[ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="2_jpksd"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 1152.0
+offset_bottom = 61.0
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Back"
+script = ExtResource("1_jn74u")
+
+[node name="GoldTexture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+texture = ExtResource("2_jpksd")
+expand_mode = 1
+
+[node name="GoldAmount" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

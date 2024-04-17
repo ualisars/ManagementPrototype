@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cogs6x2mfji6e"]
+
+[ext_resource type="Script" path="res://Scenes/academy_scene.gd" id="1_jhi5g"]
+[ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/player_info_container.tscn" id="2_jcl70"]
+
+[node name="AcademyScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jhi5g")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="HBoxContainer" parent="." instance=ExtResource("2_jcl70")]
+layout_mode = 0

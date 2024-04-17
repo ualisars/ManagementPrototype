@@ -17,6 +17,7 @@ grow_vertical = 2
 
 [node name="Acamedy" parent="." instance=ExtResource("1_rlvvm")]
 layout_mode = 0
+scene_file = "res://Scenes/academy_scene.tscn"
 
 [node name="Mission" parent="." instance=ExtResource("1_rlvvm")]
 layout_mode = 1
