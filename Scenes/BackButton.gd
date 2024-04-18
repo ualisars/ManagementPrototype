@@ -1,6 +1,6 @@
 extends Button
 
-var player_interface: PackedScene = preload("res://Interface/player_interface.tscn")
+var player_interface: PackedScene = load("res://Interface/player_interface.tscn")
 
 
 func _on_pressed() -> void:

@@ -10,4 +10,4 @@ func _ready() -> void:
 func on_character_hired(character_characteristics: Node):
 	gold -= character_characteristics.cost
 	party.append(character_characteristics)
-	print(party[0].character_name)
+	Messenger.PLAYER_INFO_UPDATED.emit()

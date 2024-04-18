@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c45vn5g0rmckg"]
+[gd_scene load_steps=4 format=3 uid="uid://c45vn5g0rmckg"]
 
 [ext_resource type="Script" path="res://Scenes/BackButton.gd" id="1_jn74u"]
+[ext_resource type="Script" path="res://Interface/player_info_container.gd" id="1_vcb4t"]
 [ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="2_jpksd"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="PlayerInfoContainer" type="HBoxContainer"]
 offset_right = 1152.0
 offset_bottom = 61.0
+script = ExtResource("1_vcb4t")
 
 [node name="BackButton" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 0)

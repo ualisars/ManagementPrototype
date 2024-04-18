@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3osp1gmxp722"]
+[gd_scene load_steps=9 format=3 uid="uid://c3osp1gmxp722"]
 
+[ext_resource type="Script" path="res://Interface/player_interface.gd" id="1_oet7c"]
 [ext_resource type="PackedScene" uid="uid://y4lew0xy02hl" path="res://Interface/activity_icon.tscn" id="1_rlvvm"]
 [ext_resource type="Texture2D" uid="uid://c1okshgqfnujk" path="res://Images/Firefly Big gate like castle gate. Then road goes to dark forest. View from above. Dark fantasy styl.jpg" id="2_qw60y"]
 [ext_resource type="Texture2D" uid="uid://cvrkkncs2rpt4" path="res://Images/Firefly magical arena, dark fantasy style. Use soft colors. From the above view. Can be used as an i(1).jpg" id="3_x4q11"]
 [ext_resource type="Texture2D" uid="uid://drb7lirkv54m4" path="res://Images/Firefly market that store magical items, weapons and armor in 2d, dark fantasy style. Use dark color(2).jpg" id="4_ab3a2"]
 [ext_resource type="Texture2D" uid="uid://8qffijoafx1u" path="res://Images/Firefly magical camp, dark fantasy style. Use soft colors. Minimalist. Can be used as an icon in 2d .jpg" id="5_msls1"]
 [ext_resource type="PackedScene" uid="uid://dwpt4c3u5rkee" path="res://Interface/bottom_menu_button.tscn" id="6_40lx6"]
+[ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/player_info_container.tscn" id="7_hhjee"]
 
 [node name="PlayerInterface" type="Control"]
 layout_mode = 3
@@ -14,61 +16,97 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_oet7c")
 
-[node name="Acamedy" parent="." instance=ExtResource("1_rlvvm")]
+[node name="PlayerInfoContainer" parent="." instance=ExtResource("7_hhjee")]
 layout_mode = 0
+
+[node name="Container" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -264.0
+offset_right = 2.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Acamedy" parent="Container" instance=ExtResource("1_rlvvm")]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 scene_file = "res://Scenes/academy_scene.tscn"
 
-[node name="Mission" parent="." instance=ExtResource("1_rlvvm")]
+[node name="Camp" parent="Container" instance=ExtResource("1_rlvvm")]
+custom_minimum_size = Vector2(300, 200)
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -321.0
-offset_right = 0.0
-grow_horizontal = 0
-texture = ExtResource("2_qw60y")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 0.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("5_msls1")
+scene_file = "res://Scenes/camp_scene.tscn"
 
-[node name="Arena" parent="." instance=ExtResource("1_rlvvm")]
+[node name="Arena" parent="Container" instance=ExtResource("1_rlvvm")]
+custom_minimum_size = Vector2(300, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -177.0
-offset_right = 161.0
-offset_bottom = 15.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("3_x4q11")
 scene_file = "res://Scenes/arena_scene.tscn"
 
-[node name="Camp" parent="." instance=ExtResource("1_rlvvm")]
+[node name="Mission" parent="Container" instance=ExtResource("1_rlvvm")]
+custom_minimum_size = Vector2(300, 200)
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -96.0
-offset_bottom = 96.0
-grow_vertical = 2
-texture = ExtResource("5_msls1")
-scene_file = "res://Scenes/camp_scene.tscn"
-
-[node name="Market" parent="." instance=ExtResource("1_rlvvm")]
-layout_mode = 1
-anchors_preset = 6
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -321.0
-offset_top = -96.0
+offset_left = -200.0
 offset_right = 0.0
-offset_bottom = 96.0
+offset_bottom = 200.0
 grow_horizontal = 0
-grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("2_qw60y")
+
+[node name="Market" parent="Container" instance=ExtResource("1_rlvvm")]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
 texture = ExtResource("4_ab3a2")
 
 [node name="BottomMenu" type="HBoxContainer" parent="."]
@@ -84,24 +122,24 @@ theme_override_constants/separation = 38
 
 [node name="CampButton" parent="BottomMenu" node_paths=PackedStringArray("linked_activity_icon") instance=ExtResource("6_40lx6")]
 layout_mode = 2
-linked_activity_icon = NodePath("../../Camp")
+linked_activity_icon = NodePath("../../Container/Camp")
 
 [node name="MarketButton" parent="BottomMenu" node_paths=PackedStringArray("linked_activity_icon") instance=ExtResource("6_40lx6")]
 layout_mode = 2
 text = "Market"
-linked_activity_icon = NodePath("../../Market")
+linked_activity_icon = NodePath("../../Container/Market")
 
 [node name="ArenaButton" parent="BottomMenu" node_paths=PackedStringArray("linked_activity_icon") instance=ExtResource("6_40lx6")]
 layout_mode = 2
 text = "Arena"
-linked_activity_icon = NodePath("../../Arena")
+linked_activity_icon = NodePath("../../Container/Arena")
 
 [node name="AcademyButton" parent="BottomMenu" node_paths=PackedStringArray("linked_activity_icon") instance=ExtResource("6_40lx6")]
 layout_mode = 2
 text = "Acamedy"
-linked_activity_icon = NodePath("../../Acamedy")
+linked_activity_icon = NodePath("../../Container/Acamedy")
 
 [node name="MissionButton" parent="BottomMenu" node_paths=PackedStringArray("linked_activity_icon") instance=ExtResource("6_40lx6")]
 layout_mode = 2
 text = "Mission"
-linked_activity_icon = NodePath("../../Mission")
+linked_activity_icon = NodePath("../../Container/Mission")

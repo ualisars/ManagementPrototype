@@ -7,6 +7,8 @@ var hover_modulate = "ffffff"
 
 func _ready() -> void:
 	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	custom_minimum_size.x = 200
+	custom_minimum_size.y = 200
 	modulate = default_modulate
 
 
