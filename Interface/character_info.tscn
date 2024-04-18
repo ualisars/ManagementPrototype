@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://innh0u5vibax"]
+[gd_scene load_steps=6 format=3 uid="uid://innh0u5vibax"]
+
+[ext_resource type="Script" path="res://Interface/character_info.gd" id="1_jig8p"]
+[ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_6465o"]
+[ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_me2lk"]
+[ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_3er1v"]
+[ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="5_revet"]
 
 [node name="CharacterInfo" type="Panel"]
 custom_minimum_size = Vector2(250, 250)
@@ -10,16 +16,20 @@ offset_right = -850.0
 offset_bottom = -348.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jig8p")
 
-[node name="Attack" type="Label" parent="."]
+[node name="AttackImage" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 106.0
 offset_top = 17.0
 offset_right = 160.0
 offset_bottom = 40.0
-text = "Attack:"
+texture = ExtResource("2_6465o")
+expand_mode = 1
 
 [node name="AttackValue" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 176.0
 offset_top = 17.0
@@ -27,15 +37,18 @@ offset_right = 230.0
 offset_bottom = 40.0
 text = "Value"
 
-[node name="Defense" type="Label" parent="."]
+[node name="DefenseImage" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 105.0
 offset_top = 51.0
-offset_right = 173.0
+offset_right = 161.0
 offset_bottom = 74.0
-text = "Defense:"
+texture = ExtResource("3_me2lk")
+expand_mode = 1
 
 [node name="DefenseValue" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 178.0
 offset_top = 52.0
@@ -43,28 +56,52 @@ offset_right = 246.0
 offset_bottom = 75.0
 text = "Value"
 
-[node name="Name" type="Label" parent="."]
+[node name="HealthImage" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 6.0
-offset_top = 95.0
-offset_right = 135.0
-offset_bottom = 118.0
+offset_left = 111.0
+offset_top = 83.0
+offset_right = 159.0
+offset_bottom = 106.0
+texture = ExtResource("4_3er1v")
+expand_mode = 1
+
+[node name="HealthValue" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 176.0
+offset_top = 84.0
+offset_right = 244.0
+offset_bottom = 107.0
+text = "Health
+"
+
+[node name="CharacterName" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 118.0
+offset_right = 137.0
+offset_bottom = 141.0
 text = "Name"
 
-[node name="Name2" type="Label" parent="."]
+[node name="Cost" type="Label" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 89.0
+offset_left = 146.0
 offset_top = 178.0
-offset_right = 218.0
+offset_right = 208.0
 offset_bottom = 201.0
 text = "Price"
 
 [node name="CharacterImage" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 96.0
 offset_bottom = 82.0
 
-[node name="Button" type="Button" parent="."]
+[node name="HireButton" type="Button" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 1
 anchors_preset = 7
@@ -79,3 +116,13 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Hire
 "
+
+[node name="CostImage" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 96.0
+offset_top = 168.0
+offset_right = 136.0
+offset_bottom = 208.0
+texture = ExtResource("5_revet")
+expand_mode = 1

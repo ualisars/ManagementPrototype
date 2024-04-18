@@ -15,6 +15,10 @@ run/main_scene="res://Interface/player_interface.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Player="*res://World/player.tscn"
+
 [input]
 
 click={

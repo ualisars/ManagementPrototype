@@ -3,16 +3,15 @@ extends Node
 var health: int = 10
 var attack: int = 2
 var defense: int = 3
-var price: int = 5
-
+var cost: int = 5
+var character_name = ""
 var rng = RandomNumberGenerator.new()
 
-func init():
-	health = rng.randf_range(8, 20)
-	attack = rng.randf_range(4, 7)
-	defense = rng.randf_range(1, 3)
-	price = health + attack + defense
+var names = ["Arw", "Teon", "Mid", "Jecw", "Unsa", "Lefs", "Yevil"]
 
-
-func _process(delta: float) -> void:
-	pass
+func _init():
+	health = rng.randi_range(8, 20)
+	attack = rng.randi_range(4, 7)
+	defense = rng.randi_range(1, 3)
+	character_name = names.pick_random()
+	cost = health + attack + defense
