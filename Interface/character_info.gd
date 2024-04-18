@@ -1,5 +1,9 @@
 extends Panel
 
+var characteristics: Node
+
+signal unit_hired(character_characteristics: Node)
+
 var attack_image: TextureRect = TextureRect.new()
 var attack_value: Label = Label.new()
 
@@ -39,6 +43,11 @@ func add_button(button: Button):
 	
 	button.position.x = 80
 	button.position.y = 190
+	
+	button.connect("pressed", on_hire_button_pressed)
+	
+func on_hire_button_pressed():
+	Messenger.UNIT_HIRED.emit(characteristics)
 
 func add_image(
 	texture_rect: TextureRect, 
@@ -113,6 +122,7 @@ func _init() -> void:
 	add_child(hire_button)
 
 func init_characteristics(character_characteristics: Node) -> void:
+	characteristics = character_characteristics
 	attack_value.text = str(character_characteristics.attack)
 	defense_value.text = str(character_characteristics.defense)
 	health_value.text = str(character_characteristics.health)

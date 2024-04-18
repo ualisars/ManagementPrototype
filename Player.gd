@@ -4,16 +4,10 @@ var gold: int = 100
 
 var party: Array = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	Messenger.connect("UNIT_HIRED", on_character_hired)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-
-func hire_character(character_characteristics: Node):
-	gold -= character_characteristics.price
+func on_character_hired(character_characteristics: Node):
+	gold -= character_characteristics.cost
 	party.append(character_characteristics)
+	print(party[0].character_name)
