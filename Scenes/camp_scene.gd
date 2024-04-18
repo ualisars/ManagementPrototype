@@ -6,11 +6,8 @@ var CharacterInfoClass: PackedScene = preload("res://Interface/character_info.ts
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(10):
-		var slot = CharacterInfoClass.instantiate()
-		grid_container.add_child(slot)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	for character in Player.party:
+		var character_info = CharacterInfoClass.instantiate()
+		character_info.init_characteristics(character, false)
+		
+		grid_container.add_child(character_info)

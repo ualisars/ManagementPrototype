@@ -32,7 +32,7 @@ var character_texture_path =  "res://Images/cultist.svg"
 
 
 
-func add_button(button: Button):
+func add_button(button: Button) -> void:
 	button.text = "Hire"
 	
 	button.custom_minimum_size.x = 100
@@ -56,7 +56,7 @@ func add_image(
 	size_y: int,
 	position_x: int,
 	position_y: int
-	):
+	) -> void:
 	texture_rect.texture = load(texture_path)
 	texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	
@@ -73,7 +73,7 @@ func add_label(
 	size_y: int,
 	position_x: int,
 	position_y: int
-	):
+	) -> void:
 	label.add_theme_font_size_override("FontSize", 24)
 	
 	label.size.x = size_x
@@ -82,7 +82,7 @@ func add_label(
 	label.position.x = position_x
 	label.position.y = position_y
 
-func init_layout():
+func init_layout() -> void:
 	add_image(attack_image, attack_texture_path, 56, 23, 106, 17)
 	add_label(attack_value, 68, 23, 176, 17)
 	
@@ -121,10 +121,13 @@ func _init() -> void:
 	add_child(character_image)
 	add_child(hire_button)
 
-func init_characteristics(character_characteristics: Node) -> void:
+func init_characteristics(character_characteristics: Node, show_hire_button: bool = true) -> void:
 	characteristics = character_characteristics
 	attack_value.text = str(character_characteristics.attack)
 	defense_value.text = str(character_characteristics.defense)
 	health_value.text = str(character_characteristics.health)
 	character_name.text = str(character_characteristics.character_name)
 	cost_value.text = str(character_characteristics.cost)
+	
+	if not show_hire_button:
+		hire_button.visible = false
