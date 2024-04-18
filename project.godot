@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Player="*res://World/player.tscn"
 Messenger="*res://World/messenger.tscn"
+CharacterGenerator="*res://World/character_generator.tscn"
 
 [input]
 
