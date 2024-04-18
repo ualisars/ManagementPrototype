@@ -83,13 +83,13 @@ func add_label(
 	label.position.y = position_y
 
 func init_layout() -> void:
-	add_image(attack_image, attack_texture_path, 56, 23, 106, 17)
+	add_image(attack_image, attack_texture_path, 40, 23, 106, 17)
 	add_label(attack_value, 68, 23, 176, 17)
 	
-	add_image(defense_image, defense_texture_path, 56, 23, 106, 51)
+	add_image(defense_image, defense_texture_path, 40, 23, 106, 51)
 	add_label(defense_value, 68, 23, 176, 51)
 	
-	add_image(health_image, health_texture_path, 56, 23, 106, 83)
+	add_image(health_image, health_texture_path, 40, 23, 106, 83)
 	add_label(health_value, 68, 23, 176, 84)
 	
 	add_image(cost_image, cost_texture_path, 40, 40, 96, 140)
@@ -102,8 +102,13 @@ func init_layout() -> void:
 	add_button(hire_button)
 	
 
-func _init() -> void:
+func init(is_hirable: bool = true) -> void:
 	init_layout()
+	
+	if not is_hirable:
+		hire_button.visible = false
+		cost_image.visible = false
+		cost_value.visible = false
 	
 	add_child(attack_image)
 	add_child(attack_value)
@@ -121,13 +126,10 @@ func _init() -> void:
 	add_child(character_image)
 	add_child(hire_button)
 
-func init_characteristics(character_characteristics: Node, show_hire_button: bool = true) -> void:
+func init_characteristics(character_characteristics: Node) -> void:
 	characteristics = character_characteristics
 	attack_value.text = str(character_characteristics.attack)
 	defense_value.text = str(character_characteristics.defense)
 	health_value.text = str(character_characteristics.health)
 	character_name.text = str(character_characteristics.character_name)
 	cost_value.text = str(character_characteristics.cost)
-	
-	if not show_hire_button:
-		hire_button.visible = false

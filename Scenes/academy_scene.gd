@@ -10,6 +10,7 @@ func _ready() -> void:
 		var characteristics = CharacterCharacteristics.instantiate()
 		var character_info = CharacterInfoClass.instantiate()
 		
+		character_info.init()
 		character_info.init_characteristics(characteristics)
 		
 		grid_container.add_child(character_info)
