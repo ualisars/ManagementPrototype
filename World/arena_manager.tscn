@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxjhn0aogw41c"]
+
+[ext_resource type="Script" path="res://World/arena_manager.gd" id="1_42kme"]
+
+[node name="ArenaManager" type="Node"]
+script = ExtResource("1_42kme")

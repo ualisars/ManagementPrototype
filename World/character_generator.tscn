@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsmdg162bnkdb"]
 
-[ext_resource type="Script" path="res://CharacterGenerator.gd" id="1_psv77"]
+[ext_resource type="Script" path="res://World/CharacterGenerator.gd" id="1_psv77"]
 
 [node name="CharacterGenerator" type="Node"]
 script = ExtResource("1_psv77")

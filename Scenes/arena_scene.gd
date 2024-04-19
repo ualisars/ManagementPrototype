@@ -21,22 +21,25 @@ var enemy_locations: Array = [
 	Vector3(14.0, 0, 6)
 ]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for characteristic in Player.party:
-		var index = rng.randi_range(0, player_locations.size() - 1)
+	place_characters_on_arena(Player.party, player_locations, true)
+	place_characters_on_arena(ArenaManager.generate_enemies(), enemy_locations, false)
+
+func place_characters_on_arena(
+	characteristics: Array,
+	locations: Array,
+	is_player: bool
+	) -> void:
+	for characteristic in characteristics:
+		var index = rng.randi_range(0, locations.size() - 1)
 		
-		var location = player_locations[index]
+		var location = locations[index]
 		
 		var character: Node3D = CharacterScene.instantiate()
-		character.init(characteristic, true)
+		character.init(characteristic, is_player)
 		
 		character.global_position = location
 		
-		player_locations.remove_at(index)
+		locations.remove_at(index)
 		
 		add_child(character)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
