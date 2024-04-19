@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfljp550085pr"]
+[gd_scene load_steps=7 format=3 uid="uid://dfljp550085pr"]
 
+[ext_resource type="Script" path="res://Scenes/arena_scene.gd" id="1_dn2iq"]
 [ext_resource type="PackedScene" uid="uid://bhgcgbcjowf80" path="res://Characters/character.tscn" id="1_qe8ff"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2b24a"]
@@ -19,6 +20,7 @@ glow_enabled = true
 albedo_color = Color(0.101961, 0.294118, 0, 1)
 
 [node name="ArenaScene" type="Node3D"]
+script = ExtResource("1_dn2iq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -34,7 +36,7 @@ size = Vector3(60, 1, 60)
 material = SubResource("StandardMaterial3D_yagnh")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 30, 40)
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 20, 20)
 
 [node name="Character" parent="." instance=ExtResource("1_qe8ff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.6151, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -10)

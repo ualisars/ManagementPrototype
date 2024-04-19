@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhgcgbcjowf80"]
+[gd_scene load_steps=5 format=3 uid="uid://bhgcgbcjowf80"]
+
+[ext_resource type="Script" path="res://Characters/character.gd" id="1_gnmmy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_445sv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0x8si"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3pw2q"]
+material = SubResource("StandardMaterial3D_0x8si")
 
 [node name="Character" type="Node3D"]
+script = ExtResource("1_gnmmy")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23, 0)
+material_override = SubResource("StandardMaterial3D_445sv")
 mesh = SubResource("CylinderMesh_3pw2q")
