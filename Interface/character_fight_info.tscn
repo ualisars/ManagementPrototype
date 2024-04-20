@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://clh8yxc6r4yph"]
+
+[ext_resource type="Script" path="res://Interface/character_fight_info.gd" id="1_kcvsn"]
+[ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="2_cxgag"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dh38o"]
+
+[node name="CharacterFightInfo" type="Panel"]
+custom_minimum_size = Vector2(70, 70)
+offset_right = 98.0
+offset_bottom = 86.0
+script = ExtResource("1_kcvsn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 76.0
+texture = ExtResource("2_cxgag")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 75.0
+offset_right = 90.0
+offset_bottom = 85.0
+step = 1.0
+show_percentage = false
+
+[node name="CharacterNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 97.0
+offset_bottom = 23.0
+text = "Name"
+label_settings = SubResource("LabelSettings_dh38o")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+clip_text = true

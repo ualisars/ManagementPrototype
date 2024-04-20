@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var arena_sidebar: Control = $ArenaSidebar
+
 var rng = RandomNumberGenerator.new()
 
 var CharacterScene: PackedScene = preload("res://Characters/character.tscn")
@@ -22,8 +24,12 @@ var enemy_locations: Array = [
 ]
 
 func _ready() -> void:
+	var enemies = ArenaManager.generate_enemies()
 	place_characters_on_arena(Player.party, player_locations, true)
-	place_characters_on_arena(ArenaManager.generate_enemies(), enemy_locations, false)
+	place_characters_on_arena(enemies, enemy_locations, false)
+	
+	arena_sidebar.add_player_characters(Player.party)
+	arena_sidebar.add_enemy_characters(enemies)
 
 func place_characters_on_arena(
 	characteristics: Array,

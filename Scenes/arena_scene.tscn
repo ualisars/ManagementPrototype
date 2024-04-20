@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfljp550085pr"]
+[gd_scene load_steps=8 format=3 uid="uid://dfljp550085pr"]
 
 [ext_resource type="Script" path="res://Scenes/arena_scene.gd" id="1_dn2iq"]
 [ext_resource type="PackedScene" uid="uid://bhgcgbcjowf80" path="res://Characters/character.tscn" id="1_qe8ff"]
+[ext_resource type="PackedScene" uid="uid://xlxt7ab2rjil" path="res://Interface/arena_sidebar.tscn" id="3_lc7pp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2b24a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,3 +41,5 @@ transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 
 
 [node name="Character" parent="." instance=ExtResource("1_qe8ff")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -10)
+
+[node name="ArenaSidebar" parent="." instance=ExtResource("3_lc7pp")]
