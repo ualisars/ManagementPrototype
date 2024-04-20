@@ -38,8 +38,8 @@ func place_characters_on_arena(
 		var character: Node3D = CharacterScene.instantiate()
 		character.init(characteristic, is_player)
 		
-		character.global_position = location
-		
 		locations.remove_at(index)
 		
 		add_child(character)
+		
+		character.global_position = location

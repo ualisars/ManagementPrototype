@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://innh0u5vibax"]
+[gd_scene load_steps=7 format=3 uid="uid://innh0u5vibax"]
 
 [ext_resource type="Script" path="res://Interface/character_info.gd" id="1_jig8p"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_6465o"]
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_me2lk"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_3er1v"]
+[ext_resource type="Texture2D" uid="uid://beu3rdvni3a5a" path="res://Images/gift-of-knowledge.svg" id="5_hnb6m"]
 [ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="5_revet"]
 
 [node name="CharacterInfo" type="Panel"]
@@ -74,6 +75,26 @@ offset_top = 84.0
 offset_right = 244.0
 offset_bottom = 107.0
 text = "Health
+"
+
+[node name="CastSpeedImage" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 114.0
+offset_top = 116.0
+offset_right = 162.0
+offset_bottom = 139.0
+texture = ExtResource("5_hnb6m")
+expand_mode = 1
+
+[node name="CastSpeedValue" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 177.0
+offset_top = 112.0
+offset_right = 245.0
+offset_bottom = 135.0
+text = "Cast Speed
 "
 
 [node name="CharacterName" type="Label" parent="."]

@@ -13,6 +13,9 @@ var defense_value: Label = Label.new()
 var health_image: TextureRect = TextureRect.new()
 var health_value: Label = Label.new()
 
+var cast_speed_image: TextureRect = TextureRect.new()
+var cast_speed_value: Label = Label.new()
+
 var cost_image: TextureRect = TextureRect.new()
 var cost_value: Label = Label.new()
 
@@ -29,7 +32,7 @@ var defense_texture_path = "res://Images/shield.svg"
 var cost_texture_path = "res://Images/two-coins(1).svg"
 var health_texture_path = "res://Images/hearts.svg"
 var character_texture_path =  "res://Images/cultist.svg"
-
+var cast_speed_texture_path = "res://Images/gift-of-knowledge.svg"
 
 
 func add_button(button: Button) -> void:
@@ -92,6 +95,9 @@ func init_layout() -> void:
 	add_image(health_image, health_texture_path, 40, 23, 106, 83)
 	add_label(health_value, 68, 23, 176, 84)
 	
+	add_image(cast_speed_image, cast_speed_texture_path, 40, 23, 106, 110)
+	add_label(cast_speed_value, 68, 23, 176, 109)
+	
 	add_image(cost_image, cost_texture_path, 40, 40, 96, 140)
 	add_label(cost_value, 68, 23, 146, 148)
 	
@@ -119,6 +125,9 @@ func init(is_hirable: bool = true) -> void:
 	add_child(health_image)
 	add_child(health_value)
 	
+	add_child(cast_speed_image)
+	add_child(cast_speed_value)
+	
 	add_child(cost_image)
 	add_child(cost_value)
 	
@@ -131,5 +140,6 @@ func init_characteristics(character_characteristics: Node) -> void:
 	attack_value.text = str(character_characteristics.attack)
 	defense_value.text = str(character_characteristics.defense)
 	health_value.text = str(character_characteristics.health)
+	cast_speed_value.text = str(character_characteristics.cast_speed)
 	character_name.text = str(character_characteristics.character_name)
 	cost_value.text = str(character_characteristics.cost)
