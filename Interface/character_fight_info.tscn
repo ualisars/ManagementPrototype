@@ -7,27 +7,29 @@
 
 [node name="CharacterFightInfo" type="Panel"]
 custom_minimum_size = Vector2(70, 70)
-offset_right = 98.0
-offset_bottom = 86.0
+offset_right = 94.0
+offset_bottom = 73.0
 script = ExtResource("1_kcvsn")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CharacterImage" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(30, 20)
 layout_mode = 0
-offset_left = 9.0
+offset_left = 20.0
 offset_top = 20.0
-offset_right = 90.0
-offset_bottom = 76.0
+offset_right = 77.0
+offset_bottom = 60.0
 texture = ExtResource("2_cxgag")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(0.392157, 1, 0.286275, 1)
 layout_mode = 0
 offset_left = 9.0
-offset_top = 75.0
+offset_top = 61.0
 offset_right = 90.0
-offset_bottom = 85.0
+offset_bottom = 71.0
 step = 1.0
+value = 100.0
 show_percentage = false
 
 [node name="CharacterNameLabel" type="Label" parent="."]

@@ -14,6 +14,7 @@ func add_characters(characteristics: Array, is_player: bool) -> void:
 			right_sidebar_container.add_child(character_fight_info)
 		
 		character_fight_info.set_character_name(characteristic.character_name)
+		character_fight_info.set_max_health(characteristic.health)
 	
 
 func add_player_characters(characteristics: Array):
