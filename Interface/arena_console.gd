@@ -4,7 +4,11 @@ var ArenaConsoleMessageClass = preload("res://Interface/arena_console_message.ts
 
 @onready var console_message_container: VBoxContainer = $ScrollContainer/ConsoleMessageContainer
 
+@onready var scroll_container: ScrollContainer = $ScrollContainer
+var scroll_bar: ScrollBar
+
 func _ready() -> void:
+	scroll_bar = scroll_container.get_v_scroll_bar()
 	Messenger.connect("UNIT_ATTACKED", on_character_attacked)
 
 func on_character_attacked(attack_character: Node, defend_character: Node):
@@ -22,3 +26,5 @@ func on_character_attacked(attack_character: Node, defend_character: Node):
 	console_text += defend_name + " has " + health + " health now."
 	
 	arena_console_message.add_text(console_text)
+	
+	scroll_container.scroll_vertical = scroll_bar.max_value

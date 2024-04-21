@@ -32,7 +32,7 @@ func _ready() -> void:
 	arena_sidebar.add_enemy_characters(enemies)
 	
 	FightManager.set_fight(Player.party, enemies)
-	FightManager.complete_turn()
+	#FightManager.complete_turn()
 
 func place_characters_on_arena(
 	characteristics: Array,

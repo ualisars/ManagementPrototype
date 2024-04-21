@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Interface/arena_console.gd" id="1_1avgi"]
 
 [node name="ArenaConsole" type="Control"]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +14,6 @@ grow_vertical = 2
 script = ExtResource("1_1avgi")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +27,7 @@ grow_vertical = 2
 horizontal_scroll_mode = 0
 
 [node name="ConsoleMessageContainer" type="VBoxContainer" parent="ScrollContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
