@@ -1,7 +1,6 @@
 extends Control
 
 var CharacterInfoClass: PackedScene = preload("res://Interface/character_info.tscn")
-var CharacterCharacteristics: PackedScene = preload("res://Characters/character_characteristics.tscn")
 
 @onready var grid_container: GridContainer = $ScrollContainer/GridContainer
 

@@ -8,6 +8,7 @@ var character_name = ""
 var rng = RandomNumberGenerator.new()
 var cast_speed: int
 var id: int
+var is_belongs_to_player: int
 
 var names: Array = ["Arw", "Teon", "Mid", "Jecw", "Unsa", "Lefs", "Yevil"]
 
@@ -22,3 +23,6 @@ func _init() -> void:
 	
 func add_id(new_id: int) -> void:
 	id = new_id
+
+func add_belonging_to_player(is_player: bool) -> void:
+	is_belongs_to_player = is_player

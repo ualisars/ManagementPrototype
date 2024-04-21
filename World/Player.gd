@@ -1,6 +1,6 @@
 extends Node
 
-var CharacterCharacteristics: PackedScene = preload("res://Characters/character_characteristics.tscn")
+var CharacteristicClass: PackedScene = preload("res://Characters/characteristic.tscn")
 
 var gold: int = 100
 
@@ -8,12 +8,14 @@ var party: Array = []
 
 func _ready() -> void:
 	for i in range(2):
-		var characteristics = CharacterCharacteristics.instantiate()
-		party.append(characteristics)
+		var characteristic = CharacteristicClass.instantiate()
+		characteristic.add_belonging_to_player(true)
+		party.append(characteristic)
 
 	Messenger.connect("UNIT_HIRED", on_character_hired)
 
-func on_character_hired(character_characteristics: Node):
-	gold -= character_characteristics.cost
-	party.append(character_characteristics)
+func on_character_hired(characteristic: Node):
+	gold -= characteristic.cost
+	characteristic.add_belonging_to_player(true)
+	party.append(characteristic)
 	Messenger.PLAYER_INFO_UPDATED.emit()
