@@ -15,7 +15,7 @@ func add_characters(characteristics: Array, is_player: bool) -> void:
 		
 		character_fight_info.set_character_name(characteristic.character_name)
 		character_fight_info.set_max_health(characteristic.health)
-	
+		character_fight_info.set_character_id(characteristic.id)
 
 func add_player_characters(characteristics: Array):
 	add_characters(characteristics, true)

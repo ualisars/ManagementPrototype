@@ -8,8 +8,7 @@ var party: Array = []
 
 func _ready() -> void:
 	for i in range(2):
-		var characteristic = CharacteristicClass.instantiate()
-		characteristic.add_belonging_to_player(true)
+		var characteristic = CharacterGenerator.create_character(true)
 		party.append(characteristic)
 
 	Messenger.connect("UNIT_HIRED", on_character_hired)
