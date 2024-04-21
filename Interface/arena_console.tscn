@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bb70r86kokvep"]
 
-[ext_resource type="PackedScene" uid="uid://dnnsoh3sttb5r" path="res://Interface/arena_console_message.tscn" id="1_7smsu"]
+[ext_resource type="Script" path="res://Interface/arena_console.gd" id="1_1avgi"]
 
 [node name="ArenaConsole" type="Control"]
 layout_mode = 3
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 offset_top = 505.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1avgi")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 clip_contents = false
@@ -25,23 +26,8 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="ConsoleMessageContainer" type="VBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="ArenaConsoleMessage" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_7smsu")]
-layout_mode = 2
-
-[node name="ArenaConsoleMessage2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_7smsu")]
-layout_mode = 2
-
-[node name="ArenaConsoleMessage3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_7smsu")]
-layout_mode = 2
-
-[node name="ArenaConsoleMessage4" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_7smsu")]
-layout_mode = 2
-
-[node name="ArenaConsoleMessage5" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_7smsu")]
-layout_mode = 2

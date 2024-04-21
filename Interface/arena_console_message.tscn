@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dnnsoh3sttb5r"]
+[gd_scene load_steps=2 format=3 uid="uid://dnnsoh3sttb5r"]
+
+[ext_resource type="Script" path="res://Interface/arena_console_message.gd" id="1_uqug1"]
 
 [node name="ArenaConsoleMessage" type="Label"]
 anchors_preset = 15
@@ -8,3 +10,4 @@ offset_bottom = -605.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Timp attack Eren"
+script = ExtResource("1_uqug1")

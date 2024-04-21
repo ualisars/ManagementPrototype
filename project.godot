@@ -21,6 +21,7 @@ Player="*res://World/player.tscn"
 Messenger="*res://World/messenger.tscn"
 CharacterGenerator="*res://World/character_generator.tscn"
 ArenaManager="*res://World/arena_manager.tscn"
+FightManager="*res://World/fight_manager.tscn"
 
 [input]
 
