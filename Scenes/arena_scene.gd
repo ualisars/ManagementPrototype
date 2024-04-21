@@ -5,6 +5,7 @@ extends Node3D
 var rng = RandomNumberGenerator.new()
 
 var CharacterScene: PackedScene = preload("res://Characters/character.tscn")
+@onready var fight_end_window: Control = $FightEndWindow
 
 var player_locations: Array = [
 	Vector3(-22.0, 0, 0), 
@@ -24,6 +25,10 @@ var enemy_locations: Array = [
 ]
 
 func _ready() -> void:
+	fight_end_window.visible = false
+	
+	Messenger.FIGHT_ENDED.connect(on_fight_ended)
+	
 	var enemies = ArenaManager.generate_enemies()
 	place_characters_on_arena(Player.party, player_locations, true)
 	place_characters_on_arena(enemies, enemy_locations, false)
@@ -32,7 +37,11 @@ func _ready() -> void:
 	arena_sidebar.add_enemy_characters(enemies)
 	
 	FightManager.set_fight(Player.party, enemies)
-	#FightManager.complete_turn()
+	
+
+func on_fight_ended(is_player_win: bool) -> void:
+		fight_end_window.add_after_fight_message(is_player_win)
+		fight_end_window.visible = true
 
 func place_characters_on_arena(
 	characteristics: Array,

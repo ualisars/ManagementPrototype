@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://clxpmu2b60ur3"]
+[gd_scene load_steps=3 format=3 uid="uid://clxpmu2b60ur3"]
 
 [ext_resource type="Script" path="res://World/fight_manager.gd" id="1_x4x0n"]
+[ext_resource type="Script" path="res://World/Timer.gd" id="2_8je1l"]
 
 [node name="FightManager" type="Node"]
 script = ExtResource("1_x4x0n")
@@ -8,5 +9,6 @@ script = ExtResource("1_x4x0n")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+script = ExtResource("2_8je1l")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

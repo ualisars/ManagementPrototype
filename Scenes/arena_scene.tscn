@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfljp550085pr"]
+[gd_scene load_steps=10 format=3 uid="uid://dfljp550085pr"]
 
 [ext_resource type="Script" path="res://Scenes/arena_scene.gd" id="1_dn2iq"]
 [ext_resource type="PackedScene" uid="uid://bhgcgbcjowf80" path="res://Characters/character.tscn" id="1_qe8ff"]
 [ext_resource type="PackedScene" uid="uid://xlxt7ab2rjil" path="res://Interface/arena_sidebar.tscn" id="3_lc7pp"]
 [ext_resource type="PackedScene" uid="uid://bb70r86kokvep" path="res://Interface/arena_console.tscn" id="4_vuryd"]
+[ext_resource type="PackedScene" uid="uid://skumunjuxf6w" path="res://Interface/fight_end_window.tscn" id="5_ns5oq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2b24a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -46,3 +47,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -10)
 [node name="ArenaSidebar" parent="." instance=ExtResource("3_lc7pp")]
 
 [node name="ArenaConsole" parent="." instance=ExtResource("4_vuryd")]
+
+[node name="FightEndWindow" parent="." instance=ExtResource("5_ns5oq")]
