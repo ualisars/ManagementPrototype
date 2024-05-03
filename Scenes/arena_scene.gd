@@ -7,6 +7,9 @@ var rng = RandomNumberGenerator.new()
 var CharacterScene: PackedScene = preload("res://Characters/character.tscn")
 @onready var fight_end_window: Control = $FightEndWindow
 
+var player_characters: Array = []
+var enemy_characters: Array = []
+
 var player_locations: Array = [
 	Vector3(-22.0, 0, 0), 
 	Vector3(-22.0, 0, -6),
@@ -36,7 +39,8 @@ func _ready() -> void:
 	arena_sidebar.add_player_characters(Player.party)
 	arena_sidebar.add_enemy_characters(enemies)
 	
-	FightManager.set_fight(Player.party, enemies)
+	FightManager.set_fight(Player.party, enemies, player_characters, enemy_characters)
+	FightManager.start_fight()
 	
 
 func on_fight_ended(is_player_win: bool) -> void:
@@ -61,3 +65,8 @@ func place_characters_on_arena(
 		add_child(character)
 		
 		character.global_position = location
+		
+		if is_player:
+			player_characters.append(character)
+		else:
+			enemy_characters.append(character)

@@ -23,6 +23,11 @@ CharacterGenerator="*res://World/character_generator.tscn"
 ArenaManager="*res://World/arena_manager.tscn"
 FightManager="*res://World/fight_manager.tscn"
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [input]
 
 click={

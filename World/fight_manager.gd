@@ -1,90 +1,67 @@
 extends Node
 
-var player_characters: Array
-var enemy_characters: Array
-var characters: Array
-
-var updated_player_characters: Array
-var updated_enemy_characters: Array
+var player_characters_3d: Array
+var enemy_characters_3d: Array
+var characters_3d: Array
 
 var rng = RandomNumberGenerator.new()
 
 var fight_ended: bool = false
 
-func set_fight(_player_characters: Array, _enemy_characters: Array) -> void:
-	player_characters = _player_characters.duplicate()
-	enemy_characters = _enemy_characters.duplicate()
-	characters = player_characters + enemy_characters
-
-func cast_speed_array_sort(character1, character2):
-	if character1.cast_speed < character2.cast_speed:
-		return true
-	return false
-
-func turn() -> void:
-	for character in characters:
-		var enemy = choose_enemy(character)
-		attack(character, enemy)
+func set_fight(
+	_player_characters: Array, 
+	_enemy_characters: Array,
+	_player_characters_3d: Array,
+	_enemy_characters_3d: Array
+) -> void:
+	player_characters_3d = _player_characters_3d
+	enemy_characters_3d = _enemy_characters_3d
 	
-func attack(attack_character: Node, defend_character: Node) -> void:
-	if fight_ended:
-		return
-	if attack_character.health > 0:
-		var damage = attack_character.attack - defend_character.defense
-		defend_character.health -= damage
-		Messenger.UNIT_ATTACKED.emit(attack_character, defend_character)
-		check_character_health(defend_character)
+	characters_3d = player_characters_3d + enemy_characters_3d
 
-func check_win_loss_condition() -> void:
-	if updated_player_characters.size() == 0:
-		Messenger.FIGHT_ENDED.emit(false)
-		fight_ended = true
-	if updated_enemy_characters.size() == 0:
-		Messenger.FIGHT_ENDED.emit(true)
-		fight_ended = true
-	
-func check_character_health(character: Node) -> void:
-	if character.health <= 0 and character.is_belongs_to_player:
-		remove_character_by_id(character.id, updated_player_characters)
-		check_win_loss_condition()
-	if character.health <= 0 and not character.is_belongs_to_player:
-		remove_character_by_id(character.id, updated_enemy_characters)
-		check_win_loss_condition()
-
-func clear_damaged_characters():
-	var damaged_list: Array = [] 
-	for character in characters:
-		if character.health <= 0:
-			damaged_list.append(character)
-			
-	for damaged_character in damaged_list:
-		if damaged_character.is_belongs_to_player:
-			remove_character_by_id(damaged_character.id, player_characters)
-		else:
-			remove_character_by_id(damaged_character.id, enemy_characters)
-		remove_character_by_id(damaged_character.id, characters)
+func get_character_3d_by_id(id: int) -> Node3D:
+	for character in characters_3d:
+		if character.id == id:
+			return character
+	return 
 
 func remove_character_by_id(character_id: int, character_list: Array) -> void:
 	for character in character_list:
 		if character_id == character.id:
 			character_list.erase(character)
-	
-func choose_enemy(character: Node) -> Node:
-	if fight_ended:
-		return
-	if character.is_belongs_to_player:
-		var enemy_index = rng.randi_range(0, updated_enemy_characters.size() - 1)
-		return updated_enemy_characters[enemy_index]
-	else:
-		var player_index = rng.randi_range(0, updated_player_characters.size() - 1)
-		return updated_player_characters[player_index]
 
-func _on_timer_timeout() -> void:
-	characters.sort_custom(cast_speed_array_sort)
+func start_fight():
+	Messenger.FIGHT_STARTED.emit()
 	
-	updated_player_characters = player_characters.duplicate()
-	updated_enemy_characters = enemy_characters.duplicate()
+
+func check_win_loss_condition() -> void:
+	if player_characters_3d.size() == 0:
+		Messenger.FIGHT_ENDED.emit(false)
+		fight_ended = true
+	if enemy_characters_3d.size() == 0:
+		Messenger.FIGHT_ENDED.emit(true)
+		fight_ended = true
 	
-	turn()
+
+func clear_wounded_character(character3d: Node3D):
+	remove_character_by_id(character3d.id, characters_3d)
 	
-	clear_damaged_characters()
+	if character3d.is_belongs_to_player:
+		remove_character_by_id(character3d.id, player_characters_3d)
+	else:
+		remove_character_by_id(character3d.id, enemy_characters_3d)
+
+func choose_enemy(characteristics: Node) -> Node3D:
+	if characteristics.is_belongs_to_player:
+		var enemy_index = rng.randi_range(0, enemy_characters_3d.size() - 1)
+		return enemy_characters_3d[enemy_index]
+	else:
+		var player_index = rng.randi_range(0, player_characters_3d.size() - 1)
+		return player_characters_3d[player_index]
+		
+func check_enemy_exist(characteristics: Node) -> bool:
+	if characteristics.is_belongs_to_player and enemy_characters_3d.size() == 0:
+		return false
+	elif not characteristics.is_belongs_to_player and player_characters_3d.size() == 0:
+		return false
+	return true

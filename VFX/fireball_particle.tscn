@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://d04dm3d1nnk1c"]
+[gd_scene load_steps=11 format=3 uid="uid://d04dm3d1nnk1c"]
 
+[ext_resource type="Script" path="res://VFX/fireball_particle.gd" id="1_05fpn"]
 [ext_resource type="Texture2D" uid="uid://chgq4wcojwihd" path="res://VFX/particle_sprite_smoke.webp" id="1_qntv3"]
 
 [sub_resource type="Curve" id="Curve_5an63"]
@@ -44,12 +45,21 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_xqt0g"]
 material = SubResource("StandardMaterial3D_ncf24")
 
-[node name="FireballParticle" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_3oyg1"]
+radius = 0.4
+
+[node name="FireballParticle" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0112109, 0)
+script = ExtResource("1_05fpn")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22248, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0889251, 0)
 amount = 30
 lifetime = 4.0
 fixed_fps = 10
 process_material = SubResource("ParticleProcessMaterial_qtwbr")
 draw_pass_1 = SubResource("QuadMesh_xqt0g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0725014, 0)
+shape = SubResource("SphereShape3D_3oyg1")

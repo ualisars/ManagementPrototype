@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfljp550085pr"]
+[gd_scene load_steps=9 format=3 uid="uid://dfljp550085pr"]
 
 [ext_resource type="Script" path="res://Scenes/arena_scene.gd" id="1_dn2iq"]
-[ext_resource type="PackedScene" uid="uid://bhgcgbcjowf80" path="res://Characters/character.tscn" id="1_qe8ff"]
 [ext_resource type="PackedScene" uid="uid://xlxt7ab2rjil" path="res://Interface/arena_sidebar.tscn" id="3_lc7pp"]
 [ext_resource type="PackedScene" uid="uid://bb70r86kokvep" path="res://Interface/arena_console.tscn" id="4_vuryd"]
 [ext_resource type="PackedScene" uid="uid://skumunjuxf6w" path="res://Interface/fight_end_window.tscn" id="5_ns5oq"]
@@ -40,9 +39,6 @@ material = SubResource("StandardMaterial3D_yagnh")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 20, 20)
-
-[node name="Character" parent="." instance=ExtResource("1_qe8ff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -10)
 
 [node name="ArenaSidebar" parent="." instance=ExtResource("3_lc7pp")]
 

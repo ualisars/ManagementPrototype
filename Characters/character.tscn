@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhgcgbcjowf80"]
+[gd_scene load_steps=5 format=3 uid="uid://bhgcgbcjowf80"]
 
 [ext_resource type="Script" path="res://Characters/character.gd" id="1_gnmmy"]
 
@@ -6,10 +6,20 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3pw2q"]
 
-[node name="Character" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wj0yu"]
+
+[node name="Character" type="Area3D"]
 script = ExtResource("1_gnmmy")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23, 0)
 material_override = SubResource("StandardMaterial3D_445sv")
 mesh = SubResource("CylinderMesh_3pw2q")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22667, 0)
+shape = SubResource("CylinderShape3D_wj0yu")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
