@@ -4,8 +4,8 @@ extends Control
 
 var CharacterFightInfo: PackedScene = preload("res://Interface/character_fight_info.tscn")
 
-func add_characters(characteristics: Array, is_player: bool) -> void:
-	for characteristic in characteristics:
+func add_characters(characters3d: Array, is_player: bool) -> void:
+	for character3d in characters3d:
 		var character_fight_info = CharacterFightInfo.instantiate()
 		
 		if is_player:
@@ -13,12 +13,12 @@ func add_characters(characteristics: Array, is_player: bool) -> void:
 		else:
 			right_sidebar_container.add_child(character_fight_info)
 		
-		character_fight_info.set_character_name(characteristic.character_name)
-		character_fight_info.set_max_health(characteristic.health)
-		character_fight_info.set_character_id(characteristic.id)
+		character_fight_info.set_character_name(character3d.character_name)
+		character_fight_info.set_max_health(character3d.health)
+		character_fight_info.set_character_id(character3d.id)
 
-func add_player_characters(characteristics: Array):
-	add_characters(characteristics, true)
+func add_player_characters(characters3d: Array):
+	add_characters(characters3d, true)
 	
-func add_enemy_characters(characteristics: Array):
-	add_characters(characteristics, false)
+func add_enemy_characters(characters3d: Array):
+	add_characters(characters3d, false)

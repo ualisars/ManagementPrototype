@@ -9,8 +9,6 @@ var rng = RandomNumberGenerator.new()
 var fight_ended: bool = false
 
 func set_fight(
-	_player_characters: Array, 
-	_enemy_characters: Array,
 	_player_characters_3d: Array,
 	_enemy_characters_3d: Array
 ) -> void:

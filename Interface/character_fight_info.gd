@@ -31,8 +31,8 @@ func set_max_health(health: int) -> void:
 
 func _ready() -> void:
 	health_bar.modulate = green
-	Messenger.UNIT_ATTACKED.connect(on_character_attacked)
+	Messenger.CHARACTER_PENETRATED.connect(on_character_penetrated)
 
-func on_character_attacked(_attack_character: Node, defend_character: Node) -> void:
-	if character_id == defend_character.id:
-		current_health = defend_character.health
+func on_character_penetrated(character: Node3D) -> void:
+	if character_id == character.id:
+		current_health = character.health

@@ -36,10 +36,10 @@ func _ready() -> void:
 	place_characters_on_arena(Player.party, player_locations, true)
 	place_characters_on_arena(enemies, enemy_locations, false)
 	
-	arena_sidebar.add_player_characters(Player.party)
-	arena_sidebar.add_enemy_characters(enemies)
+	arena_sidebar.add_player_characters(player_characters)
+	arena_sidebar.add_enemy_characters(enemy_characters)
 	
-	FightManager.set_fight(Player.party, enemies, player_characters, enemy_characters)
+	FightManager.set_fight(player_characters, enemy_characters)
 	FightManager.start_fight()
 	
 
