@@ -16,6 +16,8 @@ var is_belongs_to_player: bool
 var player_color: String = "5e4086"
 var enemy_color: String = "fc4086"
 
+var disabled: bool = false
+
 var SpellClass: PackedScene = preload("res://VFX/fireball_particle.tscn")
 
 @onready var body: MeshInstance3D = $Body
@@ -49,28 +51,22 @@ func on_fight_started():
 	timer.wait_time = cast_speed
 	timer.start()
 	
-#func on_unit_attacked(attack_unit: Node, defend_unit: Node) -> void:
-	#if defend_unit.id == id and defend_unit.health <= 0:
-		#disable_unit()
-	#if attack_unit.id == id:
-		#var enemy = FightManager.get_character_3d_by_id(defend_unit.id)
-		#cast_spell(enemy)
-
 func on_character_attacked(attack_character: Node3D, defend_character: Node3D) -> void:
-	if health <= 0:
+	if defend_character.id != id:
 		return
 
-	if defend_character.id == id:
+	if health > 0:
 		health -= attack_character.attack
 		Messenger.CHARACTER_PENETRATED.emit(defend_character)
 		
-	if health <= 0:
+	if health <= 0 and not disabled:
 		disable_unit()
-		FightManager.clear_wounded_character(attack_character)
+		FightManager.clear_wounded_character(self)
 		FightManager.check_win_loss_condition()
 		
 
 func disable_unit() -> void:
+	disabled = true
 	timer.stop()
 	body.rotate_z(90.0)
 

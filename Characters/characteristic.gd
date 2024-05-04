@@ -11,8 +11,8 @@ var id: int
 var is_belongs_to_player: int
 
 func _init() -> void:
-	health = rng.randi_range(8, 20)
-	attack = rng.randi_range(4, 7)
+	health = rng.randi_range(10, 30)
+	attack = rng.randi_range(2, 5)
 	defense = rng.randi_range(1, 3)
 	cast_speed = rng.randi_range(2, 5)
 	

@@ -9,9 +9,9 @@ var scroll_bar: ScrollBar
 
 func _ready() -> void:
 	scroll_bar = scroll_container.get_v_scroll_bar()
-	Messenger.connect("UNIT_ATTACKED", on_character_attacked)
+	Messenger.CHARACTER_ATTACKED.connect(on_character_attacked)
 
-func on_character_attacked(attack_character: Node, defend_character: Node):
+func on_character_attacked(attack_character: Node3D, defend_character: Node3D):
 	var arena_console_message = ArenaConsoleMessageClass.instantiate()
 	
 	console_message_container.add_child(arena_console_message)
