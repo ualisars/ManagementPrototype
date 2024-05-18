@@ -51,58 +51,25 @@ func add_button(button: Button) -> void:
 func on_hire_button_pressed():
 	Messenger.UNIT_HIRED.emit(characteristics)
 
-func add_image(
-	texture_rect: TextureRect, 
-	texture_path: String,
-	size_x: int,
-	size_y: int,
-	position_x: int,
-	position_y: int
-	) -> void:
-	texture_rect.texture = load(texture_path)
-	texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	
-	texture_rect.size.x = size_x
-	texture_rect.size.y = size_y
-	
-	texture_rect.position.x = position_x
-	texture_rect.position.y = position_y
-	
-
-func add_label(
-	label: Label,
-	size_x: int,
-	size_y: int,
-	position_x: int,
-	position_y: int
-	) -> void:
-	label.add_theme_font_size_override("FontSize", 24)
-	
-	label.size.x = size_x
-	label.size.y = size_y
-	
-	label.position.x = position_x
-	label.position.y = position_y
-
 func init_layout() -> void:
-	add_image(attack_image, attack_texture_path, 40, 23, 106, 17)
-	add_label(attack_value, 68, 23, 176, 17)
+	UiCommon.add_image(attack_image, attack_texture_path, 40, 23, 106, 17)
+	UiCommon.add_label(attack_value, 68, 23, 176, 17)
 	
-	add_image(defense_image, defense_texture_path, 40, 23, 106, 51)
-	add_label(defense_value, 68, 23, 176, 51)
+	UiCommon.add_image(defense_image, defense_texture_path, 40, 23, 106, 51)
+	UiCommon.add_label(defense_value, 68, 23, 176, 51)
 	
-	add_image(health_image, health_texture_path, 40, 23, 106, 83)
-	add_label(health_value, 68, 23, 176, 84)
+	UiCommon.add_image(health_image, health_texture_path, 40, 23, 106, 83)
+	UiCommon.add_label(health_value, 68, 23, 176, 84)
 	
-	add_image(concentration_image, concentration_texture_path, 40, 23, 106, 110)
-	add_label(concentration_value, 68, 23, 176, 109)
+	UiCommon.add_image(concentration_image, concentration_texture_path, 40, 23, 106, 110)
+	UiCommon.add_label(concentration_value, 68, 23, 176, 109)
 	
-	add_image(cost_image, cost_texture_path, 40, 40, 96, 140)
-	add_label(cost_value, 68, 23, 146, 148)
+	UiCommon.add_image(cost_image, cost_texture_path, 40, 40, 96, 140)
+	UiCommon.add_label(cost_value, 68, 23, 146, 148)
 	
-	add_label(character_name, 129, 23, 20, 90)
+	UiCommon.add_label(character_name, 129, 23, 20, 90)
 	
-	add_image(character_image, character_texture_path, 96, 82, 0, 0)
+	UiCommon.add_image(character_image, character_texture_path, 96, 82, 0, 0)
 	
 	add_button(hire_button)
 	
