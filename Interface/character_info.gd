@@ -52,24 +52,24 @@ func on_hire_button_pressed():
 	Messenger.UNIT_HIRED.emit(characteristics)
 
 func init_layout() -> void:
-	UiCommon.add_image(attack_image, attack_texture_path, 40, 23, 106, 17)
+	UiCommon.add_image(attack_image, UiCommon.attack_texture_path, 40, 23, 106, 17)
 	UiCommon.add_label(attack_value, 68, 23, 176, 17)
 	
-	UiCommon.add_image(defense_image, defense_texture_path, 40, 23, 106, 51)
+	UiCommon.add_image(defense_image, UiCommon.defense_texture_path, 40, 23, 106, 51)
 	UiCommon.add_label(defense_value, 68, 23, 176, 51)
 	
-	UiCommon.add_image(health_image, health_texture_path, 40, 23, 106, 83)
+	UiCommon.add_image(health_image, UiCommon.health_texture_path, 40, 23, 106, 83)
 	UiCommon.add_label(health_value, 68, 23, 176, 84)
 	
-	UiCommon.add_image(concentration_image, concentration_texture_path, 40, 23, 106, 110)
+	UiCommon.add_image(concentration_image, UiCommon.concentration_texture_path, 40, 23, 106, 110)
 	UiCommon.add_label(concentration_value, 68, 23, 176, 109)
 	
-	UiCommon.add_image(cost_image, cost_texture_path, 40, 40, 96, 140)
+	UiCommon.add_image(cost_image, UiCommon.cost_texture_path, 40, 40, 96, 140)
 	UiCommon.add_label(cost_value, 68, 23, 146, 148)
 	
 	UiCommon.add_label(character_name, 129, 23, 20, 90)
 	
-	UiCommon.add_image(character_image, character_texture_path, 96, 82, 0, 0)
+	UiCommon.add_image(character_image, UiCommon.character_texture_path, 96, 82, 0, 0)
 	
 	add_button(hire_button)
 	

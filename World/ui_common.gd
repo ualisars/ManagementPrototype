@@ -1,5 +1,12 @@
 extends Node
 
+var attack_texture_path = "res://Images/stiletto(1).svg"
+var defense_texture_path = "res://Images/shield.svg"
+var cost_texture_path = "res://Images/two-coins(1).svg"
+var health_texture_path = "res://Images/hearts.svg"
+var character_texture_path =  "res://Images/cultist.svg"
+var concentration_texture_path = "res://Images/brainstorm.svg"
+
 func add_image(
 	texture_rect: TextureRect, 
 	texture_path: String,
