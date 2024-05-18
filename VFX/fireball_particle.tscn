@@ -20,13 +20,12 @@ gradient = SubResource("Gradient_r0aqq")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qtwbr"]
 direction = Vector3(0, 1, 0)
-spread = 2.0
-initial_velocity_min = 0.2
-initial_velocity_max = 0.4
+spread = 9.706
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
 angular_velocity_curve = SubResource("CurveTexture_0ly0i")
 gravity = Vector3(0, 0, 0)
-scale_min = 0.2
-scale_max = 1.4
+scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_1vm4h")
 anim_speed_min = 1.0
 anim_speed_max = 2.0
@@ -54,8 +53,8 @@ script = ExtResource("1_05fpn")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0889251, 0)
-amount = 30
-lifetime = 4.0
+amount = 10
+lifetime = 0.33
 fixed_fps = 10
 process_material = SubResource("ParticleProcessMaterial_qtwbr")
 draw_pass_1 = SubResource("QuadMesh_xqt0g")

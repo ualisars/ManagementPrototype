@@ -76,11 +76,11 @@ func cast_spell(enemy: Node3D):
 	add_child(spell)
 	spell.owner_character = self
 	spell.enemy_id = enemy.id
-	spell.global_position = global_position
+	spell.global_position = global_position + Vector3(0, 1.2, 0)
 	spell.damage = attack
 	spell.direction = global_position.direction_to(enemy.global_position)
 
-func _on_timer_timeout() -> void:
+func _on_timer_timeout() -> void: 
 	if FightManager.check_enemy_exist(characteristics):
 		var enemy: Node = FightManager.choose_enemy(characteristics)
 		cast_spell(enemy)
