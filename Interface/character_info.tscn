@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://innh0u5vibax"]
+[gd_scene load_steps=8 format=3 uid="uid://innh0u5vibax"]
 
 [ext_resource type="Script" path="res://Interface/character_info.gd" id="1_jig8p"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_6465o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_3er1v"]
 [ext_resource type="Texture2D" uid="uid://beu3rdvni3a5a" path="res://Images/gift-of-knowledge.svg" id="5_hnb6m"]
 [ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="5_revet"]
+[ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="6_adyyc"]
 
 [node name="CharacterInfo" type="Panel"]
 custom_minimum_size = Vector2(250, 250)
@@ -95,6 +96,26 @@ offset_top = 112.0
 offset_right = 245.0
 offset_bottom = 135.0
 text = "Cast Speed
+"
+
+[node name="CastSpeedImage2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 113.0
+offset_top = 147.0
+offset_right = 161.0
+offset_bottom = 170.0
+texture = ExtResource("6_adyyc")
+expand_mode = 1
+
+[node name="CastSpeedValue2" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 175.0
+offset_top = 145.0
+offset_right = 260.0
+offset_bottom = 168.0
+text = "Concentration
 "
 
 [node name="CharacterName" type="Label" parent="."]
