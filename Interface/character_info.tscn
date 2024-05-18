@@ -19,6 +19,7 @@ offset_bottom = -348.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jig8p")
+scene_file = "res://Interface/CharacterInterface/character_full_info.tscn"
 
 [node name="AttackImage" type="TextureRect" parent="."]
 visible = false
@@ -168,3 +169,5 @@ offset_right = 136.0
 offset_bottom = 208.0
 texture = ExtResource("5_revet")
 expand_mode = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

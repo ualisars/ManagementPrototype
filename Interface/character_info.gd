@@ -2,6 +2,8 @@ extends Panel
 
 var characteristics: Node
 
+@export_file("*.tscn") var scene_file
+
 signal unit_hired(character_characteristics: Node)
 
 var attack_image: TextureRect = TextureRect.new()
@@ -24,6 +26,8 @@ var character_name: Label = Label.new()
 var character_image: TextureRect = TextureRect.new()
 
 var hire_button: Button = Button.new()
+
+var is_hirable: bool = false
 
 
 var attack_texture_path = "res://Images/stiletto(1).svg"
@@ -74,8 +78,10 @@ func init_layout() -> void:
 	add_button(hire_button)
 	
 
-func init(is_hirable: bool = true) -> void:
+func init(_is_hirable: bool = true) -> void:
 	init_layout()
+	
+	is_hirable = _is_hirable
 	
 	if not is_hirable:
 		hire_button.visible = false
@@ -110,3 +116,12 @@ func init_characteristics(character_characteristics: Node) -> void:
 	
 	character_name.text = str(character_characteristics.character_name)
 	cost_value.text = str(character_characteristics.cost)
+
+func open_scene():
+	var tween = create_tween()
+	tween.tween_interval(0.5)
+	tween.tween_callback(get_tree().change_scene_to_file.bind(scene_file))
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("click") and not is_hirable:
+		open_scene()

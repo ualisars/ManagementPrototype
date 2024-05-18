@@ -61,6 +61,9 @@ offset_top = -185.0
 offset_right = 268.0
 grow_vertical = 0
 
+[node name="Panel" type="Panel" parent="Background/Characteristics"]
+layout_mode = 2
+
 [node name="LearntSpellsContainer" type="PanelContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 4
