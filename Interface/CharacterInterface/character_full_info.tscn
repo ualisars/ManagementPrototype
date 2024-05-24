@@ -11,71 +11,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_djaf5")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 53.0
-offset_top = 18.0
-offset_right = -66.0
-offset_bottom = -50.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CharacterImage" type="TextureRect" parent="Background"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-offset_left = 6.0
-offset_top = 56.0
-offset_right = 168.0
-offset_bottom = 170.0
-
-[node name="SpellContainer" type="BoxContainer" parent="Background"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -178.5
-offset_right = 415.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SpellTypesContainer" type="HBoxContainer" parent="Background"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -100.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Characteristics" type="BoxContainer" parent="Background"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -185.0
+[node name="BoxContainer" type="BoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 395.0
 offset_right = 268.0
-grow_vertical = 0
-
-[node name="Panel" type="Panel" parent="Background/Characteristics"]
-layout_mode = 2
-
-[node name="LearntSpellsContainer" type="PanelContainer" parent="Background"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -82.0
-offset_right = 270.0
-offset_bottom = 99.0
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-offset_right = 108.0
-offset_bottom = 61.0
-text = "Back"
+offset_bottom = 580.0

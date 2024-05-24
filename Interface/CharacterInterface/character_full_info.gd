@@ -1,8 +1,8 @@
 extends Control
 
-@onready var characteristics_container: BoxContainer = $Background/Characteristics
-
 var characteristics
+
+var characteristics_container: GridContainer = GridContainer.new()
 
 var attack_image: TextureRect = TextureRect.new()
 var attack_value: Label = Label.new()
@@ -28,9 +28,22 @@ func init_characteristics_layout():
 	
 	UiCommon.add_image(concentration_image, UiCommon.concentration_texture_path, 40, 23, 5, 107)
 	UiCommon.add_label(concentration_value, 68, 23, 79, 107)
-	
+
+func init_characteristics(character_characteristics: Node) -> void:
+	characteristics = character_characteristics
+
 func init() -> void:
-	init_characteristics_layout()
+	characteristics_container.size.x = 268
+	characteristics_container.size.y = 185
+	characteristics_container.position.x = 0
+	characteristics_container.position.y = 395
+	
+	characteristics_container.columns = 2
+	
+	attack_value.text = str(characteristics.attack)
+	defense_value.text = str(characteristics.defense)
+	health_value.text = str(characteristics.health)
+	concentration_value.text = str(characteristics.concentration)
 	
 	characteristics_container.add_child(attack_image)
 	characteristics_container.add_child(attack_value)
@@ -43,10 +56,5 @@ func init() -> void:
 	
 	characteristics_container.add_child(concentration_image)
 	characteristics_container.add_child(concentration_value)
-
-func init_characteristics(character_characteristics: Node) -> void:
-	characteristics = character_characteristics
-	attack_value.text = str(character_characteristics.attack)
-	defense_value.text = str(character_characteristics.defense)
-	health_value.text = str(character_characteristics.health)
-	concentration_value.text = str(character_characteristics.concentration)
+	
+	add_child(characteristics_container)

@@ -7,6 +7,8 @@ var health_texture_path = "res://Images/hearts.svg"
 var character_texture_path =  "res://Images/cultist.svg"
 var concentration_texture_path = "res://Images/brainstorm.svg"
 
+var current_full_character
+
 func add_image(
 	texture_rect: TextureRect, 
 	texture_path: String,
@@ -17,6 +19,9 @@ func add_image(
 	) -> void:
 	texture_rect.texture = load(texture_path)
 	texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	
+	texture_rect.custom_minimum_size.x = 30
+	texture_rect.custom_minimum_size.y = 10
 	
 	texture_rect.size.x = size_x
 	texture_rect.size.y = size_y
@@ -38,3 +43,7 @@ func add_label(
 	
 	label.position.x = position_x
 	label.position.y = position_y
+	
+
+func add_chosen_full_character(characteristics: Node):
+	current_full_character = characteristics

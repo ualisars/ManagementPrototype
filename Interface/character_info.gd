@@ -2,7 +2,7 @@ extends Panel
 
 var characteristics: Node
 
-@export_file("*.tscn") var scene_file
+var CharacterFullClass: PackedScene = preload("res://Interface/CharacterInterface/character_full_info.tscn")
 
 signal unit_hired(character_characteristics: Node)
 
@@ -28,15 +28,6 @@ var character_image: TextureRect = TextureRect.new()
 var hire_button: Button = Button.new()
 
 var is_hirable: bool = false
-
-
-var attack_texture_path = "res://Images/stiletto(1).svg"
-var defense_texture_path = "res://Images/shield.svg"
-var cost_texture_path = "res://Images/two-coins(1).svg"
-var health_texture_path = "res://Images/hearts.svg"
-var character_texture_path =  "res://Images/cultist.svg"
-var concentration_texture_path = "res://Images/brainstorm.svg"
-
 
 func add_button(button: Button) -> void:
 	button.text = "Hire"
@@ -118,9 +109,7 @@ func init_characteristics(character_characteristics: Node) -> void:
 	cost_value.text = str(character_characteristics.cost)
 
 func open_scene():
-	var tween = create_tween()
-	tween.tween_interval(0.5)
-	tween.tween_callback(get_tree().change_scene_to_file.bind(scene_file))
+	Messenger.CHARACTER_INFO_CHOSEN.emit(characteristics)
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and not is_hirable:

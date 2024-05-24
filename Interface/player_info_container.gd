@@ -8,5 +8,4 @@ func _ready() -> void:
 
 
 func on_player_info_updated():
-	print("player info updated")
 	gold_amount.text = str(Player.gold)

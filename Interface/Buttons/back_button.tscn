@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://5hd627njgokg"]
+
+[ext_resource type="Script" path="res://Interface/Buttons/BackButton.gd" id="1_603l2"]
+
+[node name="BackButton" type="Button"]
+custom_minimum_size = Vector2(100, 0)
+text = "Back"
+script = ExtResource("1_603l2")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
