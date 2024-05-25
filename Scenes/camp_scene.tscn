@@ -30,7 +30,9 @@ columns = 4
 
 [node name="PlayerInfoContainer" parent="." instance=ExtResource("2_y82id")]
 layout_mode = 0
+scene_file = "res://Interface/General/player_interface.tscn"
 
 [node name="CharacterFullInfo" parent="." instance=ExtResource("3_2khyk")]
 visible = false
 layout_mode = 1
+offset_top = 85.0
