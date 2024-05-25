@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bb70r86kokvep"]
 
-[ext_resource type="Script" path="res://Interface/arena_console.gd" id="1_1avgi"]
+[ext_resource type="Script" path="res://Interface/Arena/arena_console.gd" id="1_1avgi"]
 
 [node name="ArenaConsole" type="Control"]
 clip_contents = true

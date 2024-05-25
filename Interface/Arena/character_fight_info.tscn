@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://clh8yxc6r4yph"]
 
-[ext_resource type="Script" path="res://Interface/character_fight_info.gd" id="1_kcvsn"]
+[ext_resource type="Script" path="res://Interface/Arena/character_fight_info.gd" id="1_kcvsn"]
 [ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="2_cxgag"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dh38o"]

@@ -1,6 +1,6 @@
 extends Control
 
-var ArenaConsoleMessageClass = preload("res://Interface/arena_console_message.tscn")
+var ArenaConsoleMessageClass = preload("res://Interface/Arena/arena_console_message.tscn")
 
 @onready var console_message_container: VBoxContainer = $ScrollContainer/ConsoleMessageContainer
 

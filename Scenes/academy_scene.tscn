@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cogs6x2mfji6e"]
 
 [ext_resource type="Script" path="res://Scenes/academy_scene.gd" id="1_jhi5g"]
-[ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/player_info_container.tscn" id="2_jcl70"]
+[ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="2_jcl70"]
 
 [node name="AcademyScene" type="Control"]
 layout_mode = 3

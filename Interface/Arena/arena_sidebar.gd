@@ -2,7 +2,7 @@ extends Control
 @onready var left_sidebar_container: VBoxContainer = $LeftSidebarContainer
 @onready var right_sidebar_container: VBoxContainer = $RightSidebarContainer
 
-var CharacterFightInfo: PackedScene = preload("res://Interface/character_fight_info.tscn")
+var CharacterFightInfo: PackedScene = preload("res://Interface/Arena/character_fight_info.tscn")
 
 func add_characters(characters3d: Array, is_player: bool) -> void:
 	for character3d in characters3d:

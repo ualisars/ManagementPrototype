@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://skumunjuxf6w"]
 
-[ext_resource type="Script" path="res://Interface/fight_end_window.gd" id="1_qqtas"]
+[ext_resource type="Script" path="res://Interface/Arena/fight_end_window.gd" id="1_qqtas"]
 
 [node name="FightEndWindow" type="Control"]
 layout_mode = 3

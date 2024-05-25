@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://xlxt7ab2rjil"]
 
-[ext_resource type="Script" path="res://Interface/arena_sidebar.gd" id="1_ve32e"]
+[ext_resource type="Script" path="res://Interface/Arena/arena_sidebar.gd" id="1_ve32e"]
 
 [node name="ArenaSidebar" type="Control"]
 layout_mode = 3

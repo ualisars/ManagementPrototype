@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnkw0cr7hs1bg"]
 
 [ext_resource type="Script" path="res://Scenes/camp_scene.gd" id="1_ox27c"]
-[ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/player_info_container.tscn" id="2_y82id"]
+[ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="2_y82id"]
 
 [node name="CampScene" type="Control"]
 layout_mode = 3

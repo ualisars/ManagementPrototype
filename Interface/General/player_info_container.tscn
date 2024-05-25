@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c45vn5g0rmckg"]
 
-[ext_resource type="Script" path="res://Interface/player_info_container.gd" id="1_vcb4t"]
+[ext_resource type="Script" path="res://Interface/General/player_info_container.gd" id="1_vcb4t"]
 [ext_resource type="PackedScene" uid="uid://5hd627njgokg" path="res://Interface/Buttons/back_button.tscn" id="2_e4fa7"]
 [ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="2_jpksd"]
 
@@ -11,7 +11,7 @@ script = ExtResource("1_vcb4t")
 
 [node name="BackButton" parent="." instance=ExtResource("2_e4fa7")]
 layout_mode = 2
-scene_file = "res://Interface/player_interface.tscn"
+scene_file = "res://Interface/General/player_interface.tscn"
 
 [node name="GoldTexture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 50)
