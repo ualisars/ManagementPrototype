@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cideauwj0d7mb"]
+[gd_scene load_steps=6 format=3 uid="uid://cideauwj0d7mb"]
 
 [ext_resource type="Script" path="res://Interface/CharacterInterface/character_full_info.gd" id="1_djaf5"]
+[ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_265dx"]
+[ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_7qe87"]
+[ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_hs7eg"]
+[ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="5_fhtn5"]
 
 [node name="CharacterFullInfo" type="Control"]
 layout_mode = 3
@@ -17,3 +21,55 @@ layout_mode = 0
 offset_top = 395.0
 offset_right = 268.0
 offset_bottom = 580.0
+
+[node name="PlayerCharacteristicsContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 170.0
+offset_right = 366.0
+offset_bottom = 542.0
+columns = 2
+
+[node name="AttackImage" type="TextureRect" parent="PlayerCharacteristicsContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(40, 23)
+layout_mode = 2
+texture = ExtResource("2_265dx")
+expand_mode = 1
+
+[node name="AttackValue" type="Label" parent="PlayerCharacteristicsContainer"]
+layout_mode = 2
+text = "50"
+
+[node name="DefenseImage" type="TextureRect" parent="PlayerCharacteristicsContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(40, 23)
+layout_mode = 2
+texture = ExtResource("3_7qe87")
+expand_mode = 1
+
+[node name="DefenseValue" type="Label" parent="PlayerCharacteristicsContainer"]
+layout_mode = 2
+text = "50"
+
+[node name="HealthImage" type="TextureRect" parent="PlayerCharacteristicsContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(40, 23)
+layout_mode = 2
+texture = ExtResource("4_hs7eg")
+expand_mode = 1
+
+[node name="HealthValue" type="Label" parent="PlayerCharacteristicsContainer"]
+layout_mode = 2
+text = "50"
+
+[node name="ConcentrationImage" type="TextureRect" parent="PlayerCharacteristicsContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(40, 23)
+layout_mode = 2
+texture = ExtResource("5_fhtn5")
+expand_mode = 1
+
+[node name="ConcentrationValue" type="Label" parent="PlayerCharacteristicsContainer"]
+layout_mode = 2
+text = "50"

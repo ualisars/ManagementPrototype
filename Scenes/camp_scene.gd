@@ -2,9 +2,8 @@ extends Control
 
 var CharacterInfoClass: PackedScene = preload("res://Interface/CharacterInterface/character_info.tscn")
 
-@onready var grid_container: GridContainer = $ScrollContainer/GridContainer
-
-@onready var scroll_container: ScrollContainer = $ScrollContainer
+@onready var grid_container: GridContainer = $CharactersContainer/GridContainer
+@onready var character_full_info: Control = $CharacterFullInfo
 
 
 var CharacterFullInfoClass: PackedScene = preload("res://Interface/CharacterInterface/character_full_info.tscn")
@@ -20,14 +19,6 @@ func _ready() -> void:
 		
 		grid_container.add_child(character_info)
 		
-func on_character_info_chosen(characteristics: Node):
+func on_character_info_chosen(_characteristics: Node):
 	grid_container.hide()
-	
-	var character_full_info = CharacterFullInfoClass.instantiate()
-	character_full_info.init_characteristics(characteristics)
-	character_full_info.init_characteristics_layout()
-	character_full_info.init()
-	
-	scroll_container.add_child(character_full_info)
-
-	
+	character_full_info.show()
