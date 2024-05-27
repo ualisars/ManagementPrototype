@@ -1,67 +1,86 @@
-[gd_scene load_steps=6 format=3 uid="uid://cideauwj0d7mb"]
+[gd_scene load_steps=7 format=3 uid="uid://cideauwj0d7mb"]
 
 [ext_resource type="Script" path="res://Interface/CharacterInterface/character_full_info.gd" id="1_djaf5"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_265dx"]
+[ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="2_dqi87"]
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_7qe87"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_hs7eg"]
 [ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="5_fhtn5"]
 
-[node name="CharacterFullInfo" type="Container"]
+[node name="CharacterFullInfo" type="GridContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 57.0
+offset_top = 50.0
+offset_right = -153.0
+offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_djaf5")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
-visible = false
+[node name="GeneralInfoContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="PlayerCharacteristicsContainer" type="GridContainer" parent="."]
+[node name="CharacterImage" type="TextureRect" parent="GeneralInfoContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+texture = ExtResource("2_dqi87")
+expand_mode = 1
+
+[node name="CharacterName" type="Label" parent="GeneralInfoContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Name"
+
+[node name="CharacteristicsContainer" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 columns = 2
 
-[node name="AttackImage" type="TextureRect" parent="PlayerCharacteristicsContainer"]
+[node name="AttackImage" type="TextureRect" parent="CharacteristicsContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(40, 23)
 layout_mode = 2
 texture = ExtResource("2_265dx")
 expand_mode = 1
 
-[node name="AttackValue" type="Label" parent="PlayerCharacteristicsContainer"]
+[node name="AttackValue" type="Label" parent="CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
 
-[node name="DefenseImage" type="TextureRect" parent="PlayerCharacteristicsContainer"]
+[node name="DefenseImage" type="TextureRect" parent="CharacteristicsContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(40, 23)
 layout_mode = 2
 texture = ExtResource("3_7qe87")
 expand_mode = 1
 
-[node name="DefenseValue" type="Label" parent="PlayerCharacteristicsContainer"]
+[node name="DefenseValue" type="Label" parent="CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
 
-[node name="HealthImage" type="TextureRect" parent="PlayerCharacteristicsContainer"]
+[node name="HealthImage" type="TextureRect" parent="CharacteristicsContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(40, 23)
 layout_mode = 2
 texture = ExtResource("4_hs7eg")
 expand_mode = 1
 
-[node name="HealthValue" type="Label" parent="PlayerCharacteristicsContainer"]
+[node name="HealthValue" type="Label" parent="CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
 
-[node name="ConcentrationImage" type="TextureRect" parent="PlayerCharacteristicsContainer"]
+[node name="ConcentrationImage" type="TextureRect" parent="CharacteristicsContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(40, 23)
 layout_mode = 2
 texture = ExtResource("5_fhtn5")
 expand_mode = 1
 
-[node name="ConcentrationValue" type="Label" parent="PlayerCharacteristicsContainer"]
+[node name="ConcentrationValue" type="Label" parent="CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
