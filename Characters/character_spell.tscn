@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj8mox8h71ux5"]
+
+[ext_resource type="Script" path="res://Characters/character_spell.gd" id="1_w40a5"]
+
+[node name="CharacterSpell" type="Node"]
+script = ExtResource("1_w40a5")

@@ -10,6 +10,7 @@ var cast_speed: int
 var id: int
 var is_belongs_to_player: int
 var concentration: int
+var learnt_spells: Array = []
 
 func _init() -> void:
 	health = rng.randi_range(10, 30)
@@ -27,3 +28,6 @@ func add_character_name(_character_name: String) -> void:
 
 func add_belonging_to_player(is_player: bool) -> void:
 	is_belongs_to_player = is_player
+	
+func learn_spell(spell: Node) -> void:
+	learnt_spells.append(spell)

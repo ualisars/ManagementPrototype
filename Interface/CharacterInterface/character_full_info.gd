@@ -1,10 +1,10 @@
 extends Control
 
-@onready var attack_value: Label = $CharacteristicsContainer/AttackValue
-@onready var defense_value: Label = $CharacteristicsContainer/DefenseValue
-@onready var health_value: Label = $CharacteristicsContainer/HealthValue
-@onready var concentration_value: Label = $CharacteristicsContainer/ConcentrationValue
-@onready var character_name: Label = $GeneralInfoContainer/CharacterName
+@onready var attack_value: Label = $CharacterInfoContainer/CharacteristicsContainer/AttackValue
+@onready var defense_value: Label = $CharacterInfoContainer/CharacteristicsContainer/DefenseValue
+@onready var health_value: Label = $CharacterInfoContainer/CharacteristicsContainer/HealthValue
+@onready var concentration_value: Label = $CharacterInfoContainer/CharacteristicsContainer/ConcentrationValue
+@onready var character_name: Label = $CharacterInfoContainer/GeneralInfoContainer/CharacterName
 
 func _ready() -> void:
 	Messenger.CHARACTER_INFO_CHOSEN.connect(on_character_info_chosen)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cideauwj0d7mb"]
+[gd_scene load_steps=11 format=3 uid="uid://cideauwj0d7mb"]
 
 [ext_resource type="Script" path="res://Interface/CharacterInterface/character_full_info.gd" id="1_djaf5"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_265dx"]
@@ -6,8 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_7qe87"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_hs7eg"]
 [ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="5_fhtn5"]
+[ext_resource type="Texture2D" uid="uid://cu3trffia6kqo" path="res://Images/psychic-waves.svg" id="7_7djyg"]
+[ext_resource type="Texture2D" uid="uid://nxrtqws75wpl" path="res://Images/grim-reaper.svg" id="8_6e6os"]
+[ext_resource type="Texture2D" uid="uid://iwq3kd2q4by8" path="res://Images/sun-cloud.svg" id="9_vxo8s"]
+[ext_resource type="Texture2D" uid="uid://b8yguihe83q37" path="res://Images/aura.svg" id="10_78unx"]
 
-[node name="CharacterFullInfo" type="GridContainer"]
+[node name="CharacterFullInfo" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,68 +24,115 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_djaf5")
 
-[node name="GeneralInfoContainer" type="HBoxContainer" parent="."]
+[node name="CharacterInfoContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_right = 191.0
+offset_bottom = 212.0
+size_flags_horizontal = 0
+
+[node name="GeneralInfoContainer" type="HBoxContainer" parent="CharacterInfoContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="CharacterImage" type="TextureRect" parent="GeneralInfoContainer"]
+[node name="CharacterImage" type="TextureRect" parent="CharacterInfoContainer/GeneralInfoContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("2_dqi87")
 expand_mode = 1
 
-[node name="CharacterName" type="Label" parent="GeneralInfoContainer"]
+[node name="CharacterName" type="Label" parent="CharacterInfoContainer/GeneralInfoContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Name"
 
-[node name="CharacteristicsContainer" type="GridContainer" parent="."]
+[node name="CharacteristicsContainer" type="GridContainer" parent="CharacterInfoContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 columns = 2
 
-[node name="AttackImage" type="TextureRect" parent="CharacteristicsContainer"]
+[node name="AttackImage" type="TextureRect" parent="CharacterInfoContainer/CharacteristicsContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(40, 23)
 layout_mode = 2
 texture = ExtResource("2_265dx")
 expand_mode = 1
 
-[node name="AttackValue" type="Label" parent="CharacteristicsContainer"]
+[node name="AttackValue" type="Label" parent="CharacterInfoContainer/CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
 
-[node name="DefenseImage" type="TextureRect" parent="CharacteristicsContainer"]
+[node name="DefenseImage" type="TextureRect" parent="CharacterInfoContainer/CharacteristicsContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(40, 23)
 layout_mode = 2
 texture = ExtResource("3_7qe87")
 expand_mode = 1
 
-[node name="DefenseValue" type="Label" parent="CharacteristicsContainer"]
+[node name="DefenseValue" type="Label" parent="CharacterInfoContainer/CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
 
-[node name="HealthImage" type="TextureRect" parent="CharacteristicsContainer"]
+[node name="HealthImage" type="TextureRect" parent="CharacterInfoContainer/CharacteristicsContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(40, 23)
 layout_mode = 2
 texture = ExtResource("4_hs7eg")
 expand_mode = 1
 
-[node name="HealthValue" type="Label" parent="CharacteristicsContainer"]
+[node name="HealthValue" type="Label" parent="CharacterInfoContainer/CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
 
-[node name="ConcentrationImage" type="TextureRect" parent="CharacteristicsContainer"]
+[node name="ConcentrationImage" type="TextureRect" parent="CharacterInfoContainer/CharacteristicsContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(40, 23)
 layout_mode = 2
 texture = ExtResource("5_fhtn5")
 expand_mode = 1
 
-[node name="ConcentrationValue" type="Label" parent="CharacteristicsContainer"]
+[node name="ConcentrationValue" type="Label" parent="CharacterInfoContainer/CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
+
+[node name="LearntSpells" type="GridContainer" parent="CharacterInfoContainer"]
+layout_mode = 2
+
+[node name="SpellsContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_left = 295.0
+offset_top = -12.0
+offset_right = 834.0
+offset_bottom = 569.0
+
+[node name="SpellSchoolsContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 957.0
+offset_top = -12.0
+offset_right = 1068.0
+offset_bottom = 562.0
+
+[node name="PsychicSchool" type="TextureRect" parent="SpellSchoolsContainer"]
+custom_minimum_size = Vector2(30, 80)
+layout_mode = 2
+texture = ExtResource("7_7djyg")
+expand_mode = 1
+
+[node name="DarkSchool" type="TextureRect" parent="SpellSchoolsContainer"]
+custom_minimum_size = Vector2(30, 80)
+layout_mode = 2
+texture = ExtResource("8_6e6os")
+expand_mode = 1
+
+[node name="ElementalSchool" type="TextureRect" parent="SpellSchoolsContainer"]
+custom_minimum_size = Vector2(30, 80)
+layout_mode = 2
+texture = ExtResource("9_vxo8s")
+expand_mode = 1
+
+[node name="FaithSchool" type="TextureRect" parent="SpellSchoolsContainer"]
+custom_minimum_size = Vector2(30, 80)
+layout_mode = 2
+texture = ExtResource("10_78unx")
+expand_mode = 1

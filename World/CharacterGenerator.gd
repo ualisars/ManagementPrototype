@@ -33,7 +33,6 @@ func create_character(is_player) -> Node:
 	id += 1
 	
 	return characteristic
-	
 
 func pick_name() -> String:
 	var index = rng.randi_range(0, names.size() - 1)
