@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cideauwj0d7mb"]
+[gd_scene load_steps=8 format=3 uid="uid://cideauwj0d7mb"]
 
 [ext_resource type="Script" path="res://Interface/CharacterInterface/character_full_info.gd" id="1_djaf5"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_265dx"]
@@ -6,10 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_7qe87"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_hs7eg"]
 [ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="5_fhtn5"]
-[ext_resource type="Texture2D" uid="uid://cu3trffia6kqo" path="res://Images/psychic-waves.svg" id="7_7djyg"]
-[ext_resource type="Texture2D" uid="uid://nxrtqws75wpl" path="res://Images/grim-reaper.svg" id="8_6e6os"]
-[ext_resource type="Texture2D" uid="uid://iwq3kd2q4by8" path="res://Images/sun-cloud.svg" id="9_vxo8s"]
-[ext_resource type="Texture2D" uid="uid://b8yguihe83q37" path="res://Images/aura.svg" id="10_78unx"]
+[ext_resource type="PackedScene" uid="uid://bad72j14cxlna" path="res://Interface/CharacterInterface/spell_schools_container.tscn" id="7_q5ydc"]
 
 [node name="CharacterFullInfo" type="Control"]
 layout_mode = 3
@@ -106,33 +103,9 @@ offset_top = -12.0
 offset_right = 834.0
 offset_bottom = 569.0
 
-[node name="SpellSchoolsContainer" type="VBoxContainer" parent="."]
+[node name="SpellSchoolsContainer" parent="." instance=ExtResource("7_q5ydc")]
 layout_mode = 0
-offset_left = 957.0
-offset_top = -12.0
-offset_right = 1068.0
-offset_bottom = 562.0
-
-[node name="PsychicSchool" type="TextureRect" parent="SpellSchoolsContainer"]
-custom_minimum_size = Vector2(30, 80)
-layout_mode = 2
-texture = ExtResource("7_7djyg")
-expand_mode = 1
-
-[node name="DarkSchool" type="TextureRect" parent="SpellSchoolsContainer"]
-custom_minimum_size = Vector2(30, 80)
-layout_mode = 2
-texture = ExtResource("8_6e6os")
-expand_mode = 1
-
-[node name="ElementalSchool" type="TextureRect" parent="SpellSchoolsContainer"]
-custom_minimum_size = Vector2(30, 80)
-layout_mode = 2
-texture = ExtResource("9_vxo8s")
-expand_mode = 1
-
-[node name="FaithSchool" type="TextureRect" parent="SpellSchoolsContainer"]
-custom_minimum_size = Vector2(30, 80)
-layout_mode = 2
-texture = ExtResource("10_78unx")
-expand_mode = 1
+offset_left = 918.0
+offset_top = -10.0
+offset_right = 1029.0
+offset_bottom = 564.0

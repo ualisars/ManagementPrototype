@@ -13,3 +13,5 @@ signal FIGHT_STARTED
 signal CHARACTER_PENETRATED(character: Node3D)
 
 signal CHARACTER_INFO_CHOSEN(CharacterCharacteristics: Node)
+
+signal MAGIC_SCHOOL_ICON_CHOSEN(magic_school_name: String)

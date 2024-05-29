@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://xu6wwyyg6hhp"]
+
+[ext_resource type="Texture2D" uid="uid://cu3trffia6kqo" path="res://Images/psychic-waves.svg" id="1_qwt6e"]
+[ext_resource type="Script" path="res://Interface/CharacterInterface/magic_school_icon.gd" id="2_ygiwf"]
+
+[node name="MagicSchoolIcon" type="TextureRect"]
+custom_minimum_size = Vector2(30, 80)
+texture = ExtResource("1_qwt6e")
+expand_mode = 1
+script = ExtResource("2_ygiwf")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
