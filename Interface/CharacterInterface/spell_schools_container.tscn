@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bad72j14cxlna"]
+[gd_scene load_steps=6 format=3 uid="uid://bad72j14cxlna"]
 
 [ext_resource type="Script" path="res://Interface/CharacterInterface/SpellSchoolsContainer.gd" id="1_y22cc"]
 [ext_resource type="PackedScene" uid="uid://xu6wwyyg6hhp" path="res://Interface/CharacterInterface/magic_school_icon.tscn" id="2_gj6ug"]
 [ext_resource type="Texture2D" uid="uid://nxrtqws75wpl" path="res://Images/grim-reaper.svg" id="3_2wn2u"]
 [ext_resource type="Texture2D" uid="uid://iwq3kd2q4by8" path="res://Images/sun-cloud.svg" id="4_srk5a"]
+[ext_resource type="Texture2D" uid="uid://b8yguihe83q37" path="res://Images/aura.svg" id="5_4mtih"]
 
 [node name="SpellSchoolsContainer" type="VBoxContainer"]
 offset_left = 957.0
 offset_top = -12.0
 offset_right = 1068.0
 offset_bottom = 562.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("1_y22cc")
 
 [node name="PhysicSchoolIcon" parent="." instance=ExtResource("2_gj6ug")]
@@ -28,4 +31,5 @@ magic_school_name = "elemental"
 
 [node name="FaithSchoolIcon" parent="." instance=ExtResource("2_gj6ug")]
 layout_mode = 2
+texture = ExtResource("5_4mtih")
 magic_school_name = "faith"

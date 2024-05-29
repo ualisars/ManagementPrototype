@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://2dkervu4bu1t"]
+
+[ext_resource type="Script" path="res://Interface/CharacterInterface/spells_container.gd" id="1_7ln22"]
+[ext_resource type="PackedScene" uid="uid://rwtg2deoxrpw" path="res://Interface/CharacterInterface/physic_spells_container.tscn" id="1_c3hcw"]
+[ext_resource type="PackedScene" uid="uid://5t6pedxsmio8" path="res://Interface/CharacterInterface/dark_spells_container.tscn" id="2_3i85d"]
+[ext_resource type="PackedScene" uid="uid://cgoruox14c6q8" path="res://Interface/CharacterInterface/elemental_spells_container.tscn" id="3_37r8c"]
+[ext_resource type="Texture2D" uid="uid://5oy44m8a0p4f" path="res://Images/domination.svg" id="3_g6fg6"]
+[ext_resource type="PackedScene" uid="uid://cyfmv12fv07vq" path="res://Interface/CharacterInterface/faith_spells_container.tscn" id="4_3ltu4"]
+[ext_resource type="Texture2D" uid="uid://bjmhhctyhstwy" path="res://Images/distraction.svg" id="4_rklkh"]
+[ext_resource type="Texture2D" uid="uid://cxg2m8bs73g7y" path="res://Images/despair.svg" id="5_nekri"]
+[ext_resource type="Texture2D" uid="uid://06cu1lrddk0j" path="res://Images/apathy.svg" id="6_lcwrb"]
+[ext_resource type="Texture2D" uid="uid://dfwb44j6p8bsq" path="res://Images/insanity.svg" id="7_8n8bc"]
+[ext_resource type="Texture2D" uid="uid://tfjk4la481al" path="res://Images/necromancy.svg" id="9_qqtcx"]
+[ext_resource type="Texture2D" uid="uid://b2s7bpqubb8ah" path="res://Images/decay.svg" id="10_qp61g"]
+[ext_resource type="Texture2D" uid="uid://bgddauvuhvol7" path="res://Images/roots.svg" id="12_cogw6"]
+[ext_resource type="Texture2D" uid="uid://bjyhksgfv1d81" path="res://Images/blindness.svg" id="14_d28ta"]
+[ext_resource type="Texture2D" uid="uid://cr2fu62smc8ja" path="res://Images/divinity_hammer.svg" id="15_2xk5e"]
+[ext_resource type="Texture2D" uid="uid://ihldty8weqf2" path="res://Images/selectial_support.svg" id="16_505lw"]
+
+[node name="SpellsContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 543.0
+offset_bottom = 564.0
+script = ExtResource("1_7ln22")
+
+[node name="PhysicSpellsContainer" parent="." instance=ExtResource("1_c3hcw")]
+layout_mode = 0
+anchors_preset = 0
+columns = 3
+
+[node name="DominationSpell" type="TextureRect" parent="PhysicSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("3_g6fg6")
+expand_mode = 1
+
+[node name="DistractionSpell" type="TextureRect" parent="PhysicSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("4_rklkh")
+expand_mode = 1
+
+[node name="DespairSpell" type="TextureRect" parent="PhysicSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("5_nekri")
+expand_mode = 1
+
+[node name="ApathySpell" type="TextureRect" parent="PhysicSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("6_lcwrb")
+expand_mode = 1
+
+[node name="InsanitySpell" type="TextureRect" parent="PhysicSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("7_8n8bc")
+expand_mode = 1
+
+[node name="DarkSpellsContainer" parent="." instance=ExtResource("2_3i85d")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+columns = 3
+
+[node name="NecromancySpell" type="TextureRect" parent="DarkSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("9_qqtcx")
+expand_mode = 1
+
+[node name="DecaySpell" type="TextureRect" parent="DarkSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("10_qp61g")
+expand_mode = 1
+
+[node name="ElementalSpellsContainer" parent="." instance=ExtResource("3_37r8c")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+
+[node name="RootsSpell" type="TextureRect" parent="ElementalSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("12_cogw6")
+expand_mode = 1
+
+[node name="FaithSpellsContainer" parent="." instance=ExtResource("4_3ltu4")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+columns = 3
+
+[node name="BlindnessSpell" type="TextureRect" parent="FaithSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("14_d28ta")
+expand_mode = 1
+
+[node name="DivinityHammerSpell" type="TextureRect" parent="FaithSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("15_2xk5e")
+expand_mode = 1
+
+[node name="SelectialSupportSpell" type="TextureRect" parent="FaithSpellsContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("16_505lw")
+expand_mode = 1

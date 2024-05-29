@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cideauwj0d7mb"]
+[gd_scene load_steps=9 format=3 uid="uid://cideauwj0d7mb"]
 
 [ext_resource type="Script" path="res://Interface/CharacterInterface/character_full_info.gd" id="1_djaf5"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_265dx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_7qe87"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_hs7eg"]
 [ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="5_fhtn5"]
+[ext_resource type="PackedScene" uid="uid://2dkervu4bu1t" path="res://Interface/CharacterInterface/spells_container.tscn" id="7_fyp6t"]
 [ext_resource type="PackedScene" uid="uid://bad72j14cxlna" path="res://Interface/CharacterInterface/spell_schools_container.tscn" id="7_q5ydc"]
 
 [node name="CharacterFullInfo" type="Control"]
@@ -96,12 +97,12 @@ text = "50"
 [node name="LearntSpells" type="GridContainer" parent="CharacterInfoContainer"]
 layout_mode = 2
 
-[node name="SpellsContainer" type="GridContainer" parent="."]
-layout_mode = 2
-offset_left = 295.0
-offset_top = -12.0
-offset_right = 834.0
-offset_bottom = 569.0
+[node name="SpellsContainer" parent="." instance=ExtResource("7_fyp6t")]
+layout_mode = 0
+offset_left = 240.0
+offset_top = -13.0
+offset_right = 779.0
+offset_bottom = 554.0
 
 [node name="SpellSchoolsContainer" parent="." instance=ExtResource("7_q5ydc")]
 layout_mode = 0
