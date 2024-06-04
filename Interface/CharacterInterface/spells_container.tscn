@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rwtg2deoxrpw" path="res://Interface/CharacterInterface/physic_spells_container.tscn" id="1_c3hcw"]
 [ext_resource type="PackedScene" uid="uid://5t6pedxsmio8" path="res://Interface/CharacterInterface/dark_spells_container.tscn" id="2_3i85d"]
 [ext_resource type="PackedScene" uid="uid://cgoruox14c6q8" path="res://Interface/CharacterInterface/elemental_spells_container.tscn" id="3_37r8c"]
-[ext_resource type="Texture2D" uid="uid://5oy44m8a0p4f" path="res://Images/domination.svg" id="3_g6fg6"]
+[ext_resource type="PackedScene" uid="uid://dfvjhw5v6tqqi" path="res://Interface/CharacterInterface/spell_icon.tscn" id="3_56e12"]
 [ext_resource type="PackedScene" uid="uid://cyfmv12fv07vq" path="res://Interface/CharacterInterface/faith_spells_container.tscn" id="4_3ltu4"]
 [ext_resource type="Texture2D" uid="uid://bjmhhctyhstwy" path="res://Images/distraction.svg" id="4_rklkh"]
 [ext_resource type="Texture2D" uid="uid://cxg2m8bs73g7y" path="res://Images/despair.svg" id="5_nekri"]
@@ -28,13 +28,17 @@ script = ExtResource("1_7ln22")
 [node name="PhysicSpellsContainer" parent="." instance=ExtResource("1_c3hcw")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 columns = 3
 
-[node name="DominationSpell" type="TextureRect" parent="PhysicSpellsContainer"]
-custom_minimum_size = Vector2(80, 80)
+[node name="DominationSpell" parent="PhysicSpellsContainer" instance=ExtResource("3_56e12")]
 layout_mode = 2
-texture = ExtResource("3_g6fg6")
-expand_mode = 1
+spell_name = "Domination"
+spell_school = "Physic"
+spell_description = "Force enemy to attack their ally"
 
 [node name="DistractionSpell" type="TextureRect" parent="PhysicSpellsContainer"]
 custom_minimum_size = Vector2(80, 80)
@@ -64,6 +68,10 @@ expand_mode = 1
 visible = false
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 columns = 3
 
 [node name="NecromancySpell" type="TextureRect" parent="DarkSpellsContainer"]
@@ -82,6 +90,10 @@ expand_mode = 1
 visible = false
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="RootsSpell" type="TextureRect" parent="ElementalSpellsContainer"]
 custom_minimum_size = Vector2(80, 80)
@@ -93,6 +105,10 @@ expand_mode = 1
 visible = false
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 columns = 3
 
 [node name="BlindnessSpell" type="TextureRect" parent="FaithSpellsContainer"]
@@ -112,3 +128,50 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("16_505lw")
 expand_mode = 1
+
+[node name="SpellInfoContainer" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.647059, 0.647059, 0.647059, 1)
+
+[node name="SpellName" type="Label" parent="SpellInfoContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_right = 44.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Spell Name"
+
+[node name="SpellSchoolLabel" type="Label" parent="SpellInfoContainer"]
+layout_mode = 0
+offset_top = 35.0
+offset_right = 40.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Spell School:"
+
+[node name="SpellSchoolValue" type="Label" parent="SpellInfoContainer"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 35.0
+offset_right = 199.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Elemental"
+
+[node name="SpellDescription" type="Label" parent="SpellInfoContainer"]
+layout_mode = 0
+offset_top = 65.0
+offset_right = 198.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "This is the description of the spell"
+autowrap_mode = 3
