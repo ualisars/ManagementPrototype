@@ -23,3 +23,5 @@ signal SPELL_ICON_MOUSE_ENTERED(
 )
 
 signal SPELL_ICON_MOUSE_EXITED
+
+signal SPELL_LEARNT(spell: Node)

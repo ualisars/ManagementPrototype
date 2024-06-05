@@ -4,16 +4,11 @@ extends TextureRect
 @export var spell_school: String
 @export var spell_description: String
 
+var SpellClass: PackedScene = preload("res://Characters/character_spell.tscn")
+var spell: Node = SpellClass.instantiate()
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	spell.init(spell_name, spell_school, spell_description)
 
 
 func _on_mouse_entered() -> void:
@@ -22,3 +17,8 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	Messenger.SPELL_ICON_MOUSE_EXITED.emit()
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("click"):
+		Messenger.SPELL_LEARNT.emit(spell)
