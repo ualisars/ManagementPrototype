@@ -94,8 +94,11 @@ expand_mode = 1
 layout_mode = 2
 text = "50"
 
-[node name="LearntSpells" type="GridContainer" parent="CharacterInfoContainer"]
+[node name="LearntSpellContainer" type="GridContainer" parent="CharacterInfoContainer"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+size_flags_vertical = 8
+columns = 3
 
 [node name="SpellsContainer" parent="." instance=ExtResource("7_fyp6t")]
 layout_mode = 0

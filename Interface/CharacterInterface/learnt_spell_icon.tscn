@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ohwxefpua2oh"]
+
+[ext_resource type="Texture2D" uid="uid://dfwb44j6p8bsq" path="res://Images/insanity.svg" id="1_nd18p"]
+
+[node name="LearntSpellIcon" type="TextureRect"]
+custom_minimum_size = Vector2(40, 40)
+texture = ExtResource("1_nd18p")
+expand_mode = 1

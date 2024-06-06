@@ -7,8 +7,9 @@ extends TextureRect
 var SpellClass: PackedScene = preload("res://Characters/character_spell.tscn")
 var spell: Node = SpellClass.instantiate()
 
+
 func _ready() -> void:
-	spell.init(spell_name, spell_school, spell_description)
+	spell.init(spell_name, spell_school, spell_description, texture)
 
 
 func _on_mouse_entered() -> void:
