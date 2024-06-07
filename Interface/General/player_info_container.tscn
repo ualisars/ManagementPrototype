@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c45vn5g0rmckg"]
+[gd_scene load_steps=7 format=3 uid="uid://c45vn5g0rmckg"]
 
 [ext_resource type="Script" path="res://Interface/General/player_info_container.gd" id="1_vcb4t"]
 [ext_resource type="PackedScene" uid="uid://5hd627njgokg" path="res://Interface/Buttons/back_button.tscn" id="2_e4fa7"]
 [ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="2_jpksd"]
+[ext_resource type="Texture2D" uid="uid://deggi7vouicbp" path="res://Images/tasks.svg" id="4_ewa5b"]
+[ext_resource type="Texture2D" uid="uid://dghcoqu7t3ao0" path="res://Images/fractions.svg" id="5_4htuo"]
+[ext_resource type="Texture2D" uid="uid://o6yisjqpa1t8" path="res://Images/archive.svg" id="6_a6otf"]
 
 [node name="PlayerInfoContainer" type="HBoxContainer"]
 offset_right = 1152.0
 offset_bottom = 61.0
+theme_override_constants/separation = 40
 script = ExtResource("1_vcb4t")
 
 [node name="BackButton" parent="." instance=ExtResource("2_e4fa7")]
@@ -23,3 +27,21 @@ expand_mode = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "100"
+
+[node name="Tasks" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+texture = ExtResource("4_ewa5b")
+expand_mode = 1
+
+[node name="Fractions" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+texture = ExtResource("5_4htuo")
+expand_mode = 1
+
+[node name="Archive" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+texture = ExtResource("6_a6otf")
+expand_mode = 1
