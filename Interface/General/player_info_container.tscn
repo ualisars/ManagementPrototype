@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://5hd627njgokg" path="res://Interface/Buttons/back_button.tscn" id="2_e4fa7"]
 [ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="2_jpksd"]
 [ext_resource type="Texture2D" uid="uid://deggi7vouicbp" path="res://Images/tasks.svg" id="4_ewa5b"]
-[ext_resource type="Texture2D" uid="uid://dghcoqu7t3ao0" path="res://Images/fractions.svg" id="5_4htuo"]
+[ext_resource type="PackedScene" uid="uid://07j4s06c4suv" path="res://Interface/Fractions/fractions_icon.tscn" id="5_bmbiw"]
 [ext_resource type="Texture2D" uid="uid://o6yisjqpa1t8" path="res://Images/archive.svg" id="6_a6otf"]
 
 [node name="PlayerInfoContainer" type="HBoxContainer"]
@@ -34,11 +34,9 @@ layout_mode = 2
 texture = ExtResource("4_ewa5b")
 expand_mode = 1
 
-[node name="Fractions" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(80, 50)
+[node name="FractionsIcon" parent="." instance=ExtResource("5_bmbiw")]
 layout_mode = 2
-texture = ExtResource("5_4htuo")
-expand_mode = 1
+scene_file = "res://Interface/Fractions/fraction_list.tscn"
 
 [node name="Archive" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(80, 50)

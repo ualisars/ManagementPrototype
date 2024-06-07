@@ -1,0 +1,204 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf5e4uxktordi"]
+
+[ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="1_hldiw"]
+[ext_resource type="Texture2D" uid="uid://bhanw6wri0e4n" path="res://Images/power.svg" id="2_4ne6t"]
+[ext_resource type="Texture2D" uid="uid://cuxv74y4s8u71" path="res://Images/relationship.svg" id="3_gri5e"]
+[ext_resource type="Texture2D" uid="uid://daritu3vcrwvu" path="res://Images/inquisition.jpg" id="4_otpkp"]
+[ext_resource type="Texture2D" uid="uid://c56sw7fjc5gp4" path="res://Images/secret_knowledge_seekers.jpg" id="5_ugmwr"]
+[ext_resource type="Texture2D" uid="uid://cefom7qcismdp" path="res://Images/chaos.jpg" id="6_803bt"]
+[ext_resource type="Texture2D" uid="uid://8dur52nftdy2" path="res://Images/keepers.jpg" id="7_jip6w"]
+
+[node name="FractionList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerInfoContainer" parent="." instance=ExtResource("1_hldiw")]
+layout_mode = 0
+
+[node name="FractionListContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 174.0
+offset_top = -251.0
+offset_right = -140.0
+offset_bottom = 293.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 50
+columns = 3
+
+[node name="InquisitionFraction" type="VBoxContainer" parent="FractionListContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
+[node name="FractionName" type="Label" parent="FractionListContainer/InquisitionFraction"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Inquisition"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="FractionListContainer/InquisitionFraction"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/InquisitionFraction/VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+texture = ExtResource("2_4ne6t")
+expand_mode = 1
+
+[node name="PowerValue" type="Label" parent="FractionListContainer/InquisitionFraction/VBoxContainer"]
+layout_mode = 2
+text = "20
+"
+
+[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/InquisitionFraction/VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+texture = ExtResource("3_gri5e")
+expand_mode = 1
+
+[node name="RelationshipValue" type="Label" parent="FractionListContainer/InquisitionFraction/VBoxContainer"]
+layout_mode = 2
+text = "20
+"
+
+[node name="FractionIcon" type="TextureRect" parent="FractionListContainer/InquisitionFraction"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+texture = ExtResource("4_otpkp")
+expand_mode = 1
+
+[node name="SeekersFraction" type="VBoxContainer" parent="FractionListContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
+[node name="FractionName" type="Label" parent="FractionListContainer/SeekersFraction"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Seekers"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="FractionListContainer/SeekersFraction"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/SeekersFraction/VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+texture = ExtResource("2_4ne6t")
+expand_mode = 1
+
+[node name="PowerValue" type="Label" parent="FractionListContainer/SeekersFraction/VBoxContainer"]
+layout_mode = 2
+text = "20
+"
+
+[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/SeekersFraction/VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+texture = ExtResource("3_gri5e")
+expand_mode = 1
+
+[node name="RelationshipValue" type="Label" parent="FractionListContainer/SeekersFraction/VBoxContainer"]
+layout_mode = 2
+text = "20
+"
+
+[node name="FractionIcon" type="TextureRect" parent="FractionListContainer/SeekersFraction"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+texture = ExtResource("5_ugmwr")
+expand_mode = 1
+
+[node name="ChaosFraction" type="VBoxContainer" parent="FractionListContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
+[node name="FractionName" type="Label" parent="FractionListContainer/ChaosFraction"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Chaos"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="FractionListContainer/ChaosFraction"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/ChaosFraction/VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+texture = ExtResource("2_4ne6t")
+expand_mode = 1
+
+[node name="PowerValue" type="Label" parent="FractionListContainer/ChaosFraction/VBoxContainer"]
+layout_mode = 2
+text = "20
+"
+
+[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/ChaosFraction/VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+texture = ExtResource("3_gri5e")
+expand_mode = 1
+
+[node name="RelationshipValue" type="Label" parent="FractionListContainer/ChaosFraction/VBoxContainer"]
+layout_mode = 2
+text = "20
+"
+
+[node name="FractionIcon" type="TextureRect" parent="FractionListContainer/ChaosFraction"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+texture = ExtResource("6_803bt")
+expand_mode = 1
+
+[node name="KeepersOfOrderFraction" type="VBoxContainer" parent="FractionListContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
+[node name="FractionName" type="Label" parent="FractionListContainer/KeepersOfOrderFraction"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Keepers of Order"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="FractionListContainer/KeepersOfOrderFraction"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/KeepersOfOrderFraction/VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+texture = ExtResource("2_4ne6t")
+expand_mode = 1
+
+[node name="PowerValue" type="Label" parent="FractionListContainer/KeepersOfOrderFraction/VBoxContainer"]
+layout_mode = 2
+text = "20
+"
+
+[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/KeepersOfOrderFraction/VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+texture = ExtResource("3_gri5e")
+expand_mode = 1
+
+[node name="RelationshipValue" type="Label" parent="FractionListContainer/KeepersOfOrderFraction/VBoxContainer"]
+layout_mode = 2
+text = "20
+"
+
+[node name="FractionIcon" type="TextureRect" parent="FractionListContainer/KeepersOfOrderFraction"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+texture = ExtResource("7_jip6w")
+expand_mode = 1
