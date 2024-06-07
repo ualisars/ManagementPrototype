@@ -15,7 +15,6 @@ script = ExtResource("1_vcb4t")
 
 [node name="BackButton" parent="." instance=ExtResource("2_e4fa7")]
 layout_mode = 2
-scene_file = "res://Interface/General/player_interface.tscn"
 
 [node name="GoldTexture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 50)

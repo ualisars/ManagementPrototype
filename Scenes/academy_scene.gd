@@ -4,6 +4,8 @@ var CharacterInfoClass: PackedScene = preload("res://Interface/CharacterInterfac
 
 @onready var grid_container: GridContainer = $ScrollContainer/GridContainer
 
+@export_file("*.tscn") var parent_scene_file
+
 func show_character_layout():
 	for character in CharacterGenerator.academy_characters:
 		var character_info = CharacterInfoClass.instantiate()
@@ -27,6 +29,7 @@ func _ready() -> void:
 	show_character_layout()
 	
 	Messenger.connect("UNIT_HIRED", on_character_hired)
+	Messenger.NEW_SCENE_OPENED.emit(parent_scene_file)
 	
 
 func on_character_hired(character_characteristics: Node):

@@ -18,6 +18,7 @@ grow_vertical = 2
 
 [node name="PlayerInfoContainer" parent="." instance=ExtResource("1_hldiw")]
 layout_mode = 0
+scene_file = "res://Interface/Fractions/fraction_list.tscn"
 
 [node name="FractionListContainer" type="GridContainer" parent="."]
 layout_mode = 1

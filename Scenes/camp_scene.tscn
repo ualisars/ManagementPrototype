@@ -12,6 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ox27c")
+current_scene_file = "res://Scenes/camp_scene.tscn"
+parent_scene_file = "res://Interface/General/player_interface.tscn"
 
 [node name="CharactersContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -30,7 +32,7 @@ columns = 4
 
 [node name="PlayerInfoContainer" parent="." instance=ExtResource("2_y82id")]
 layout_mode = 0
-scene_file = "res://Interface/General/player_interface.tscn"
+parent_scene_file = "res://Scenes/camp_scene.tscn"
 
 [node name="CharacterFullInfo" parent="." instance=ExtResource("3_2khyk")]
 visible = false

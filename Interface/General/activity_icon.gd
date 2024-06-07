@@ -1,6 +1,7 @@
 extends TextureRect
 
 @export_file("*.tscn") var scene_file
+@export_file("*.tscn") var parent_file
 
 var default_modulate = "a9a9a9"
 var hover_modulate = "ffffff"
@@ -20,6 +21,8 @@ func on_hover_exited():
 	modulate = default_modulate
 	
 func open_scene():
+	Messenger.NEW_SCENE_OPENED.emit(parent_file)
+	
 	var tween = create_tween()
 	tween.tween_interval(0.5)
 	tween.tween_callback(get_tree().change_scene_to_file.bind(scene_file))

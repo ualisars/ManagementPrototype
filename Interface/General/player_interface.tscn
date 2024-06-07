@@ -20,6 +20,7 @@ script = ExtResource("1_oet7c")
 
 [node name="PlayerInfoContainer" parent="." instance=ExtResource("7_hhjee")]
 layout_mode = 0
+parent_scene_file = "res://Interface/General/player_interface.tscn"
 
 [node name="Container" type="TextureRect" parent="."]
 layout_mode = 1
@@ -42,6 +43,7 @@ offset_bottom = 200.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 scene_file = "res://Scenes/academy_scene.tscn"
+parent_file = "res://Interface/General/player_interface.tscn"
 
 [node name="Camp" parent="Container" instance=ExtResource("1_rlvvm")]
 custom_minimum_size = Vector2(300, 200)
@@ -57,6 +59,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("5_msls1")
 scene_file = "res://Scenes/camp_scene.tscn"
+parent_file = "res://Interface/General/player_interface.tscn"
 
 [node name="Arena" parent="Container" instance=ExtResource("1_rlvvm")]
 custom_minimum_size = Vector2(300, 200)
@@ -76,6 +79,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_x4q11")
 scene_file = "res://Scenes/arena_scene.tscn"
+parent_file = "res://Interface/General/player_interface.tscn"
 
 [node name="Mission" parent="Container" instance=ExtResource("1_rlvvm")]
 custom_minimum_size = Vector2(300, 200)
