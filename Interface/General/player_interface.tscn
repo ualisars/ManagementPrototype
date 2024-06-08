@@ -94,6 +94,8 @@ grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture = ExtResource("2_qw60y")
+scene_file = "res://Scenes/mission_scene.tscn"
+parent_file = "res://Interface/General/player_interface.tscn"
 
 [node name="Market" parent="Container" instance=ExtResource("1_rlvvm")]
 custom_minimum_size = Vector2(300, 200)

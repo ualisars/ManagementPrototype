@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7a5o1j3ysaw0"]
+
+[ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="1_v3q1r"]
+
+[node name="TaskContainer" type="VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Title"
+horizontal_alignment = 1
+
+[node name="TaskProvider" type="Label" parent="."]
+layout_mode = 2
+text = "Provider
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MageNumber" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Mage number:"
+
+[node name="MageNumberValue" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "2"
+
+[node name="Description" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+text = "description
+"
+
+[node name="BountyMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+
+[node name="BountyContainer" type="HBoxContainer" parent="BountyMarginContainer"]
+layout_mode = 2
+
+[node name="BountyIcon" type="TextureRect" parent="BountyMarginContainer/BountyContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_v3q1r")
+expand_mode = 1
+
+[node name="BountyValue" type="Label" parent="BountyMarginContainer/BountyContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "100
+"
+
+[node name="ButtonsMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="ButtonsMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="AcceptButton" type="Button" parent="ButtonsMarginContainer/ButtonsContainer"]
+layout_mode = 2
+text = "Accept"
+
+[node name="DeclineButton" type="Button" parent="ButtonsMarginContainer/ButtonsContainer"]
+layout_mode = 2
+text = "Decline"
