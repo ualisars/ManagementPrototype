@@ -1,6 +1,6 @@
 extends Control
 
-var MAX_TASK_NUMBER: int = 3
+@export var MAX_TASK_NUMBER: int = 3
 
 @onready var title1: Label = $TasksContainer/TaskContainer1/Title
 @onready var title2: Label = $TasksContainer/TaskContainer2/Title
@@ -44,4 +44,4 @@ func _ready() -> void:
 		provider.text = task.task_provider
 		
 		var mage_number: Label = mage_numbers[index]
-		mage_number.text = str(task.enemy_number)
+		mage_number.text = str(task.mage_number)

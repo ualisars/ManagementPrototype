@@ -20,6 +20,7 @@ enum TaskProvider {
 var action: String
 var enemy_type: String
 var enemy_number: int
+var mage_number: int
 var task_provider: String
 var task_title: String
 
@@ -27,10 +28,12 @@ func init(
 	_action: ActionType, 
 	_enemy_type: EnemyType,
 	_enemy_number: int,
+	_mage_number: int,
 	_task_provider: TaskProvider
 	) -> void:
 		action = ActionType.keys()[_action]
 		enemy_type = EnemyType.keys()[_enemy_type]
 		enemy_number = _enemy_number
+		mage_number = _mage_number
 		task_provider = TaskProvider.keys()[_task_provider]
-		task_title = action + " " + enemy_type
+		task_title = action + " " + str(enemy_number) + " " + enemy_type

@@ -17,4 +17,4 @@ var mage_number_value: String
 func init(task: Task) -> void:
 	title = task.task_title
 	provider = str(task.task_provider)
-	mage_number_value = str(task.enemy_number)
+	mage_number_value = str(task.mage_number)
