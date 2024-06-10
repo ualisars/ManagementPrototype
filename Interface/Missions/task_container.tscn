@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7a5o1j3ysaw0"]
+[gd_scene load_steps=3 format=3 uid="uid://b7a5o1j3ysaw0"]
 
+[ext_resource type="Script" path="res://Interface/Missions/task_container.gd" id="1_os12l"]
 [ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="1_v3q1r"]
 
 [node name="TaskContainer" type="VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
+script = ExtResource("1_os12l")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 2
@@ -12,7 +14,7 @@ horizontal_alignment = 1
 
 [node name="TaskProvider" type="Label" parent="."]
 layout_mode = 2
-text = "Provider
+text = "Provider:
 "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -31,6 +33,10 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 text = "description
 "
+
+[node name="TaskTexture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
 
 [node name="BountyMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

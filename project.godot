@@ -24,6 +24,7 @@ ArenaManager="*res://World/arena_manager.tscn"
 FightManager="*res://World/fight_manager.tscn"
 UiCommon="*res://World/ui_common.tscn"
 GameManager="*res://World/game_manager.tscn"
+TaskManager="*res://World/task_manager.tscn"
 
 [editor]
 

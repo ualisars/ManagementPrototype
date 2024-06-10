@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://yvhbusgaq0im"]
+[gd_scene load_steps=4 format=3 uid="uid://yvhbusgaq0im"]
 
+[ext_resource type="Script" path="res://Scenes/mission_scene.gd" id="1_dx0wp"]
 [ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="1_woyvw"]
 [ext_resource type="PackedScene" uid="uid://b7a5o1j3ysaw0" path="res://Interface/Missions/task_container.tscn" id="2_4wfc1"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dx0wp")
 
 [node name="PlayerInfoContainer" parent="." instance=ExtResource("1_woyvw")]
 layout_mode = 0
@@ -26,5 +28,15 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TaskContainer" parent="TasksContainer" instance=ExtResource("2_4wfc1")]
+[node name="TaskContainer1" parent="TasksContainer" instance=ExtResource("2_4wfc1")]
 layout_mode = 2
+
+[node name="TaskContainer2" parent="TasksContainer" instance=ExtResource("2_4wfc1")]
+layout_mode = 2
+
+[node name="TaskContainer3" parent="TasksContainer" instance=ExtResource("2_4wfc1")]
+layout_mode = 2
+
+[editable path="TasksContainer/TaskContainer1"]
+[editable path="TasksContainer/TaskContainer2"]
+[editable path="TasksContainer/TaskContainer3"]
