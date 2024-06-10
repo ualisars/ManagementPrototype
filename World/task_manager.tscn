@@ -4,3 +4,6 @@
 
 [node name="TaskManager" type="Node"]
 script = ExtResource("1_5yvf2")
+brigands_image = "res://Images/brigands.jpg"
+werewolves_image = "res://Images/werewolves.jpg"
+vampires_image = "res://Images/vampires.jpg"

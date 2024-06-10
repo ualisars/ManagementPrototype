@@ -27,6 +27,7 @@ offset_right = -76.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 40
 
 [node name="TaskContainer1" parent="TasksContainer" instance=ExtResource("2_4wfc1")]
 layout_mode = 2

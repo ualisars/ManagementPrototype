@@ -37,6 +37,7 @@ text = "description
 [node name="TaskTexture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+expand_mode = 1
 
 [node name="BountyMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

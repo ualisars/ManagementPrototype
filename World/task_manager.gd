@@ -1,5 +1,9 @@
 extends Node
 
+@export_file("*.jpg") var brigands_image
+@export_file("*.jpg") var werewolves_image
+@export_file("*.jpg") var vampires_image
+
 var rng = RandomNumberGenerator.new()
 
 var tasks: Array = []
@@ -21,6 +25,20 @@ func generate_task() -> Task:
 	var provider: Task.TaskProvider = Task.TaskProvider.values().pick_random()
 	
 	var task: Task = Task.new()
-	task.init(action, enemy, enemy_number, mage_number, provider)
+	var image_path: String = add_image_path(enemy)
+	task.init(action, enemy, enemy_number, mage_number, provider, image_path)
 	
 	return task
+	
+func add_image_path(enemy_type: Task.EnemyType) -> String:
+	match enemy_type:
+		Task.EnemyType.BRIGAND:
+			return brigands_image
+		Task.EnemyType.VAMPIRE:
+			return vampires_image
+		Task.EnemyType.WEREWOLF:
+			return werewolves_image
+		_:
+			print_debug("incorrect enemy type")
+			return ""
+	
