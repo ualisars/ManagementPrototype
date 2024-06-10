@@ -1,5 +1,7 @@
 extends Control
 
+@export_file("*.tscn") var parent_scene_file
+
 @export var MAX_TASK_NUMBER: int = 3
 
 @onready var title1: Label = $TasksContainer/TaskContainer1/Title
@@ -21,6 +23,8 @@ extends Control
 
 
 func _ready() -> void:
+	Messenger.NEW_SCENE_OPENED.emit(parent_scene_file)
+	
 	var titles: Array = [
 		title1,
 		title2,

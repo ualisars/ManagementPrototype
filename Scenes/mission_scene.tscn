@@ -12,9 +12,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dx0wp")
+parent_scene_file = "res://Interface/General/player_interface.tscn"
 
 [node name="PlayerInfoContainer" parent="." instance=ExtResource("1_woyvw")]
 layout_mode = 0
+parent_scene_file = "res://Scenes/mission_scene.tscn"
 
 [node name="TasksContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
