@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://o7s4bjxiyenh"]
+
+[ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="1_qo8nk"]
+[ext_resource type="Script" path="res://Tasks/character_info_small.gd" id="1_yo1fq"]
+[ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_s7y8s"]
+[ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_ewn8m"]
+[ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_mxb3r"]
+[ext_resource type="Texture2D" uid="uid://beu3rdvni3a5a" path="res://Images/gift-of-knowledge.svg" id="5_c75b1"]
+
+[node name="CharacterInfoSmall" type="TextureRect"]
+custom_minimum_size = Vector2(120, 120)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1032.0
+offset_bottom = -523.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yo1fq")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 23.0
+text = "Name"
+horizontal_alignment = 1
+
+[node name="CharacterImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 56.0
+offset_bottom = 78.0
+texture = ExtResource("1_qo8nk")
+expand_mode = 1
+
+[node name="CharacteristicsLayout" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 21.0
+offset_right = 124.0
+offset_bottom = 125.0
+columns = 2
+
+[node name="AttackImage" type="TextureRect" parent="CharacteristicsLayout"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_s7y8s")
+expand_mode = 1
+
+[node name="AttackValue" type="Label" parent="CharacteristicsLayout"]
+layout_mode = 2
+text = "30"
+
+[node name="DefenseImage" type="TextureRect" parent="CharacteristicsLayout"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_ewn8m")
+expand_mode = 1
+
+[node name="DefenseValue" type="Label" parent="CharacteristicsLayout"]
+layout_mode = 2
+text = "30"
+
+[node name="HealthImage" type="TextureRect" parent="CharacteristicsLayout"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_mxb3r")
+expand_mode = 1
+
+[node name="HealthValue" type="Label" parent="CharacteristicsLayout"]
+layout_mode = 2
+text = "30"
+
+[node name="ConcentrationImage" type="TextureRect" parent="CharacteristicsLayout"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("5_c75b1")
+expand_mode = 1
+
+[node name="ConcentrationValue" type="Label" parent="CharacteristicsLayout"]
+layout_mode = 2
+text = "30"
+
+[node name="Add" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 47.0
+offset_bottom = 119.0
+text = "Add"

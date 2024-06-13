@@ -27,3 +27,5 @@ signal SPELL_ICON_MOUSE_EXITED
 signal SPELL_LEARNT(spell: Node)
 
 signal NEW_SCENE_OPENED(scene_file_path: String)
+
+signal INIT_CHARACTER_INFO(id: int, characteristic: Characterictic)

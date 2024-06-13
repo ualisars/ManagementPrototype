@@ -29,6 +29,9 @@ var hire_button: Button = Button.new()
 
 var is_hirable: bool = false
 
+var CONTAINER_SIZE_X: int = 300
+var CONTAINER_SIZE_Y: int = 300
+
 var BUTTON_SIZE_LARGE = {
 	"size_x": 100,
 	"size_y": 40,
@@ -126,12 +129,14 @@ func init_layout() -> void:
 	var image_size_x: int = 40
 	var size_y: int = 23
 	var label_size_x: int = 68
+	var image_position_x: int = 106
+	var label_position_x: int = 176
 	
 	UiCommon.add_image(
 		cost_image, 
 		UiCommon.cost_texture_path, 
 		image_size_x, 
-		40, 
+		size_y,
 		96, 
 		140
 	)

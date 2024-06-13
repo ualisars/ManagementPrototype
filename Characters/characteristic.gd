@@ -1,5 +1,7 @@
 extends Node
 
+class_name Characterictic
+
 var health: int = 10
 var attack: int = 2
 var defense: int = 3
