@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://yvhbusgaq0im"]
+[gd_scene load_steps=5 format=3 uid="uid://yvhbusgaq0im"]
 
 [ext_resource type="Script" path="res://Scenes/mission_scene.gd" id="1_dx0wp"]
 [ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="1_woyvw"]
 [ext_resource type="PackedScene" uid="uid://b7a5o1j3ysaw0" path="res://Interface/Missions/task_container.tscn" id="2_4wfc1"]
+[ext_resource type="PackedScene" uid="uid://bv8setj36ghkl" path="res://Interface/Missions/task_characters_container.tscn" id="4_0va7r"]
 
 [node name="MissionScene" type="Control"]
 layout_mode = 3
@@ -39,6 +40,19 @@ layout_mode = 2
 
 [node name="TaskContainer3" parent="TasksContainer" instance=ExtResource("2_4wfc1")]
 layout_mode = 2
+
+[node name="TaskCharactersContainer" parent="." instance=ExtResource("4_0va7r")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -253.0
+offset_right = 388.0
+offset_bottom = 296.0
 
 [editable path="TasksContainer/TaskContainer1"]
 [editable path="TasksContainer/TaskContainer2"]

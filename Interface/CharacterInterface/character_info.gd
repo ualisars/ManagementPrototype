@@ -29,42 +29,124 @@ var hire_button: Button = Button.new()
 
 var is_hirable: bool = false
 
+var BUTTON_SIZE_LARGE = {
+	"size_x": 100,
+	"size_y": 40,
+	"position_x": 80,
+	"position_y": 190
+}
+
 func add_button(button: Button) -> void:
 	button.text = "Hire"
 	
-	button.custom_minimum_size.x = 100
-	button.custom_minimum_size.y = 40
+	button.custom_minimum_size.x = BUTTON_SIZE_LARGE["size_x"]
+	button.custom_minimum_size.y = BUTTON_SIZE_LARGE["size_y"]
 	
-	button.size.x = 100
-	button.size.y = 40
+	button.size.x = BUTTON_SIZE_LARGE["size_x"]
+	button.size.y = BUTTON_SIZE_LARGE["size_y"]
 	
-	button.position.x = 80
-	button.position.y = 190
+	button.position.x = BUTTON_SIZE_LARGE["position_x"]
+	button.position.y = BUTTON_SIZE_LARGE["position_y"]
 	
 	button.connect("pressed", on_hire_button_pressed)
 	
 func on_hire_button_pressed():
 	Messenger.UNIT_HIRED.emit(characteristics)
+	
+func add_characteristic_layout(
+	image: TextureRect, 
+	texture_path: String,
+	label: Label,
+	position_y: int
+):
+	var image_size_x: int = 40
+	var image_position_x: int = 106
+	var size_y: int = 23
+	var label_size_x: int = 68
+	var label_position_x: int = 176
+	
+	
+	UiCommon.add_image(
+		image,
+		texture_path,
+		image_size_x,
+		size_y,
+		image_position_x,
+		position_y
+	)
+	UiCommon.add_label(label, label_size_x, size_y, label_position_x, position_y)
+	
+	
+func init_characteristics_layout():
+	var image_size_x: int = 40
+	var size_y: int = 23
+	var label_size_x: int = 68
+	
+	var start_position_y: int = 17
+	var offset_position_y: int = 34
+	
+	var data = [
+		{
+			"image": attack_image, 
+			"texture_path": UiCommon.attack_texture_path,
+			"label": attack_value
+		},
+		{
+			"image": defense_image, 
+			"texture_path": UiCommon.defense_texture_path,
+			"label": defense_value
+		},
+		{
+			"image": health_image, 
+			"texture_path": UiCommon.health_texture_path,
+			"label": health_value
+		},
+		{
+			"image": concentration_image, 
+			"texture_path": UiCommon.concentration_texture_path,
+			"label": concentration_value
+		}
+	]
+	
+	var position_y = start_position_y
+	
+	for characteristic in data: 
+		add_characteristic_layout(
+			characteristic["image"], 
+			characteristic["texture_path"], 
+			characteristic["label"],
+			position_y
+		)
+		
+		position_y += offset_position_y
 
 func init_layout() -> void:
-	UiCommon.add_image(attack_image, UiCommon.attack_texture_path, 40, 23, 106, 17)
-	UiCommon.add_label(attack_value, 68, 23, 176, 17)
+	init_characteristics_layout()
+
+	var image_size_x: int = 40
+	var size_y: int = 23
+	var label_size_x: int = 68
 	
-	UiCommon.add_image(defense_image, UiCommon.defense_texture_path, 40, 23, 106, 51)
-	UiCommon.add_label(defense_value, 68, 23, 176, 51)
+	UiCommon.add_image(
+		cost_image, 
+		UiCommon.cost_texture_path, 
+		image_size_x, 
+		40, 
+		96, 
+		140
+	)
+	UiCommon.add_label(cost_value, label_size_x, size_y, 146, 148)
 	
-	UiCommon.add_image(health_image, UiCommon.health_texture_path, 40, 23, 106, 83)
-	UiCommon.add_label(health_value, 68, 23, 176, 84)
+	UiCommon.add_label(character_name, 129, size_y, 20, 90)
 	
-	UiCommon.add_image(concentration_image, UiCommon.concentration_texture_path, 40, 23, 106, 110)
-	UiCommon.add_label(concentration_value, 68, 23, 176, 109)
-	
-	UiCommon.add_image(cost_image, UiCommon.cost_texture_path, 40, 40, 96, 140)
-	UiCommon.add_label(cost_value, 68, 23, 146, 148)
-	
-	UiCommon.add_label(character_name, 129, 23, 20, 90)
-	
-	UiCommon.add_image(character_image, UiCommon.character_texture_path, 96, 82, 0, 0)
+	UiCommon.add_image(
+		character_image, 
+		UiCommon.character_texture_path, 
+		96, 
+		82, 
+		0, 
+		0
+	)
 	
 	add_button(hire_button)
 	
