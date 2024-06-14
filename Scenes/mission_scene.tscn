@@ -34,14 +34,18 @@ theme_override_constants/separation = 40
 
 [node name="TaskContainer1" parent="TasksContainer" instance=ExtResource("2_4wfc1")]
 layout_mode = 2
+task_id = 1
 
 [node name="TaskContainer2" parent="TasksContainer" instance=ExtResource("2_4wfc1")]
 layout_mode = 2
+task_id = 2
 
 [node name="TaskContainer3" parent="TasksContainer" instance=ExtResource("2_4wfc1")]
 layout_mode = 2
+task_id = 3
 
 [node name="TaskCharactersContainer" parent="." instance=ExtResource("4_0va7r")]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

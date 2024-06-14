@@ -74,3 +74,5 @@ text = "Accept"
 [node name="DeclineButton" type="Button" parent="ButtonsMarginContainer/ButtonsContainer"]
 layout_mode = 2
 text = "Decline"
+
+[connection signal="pressed" from="ButtonsMarginContainer/ButtonsContainer/AcceptButton" to="." method="_on_accept_button_pressed"]

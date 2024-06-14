@@ -2,19 +2,33 @@ extends VBoxContainer
 
 class_name TaskContainer
 
+@export var task_id: int
+
+var task: Task
+
 @onready var title_label: Label = $Title
 @onready var task_provider_label: Label = $TaskProvider
-@onready var description_label: Label = $Description
-@onready var task_texture_label: TextureRect = $TaskTexture
-@onready var bounty_value_label: Label = $BountyMarginContainer/BountyContainer/BountyValue
+@onready var task_texture: TextureRect = $TaskTexture
 @onready var mage_number_value_label: Label = $HBoxContainer/MageNumberValue
 
 
-var title: String
-var provider: String
-var mage_number_value: String
+func _ready() -> void:
+	Messenger.INIT_TASK_CONTAINER.connect(on_init_task_container)
 
-func init(task: Task) -> void:
-	title = task.task_title
-	provider = str(task.task_provider)
-	mage_number_value = str(task.mage_number)
+func _on_accept_button_pressed() -> void:
+	Messenger.TASK_CHOSEN.emit(task.mage_number)
+	
+func on_init_task_container(id: int, passed_task: Task):
+	if id == task_id:
+		task = passed_task
+		
+		init_container()
+		
+
+func init_container():
+	title_label.text = task.task_title
+	task_provider_label.text = task.task_provider
+	mage_number_value_label.text = str(task.mage_number)
+	
+	var image = load(task.image_path)
+	task_texture.texture = image
