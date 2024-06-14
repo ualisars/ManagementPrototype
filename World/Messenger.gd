@@ -33,3 +33,5 @@ signal INIT_CHARACTER_INFO(id: int, characteristic: Characterictic)
 signal INIT_TASK_CONTAINER(id: int, task: Task)
 
 signal TASK_CHOSEN(mage_number: int)
+
+signal TASK_CLOSED()

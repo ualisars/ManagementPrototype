@@ -23,7 +23,6 @@ func on_init_task_container(id: int, passed_task: Task):
 		task = passed_task
 		
 		init_container()
-		
 
 func init_container():
 	title_label.text = task.task_title

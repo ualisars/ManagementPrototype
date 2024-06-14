@@ -43,3 +43,11 @@ func on_task_chosen(task_mage_number: int):
 	show_task_character_slots()
 	
 	show_character_layout()
+
+func init_container():
+	for slot in task_character_slots:
+		slot.visible = false
+
+
+func _on_close_button_pressed() -> void:
+	Messenger.TASK_CLOSED.emit()
