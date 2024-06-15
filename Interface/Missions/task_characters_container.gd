@@ -3,6 +3,9 @@ extends TextureRect
 var current_task: Task
 
 var task_character_slots: Array
+var character_info_slots: Array
+
+var character_info_ids = [101, 102, 103, 104, 105, 106]
 
 var characters_added: int = 0
 
@@ -14,6 +17,13 @@ var CharacterInfoClass: PackedScene = preload("res://Interface/CharacterInterfac
 @onready var task_character_slot_4: Panel = $GridContainer/TaskCharacterSlot4
 @onready var task_character_slot_5: Panel = $GridContainer/TaskCharacterSlot5
 @onready var task_character_slot_6: Panel = $GridContainer/TaskCharacterSlot6
+
+@onready var character_info_small_1: TextureRect = $GridContainer/CharacterInfoSmall1
+@onready var character_info_small_2: TextureRect = $GridContainer/CharacterInfoSmall2
+@onready var character_info_small_3: TextureRect = $GridContainer/CharacterInfoSmall3
+@onready var character_info_small_4: TextureRect = $GridContainer/CharacterInfoSmall4
+@onready var character_info_small_5: TextureRect = $GridContainer/CharacterInfoSmall5
+@onready var character_info_small_6: TextureRect = $GridContainer/CharacterInfoSmall6
 
 func _ready() -> void:
 	Messenger.TASK_OPENED.connect(on_task_opened)
@@ -28,7 +38,14 @@ func _ready() -> void:
 		task_character_slot_6
 	]
 	
-var character_info_ids: Array = [101, 102, 103, 104, 105, 106]
+	character_info_slots = [
+		character_info_small_1,
+		character_info_small_2,
+		character_info_small_3,
+		character_info_small_4,
+		character_info_small_5,
+		character_info_small_6,
+	]
 
 func show_task_character_slots() -> void:
 	var character_info_index: int = 0
@@ -77,6 +94,9 @@ func init_container():
 	characters_added = 0
 	
 	for slot in task_character_slots:
+		slot.visible = false
+		
+	for slot in character_info_slots:
 		slot.visible = false
 
 
