@@ -104,12 +104,28 @@ layout_mode = 2
 text = "30"
 label_settings = SubResource("LabelSettings_dbp2y")
 
-[node name="Add" type="Button" parent="."]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 88.0
-offset_right = 47.0
-offset_bottom = 119.0
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.5
+offset_top = -31.0
+offset_right = 35.5
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="AddButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
 text = "Add"
 
-[connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
+[node name="RemoveButton" type="Button" parent="ButtonContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+text = "Remove"
+
+[connection signal="pressed" from="ButtonContainer/AddButton" to="." method="_on_add_pressed"]

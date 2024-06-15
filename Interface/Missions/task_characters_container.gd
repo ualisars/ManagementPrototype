@@ -47,6 +47,8 @@ func show_task_character_slots() -> void:
 				task
 			)
 			
+			Messenger.CHARACTER_INFO_STATE_CHANGES.emit(character_info_id)
+			
 			characters_added += 1
 			character_info_index += 1
 			

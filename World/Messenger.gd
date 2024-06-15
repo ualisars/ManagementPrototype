@@ -37,3 +37,5 @@ signal TASK_OPENED(task: Task)
 signal TASK_CLOSED()
 
 signal CHARACTER_ADDED_TO_TASK(characteristic: Characterictic, task: Task)
+
+signal CHARACTER_INFO_STATE_CHANGES(character_info_id: int)
