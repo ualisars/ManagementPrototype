@@ -34,36 +34,6 @@ offset_bottom = 128.0
 grow_horizontal = 2
 columns = 6
 
-[node name="TaskCharacterSlot1" type="Panel" parent="GridContainer"]
-visible = false
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-
-[node name="TaskCharacterSlot2" type="Panel" parent="GridContainer"]
-visible = false
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-
-[node name="TaskCharacterSlot3" type="Panel" parent="GridContainer"]
-visible = false
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-
-[node name="TaskCharacterSlot4" type="Panel" parent="GridContainer"]
-visible = false
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-
-[node name="TaskCharacterSlot5" type="Panel" parent="GridContainer"]
-visible = false
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-
-[node name="TaskCharacterSlot6" type="Panel" parent="GridContainer"]
-visible = false
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-
 [node name="CharacterInfoSmall1" parent="GridContainer" instance=ExtResource("2_nhvut")]
 visible = false
 layout_mode = 2
@@ -93,6 +63,36 @@ characteristic_id = 105
 visible = false
 layout_mode = 2
 characteristic_id = 106
+
+[node name="TaskCharacterSlot1" type="Panel" parent="GridContainer"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="TaskCharacterSlot2" type="Panel" parent="GridContainer"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="TaskCharacterSlot3" type="Panel" parent="GridContainer"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="TaskCharacterSlot4" type="Panel" parent="GridContainer"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="TaskCharacterSlot5" type="Panel" parent="GridContainer"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="TaskCharacterSlot6" type="Panel" parent="GridContainer"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
 
 [node name="PlayerCharacterScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(0, 300)

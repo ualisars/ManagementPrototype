@@ -4,6 +4,8 @@ var current_task: Task
 
 var task_character_slots: Array
 
+var characters_added: int = 0
+
 var CharacterInfoClass: PackedScene = preload("res://Interface/CharacterInterface/character_info.tscn")
 
 @onready var task_character_slot_1: Panel = $GridContainer/TaskCharacterSlot1
@@ -15,6 +17,7 @@ var CharacterInfoClass: PackedScene = preload("res://Interface/CharacterInterfac
 
 func _ready() -> void:
 	Messenger.TASK_OPENED.connect(on_task_opened)
+	Messenger.CHARACTER_ADDED_TO_TASK.connect(on_character_added_to_task)
 	
 	task_character_slots = [
 		task_character_slot_1,
@@ -24,9 +27,33 @@ func _ready() -> void:
 		task_character_slot_5,
 		task_character_slot_6
 	]
+	
+var character_info_ids: Array = [101, 102, 103, 104, 105, 106]
 
 func show_task_character_slots() -> void:
-	for index in range(0, current_task.mage_number):
+	var character_info_index: int = 0
+	
+	for character_id in TaskManager.character_added_to_tasks:
+		var character_to_task = TaskManager.character_added_to_tasks[character_id]
+		
+		var task: Task = character_to_task["task"]
+		if task.id == current_task.id:
+			var character_info_id = character_info_ids[character_info_index]
+			var characteristic: Characterictic = character_to_task["character"]
+			
+			Messenger.INIT_CHARACTER_INFO.emit(
+				character_info_id, 
+				characteristic, 
+				task
+			)
+			
+			characters_added += 1
+			character_info_index += 1
+			
+	
+	var free_slots: int = current_task.mage_number - characters_added
+	
+	for index in range(0, free_slots):
 		var task_character_slot: Panel = task_character_slots[index]
 		task_character_slot.visible = true
 		
@@ -45,6 +72,8 @@ func on_task_opened(task: Task):
 	show_character_layout()
 
 func init_container():
+	characters_added = 0
+	
 	for slot in task_character_slots:
 		slot.visible = false
 
@@ -57,3 +86,8 @@ func _on_close_button_pressed() -> void:
 
 func _on_accept_button_pressed() -> void:
 	pass
+	
+func on_character_added_to_task(_characteristic: Characterictic, _task: Task) -> void:
+	init_container()
+	
+	show_task_character_slots()
