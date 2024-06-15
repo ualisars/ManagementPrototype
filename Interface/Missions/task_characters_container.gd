@@ -51,3 +51,9 @@ func init_container():
 
 func _on_close_button_pressed() -> void:
 	Messenger.TASK_CLOSED.emit()
+	
+	init_container()
+
+
+func _on_accept_button_pressed() -> void:
+	pass

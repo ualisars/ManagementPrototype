@@ -2,7 +2,7 @@ extends VBoxContainer
 
 class_name TaskContainer
 
-@export var task_id: int
+@export var task_number: int
 
 var task: Task
 
@@ -18,8 +18,8 @@ func _ready() -> void:
 func _on_accept_button_pressed() -> void:
 	Messenger.TASK_CHOSEN.emit(task.mage_number)
 	
-func on_init_task_container(id: int, passed_task: Task):
-	if id == task_id:
+func on_init_task_container(number: int, passed_task: Task):
+	if task_number == number:
 		task = passed_task
 		
 		init_container()

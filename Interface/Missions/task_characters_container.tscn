@@ -1,9 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bv8setj36ghkl"]
 
+[ext_resource type="Texture2D" uid="uid://cent212mloi1m" path="res://Images/mages.jpg" id="1_gb3pu"]
 [ext_resource type="Script" path="res://Interface/Missions/task_characters_container.gd" id="1_ybew4"]
 [ext_resource type="PackedScene" uid="uid://o7s4bjxiyenh" path="res://Tasks/character_info_small.tscn" id="2_nhvut"]
-
-[sub_resource type="Texture2DRD" id="Texture2DRD_f6tvw"]
 
 [node name="TaskCharactersContainer" type="TextureRect"]
 custom_minimum_size = Vector2(300, 400)
@@ -19,7 +18,8 @@ offset_bottom = 549.24
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-texture = SubResource("Texture2DRD_f6tvw")
+texture = ExtResource("1_gb3pu")
+expand_mode = 1
 script = ExtResource("1_ybew4")
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -79,60 +79,71 @@ grow_vertical = 2
 
 [node name="PlayerCharactersGridContainer" type="GridContainer" parent="PlayerCharacterScrollContainer"]
 layout_mode = 2
-columns = 6
+columns = 5
 
 [node name="CharacterInfoSmall1" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 1
 
 [node name="CharacterInfoSmall2" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 2
 
 [node name="CharacterInfoSmall3" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 3
 
 [node name="CharacterInfoSmall4" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 4
 
 [node name="CharacterInfoSmall5" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 5
 
 [node name="CharacterInfoSmall6" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 6
 
 [node name="CharacterInfoSmall7" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 7
 
 [node name="CharacterInfoSmall8" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 8
 
 [node name="CharacterInfoSmall9" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 9
 
 [node name="CharacterInfoSmall10" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 10
 
 [node name="CharacterInfoSmall11" parent="PlayerCharacterScrollContainer/PlayerCharactersGridContainer" instance=ExtResource("2_nhvut")]
 visible = false
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 characteristic_id = 11
 
@@ -164,6 +175,7 @@ offset_right = 456.0
 offset_bottom = 531.0
 text = "Close"
 
+[connection signal="pressed" from="AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 
 [editable path="PlayerCharacterScrollContainer/PlayerCharactersGridContainer/CharacterInfoSmall1"]

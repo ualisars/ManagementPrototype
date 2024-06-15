@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://o7s4bjxiyenh"]
+[gd_scene load_steps=8 format=3 uid="uid://o7s4bjxiyenh"]
 
+[ext_resource type="Texture2D" uid="uid://bddm7rsjtikb4" path="res://Images/grey.png" id="1_q5vv6"]
 [ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="1_qo8nk"]
 [ext_resource type="Script" path="res://Tasks/character_info_small.gd" id="1_yo1fq"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_s7y8s"]
@@ -16,6 +17,8 @@ offset_right = -1032.0
 offset_bottom = -523.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_q5vv6")
+expand_mode = 1
 script = ExtResource("1_yo1fq")
 
 [node name="Name" type="Label" parent="."]

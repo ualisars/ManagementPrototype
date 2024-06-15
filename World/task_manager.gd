@@ -4,6 +4,8 @@ extends Node
 @export_file("*.jpg") var werewolves_image
 @export_file("*.jpg") var vampires_image
 
+var id: int = 1
+
 var rng = RandomNumberGenerator.new()
 
 var tasks: Array = []
@@ -26,7 +28,9 @@ func generate_task() -> Task:
 	
 	var task: Task = Task.new()
 	var image_path: String = add_image_path(enemy)
-	task.init(action, enemy, enemy_number, mage_number, provider, image_path)
+	task.init(action, enemy, enemy_number, mage_number, provider, image_path, id)
+	
+	id += 1
 	
 	return task
 	
