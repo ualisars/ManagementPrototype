@@ -35,7 +35,7 @@ func show_character_layout() -> void:
 	for index in range(0, Player.party.size()):
 		var characteristic: Characterictic = Player.party[index]
 		var character_info_id: int = index + 1
-		Messenger.INIT_CHARACTER_INFO.emit(character_info_id, characteristic)
+		Messenger.INIT_CHARACTER_INFO.emit(character_info_id, characteristic, current_task)
 		
 func on_task_opened(task: Task):
 	current_task = task

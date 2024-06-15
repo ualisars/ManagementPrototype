@@ -64,6 +64,36 @@ visible = false
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 
+[node name="CharacterInfoSmall1" parent="GridContainer" instance=ExtResource("2_nhvut")]
+visible = false
+layout_mode = 2
+characteristic_id = 101
+
+[node name="CharacterInfoSmall2" parent="GridContainer" instance=ExtResource("2_nhvut")]
+visible = false
+layout_mode = 2
+characteristic_id = 102
+
+[node name="CharacterInfoSmall3" parent="GridContainer" instance=ExtResource("2_nhvut")]
+visible = false
+layout_mode = 2
+characteristic_id = 103
+
+[node name="CharacterInfoSmall4" parent="GridContainer" instance=ExtResource("2_nhvut")]
+visible = false
+layout_mode = 2
+characteristic_id = 104
+
+[node name="CharacterInfoSmall5" parent="GridContainer" instance=ExtResource("2_nhvut")]
+visible = false
+layout_mode = 2
+characteristic_id = 105
+
+[node name="CharacterInfoSmall6" parent="GridContainer" instance=ExtResource("2_nhvut")]
+visible = false
+layout_mode = 2
+characteristic_id = 106
+
 [node name="PlayerCharacterScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 1

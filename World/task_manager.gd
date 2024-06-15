@@ -10,8 +10,15 @@ var rng = RandomNumberGenerator.new()
 
 var tasks: Array = []
 
+var character_added_to_tasks: Dictionary
+
 func _ready() -> void:
+	Messenger.CHARACTER_ADDED_TO_TASK.connect(on_character_added_to_task)
+	
 	generate_tasks()
+	
+func on_character_added_to_task(characteristic: Characterictic, task: Task) -> void:
+	add_character_to_task(characteristic, task)
 
 func generate_tasks() -> void:
 	for index in range(3):
@@ -33,6 +40,16 @@ func generate_task() -> Task:
 	id += 1
 	
 	return task
+	
+func add_character_to_task(character: Characterictic, task: Task):
+	var character_id: int = character.id
+	
+	if not character_added_to_tasks.get(character_id):
+		var character_to_task = {
+			"character": character,
+			"task": task
+		}
+		character_added_to_tasks[character_id] = character_to_task
 	
 func add_image_path(enemy_type: Task.EnemyType) -> String:
 	match enemy_type:

@@ -10,22 +10,26 @@ extends TextureRect
 @onready var concentration_value: Label = $CharacteristicsLayout/ConcentrationValue
 
 var charactetistic: Characterictic
+var task: Task
 
 
 func _ready() -> void:
 	Messenger.INIT_CHARACTER_INFO.connect(on_init_character_info)
 	
 
-func on_init_character_info(id: int, characteristic: Characterictic):
+func on_init_character_info(id: int, _characteristic: Characterictic, _task: Task):
 	if id == characteristic_id:
-		character_name.text = str(characteristic.character_name)
-		attack_value.text = str(characteristic.attack)
-		defense_value.text = str(characteristic.defense)
-		health_value.text = str(characteristic.health)
-		concentration_value.text = str(characteristic.concentration)
+		charactetistic = _characteristic
+		task = _task
+		
+		character_name.text = str(_characteristic.character_name)
+		attack_value.text = str(_characteristic.attack)
+		defense_value.text = str(_characteristic.defense)
+		health_value.text = str(_characteristic.health)
+		concentration_value.text = str(_characteristic.concentration)
 		
 		visible = true
 
 
 func _on_add_pressed() -> void:
-	print("add character to task")
+	Messenger.CHARACTER_ADDED_TO_TASK.emit(charactetistic, task)
