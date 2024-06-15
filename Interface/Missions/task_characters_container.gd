@@ -25,9 +25,13 @@ var CharacterInfoClass: PackedScene = preload("res://Interface/CharacterInterfac
 @onready var character_info_small_5: TextureRect = $GridContainer/CharacterInfoSmall5
 @onready var character_info_small_6: TextureRect = $GridContainer/CharacterInfoSmall6
 
+@onready var accept_button: Button = $AcceptButton
+
 func _ready() -> void:
 	Messenger.TASK_OPENED.connect(on_task_opened)
 	Messenger.CHARACTER_ADDED_TO_TASK.connect(on_character_added_to_task)
+	
+	accept_button.disabled = true
 	
 	task_character_slots = [
 		task_character_slot_1,
@@ -54,6 +58,7 @@ func show_task_character_slots() -> void:
 		var character_to_task = TaskManager.character_added_to_tasks[character_id]
 		
 		var task: Task = character_to_task["task"]
+		
 		if task.id == current_task.id:
 			var character_info_id = character_info_ids[character_info_index]
 			var characteristic: Characterictic = character_to_task["character"]
@@ -69,13 +74,14 @@ func show_task_character_slots() -> void:
 			characters_added += 1
 			character_info_index += 1
 			
-	
 	var free_slots: int = current_task.mage_number - characters_added
 	
-	for index in range(0, free_slots):
-		var task_character_slot: Panel = task_character_slots[index]
-		task_character_slot.visible = true
-		
+	if free_slots <= 0:
+		accept_button.disabled = false
+	else:
+		for index in range(0, free_slots):
+			var task_character_slot: Panel = task_character_slots[index]
+			task_character_slot.visible = true	
 
 func show_character_layout() -> void:
 	for index in range(0, Player.party.size()):
@@ -98,6 +104,8 @@ func init_container():
 		
 	for slot in character_info_slots:
 		slot.visible = false
+		
+	accept_button.disabled = true
 
 
 func _on_close_button_pressed() -> void:
