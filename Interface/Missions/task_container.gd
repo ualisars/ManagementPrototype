@@ -16,7 +16,7 @@ func _ready() -> void:
 	Messenger.INIT_TASK_CONTAINER.connect(on_init_task_container)
 
 func _on_accept_button_pressed() -> void:
-	Messenger.TASK_CHOSEN.emit(task.mage_number)
+	Messenger.TASK_OPENED.emit(task)
 	
 func on_init_task_container(number: int, passed_task: Task):
 	if task_number == number:

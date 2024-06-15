@@ -10,7 +10,7 @@ extends Control
 func _ready() -> void:
 	Messenger.NEW_SCENE_OPENED.emit(parent_scene_file)
 	
-	Messenger.TASK_CHOSEN.connect(on_task_chosen)
+	Messenger.TASK_OPENED.connect(on_task_opened)
 	
 	Messenger.TASK_CLOSED.connect(on_task_closed)
 
@@ -19,7 +19,7 @@ func _ready() -> void:
 		var task_number: int = index + 1
 		Messenger.INIT_TASK_CONTAINER.emit(task_number, task)
 		
-func on_task_chosen(_mage_number: int):
+func on_task_opened(_task: Task):
 	task_characters_container.visible = true
 	
 

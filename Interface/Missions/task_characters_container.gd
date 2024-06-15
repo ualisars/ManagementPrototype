@@ -1,6 +1,6 @@
 extends TextureRect
 
-var mage_number: int
+var current_task: Task
 
 var task_character_slots: Array
 
@@ -14,7 +14,7 @@ var CharacterInfoClass: PackedScene = preload("res://Interface/CharacterInterfac
 @onready var task_character_slot_6: Panel = $GridContainer/TaskCharacterSlot6
 
 func _ready() -> void:
-	Messenger.TASK_CHOSEN.connect(on_task_chosen)
+	Messenger.TASK_OPENED.connect(on_task_opened)
 	
 	task_character_slots = [
 		task_character_slot_1,
@@ -26,7 +26,7 @@ func _ready() -> void:
 	]
 
 func show_task_character_slots() -> void:
-	for index in range(0, mage_number):
+	for index in range(0, current_task.mage_number):
 		var task_character_slot: Panel = task_character_slots[index]
 		task_character_slot.visible = true
 		
@@ -37,8 +37,8 @@ func show_character_layout() -> void:
 		var character_info_id: int = index + 1
 		Messenger.INIT_CHARACTER_INFO.emit(character_info_id, characteristic)
 		
-func on_task_chosen(task_mage_number: int):
-	mage_number = task_mage_number
+func on_task_opened(task: Task):
+	current_task = task
 	
 	show_task_character_slots()
 	
