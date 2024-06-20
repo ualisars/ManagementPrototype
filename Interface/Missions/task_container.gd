@@ -9,6 +9,7 @@ var task: Task
 @onready var title_label: Label = $Title
 @onready var task_provider_label: Label = $TaskProvider
 @onready var task_texture: TextureRect = $TaskTexture
+
 @onready var mage_number_value_label: Label = $HBoxContainer/MageNumberValue
 
 

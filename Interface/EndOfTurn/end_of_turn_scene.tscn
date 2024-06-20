@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://1jkji3owhd5"]
+
+[ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="1_8b51s"]
+[ext_resource type="Script" path="res://Interface/EndOfTurn/end_of_turn_scene.gd" id="1_nodla"]
+[ext_resource type="Texture2D" uid="uid://bddm7rsjtikb4" path="res://Images/grey.png" id="2_ykm42"]
+[ext_resource type="PackedScene" uid="uid://5nxehx4vbaun" path="res://Interface/EndOfTurn/task_container_end_of_turn.tscn" id="3_cf46h"]
+
+[node name="EndOfTurnScene" type="Control"]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 645.0
+script = ExtResource("1_nodla")
+
+[node name="PlayerInfoContainer" parent="." instance=ExtResource("1_8b51s")]
+custom_minimum_size = Vector2(800, 20)
+layout_mode = 2
+offset_left = 1.0
+offset_top = 2.0
+offset_bottom = 56.0
+parent_scene_file = "res://Interface/EndOfTurn/end_of_turn_scene.tscn"
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 5.0
+offset_top = 75.0
+offset_right = 1149.0
+offset_bottom = 650.0
+texture = ExtResource("2_ykm42")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = -4.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="TaskContainerEndOfScene" parent="Background/HBoxContainer" instance=ExtResource("3_cf46h")]
+layout_mode = 2
+
+[node name="TaskContainerEndOfScene2" parent="Background/HBoxContainer" instance=ExtResource("3_cf46h")]
+layout_mode = 2
+
+[node name="TaskContainerEndOfScene3" parent="Background/HBoxContainer" instance=ExtResource("3_cf46h")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 533.0
+offset_right = 595.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(0.380392, 0.541176, 0.352941, 1)
+theme_override_font_sizes/font_size = 20
+text = "End Turn"
