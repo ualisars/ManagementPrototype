@@ -109,7 +109,7 @@ characteristic_id = 505
 [node name="CharacterInfoSmall6" parent="Background/HBoxContainer/TaskContainerEndOfScene3/ChosenCharacters" index="5"]
 characteristic_id = 506
 
-[node name="Button" type="Button" parent="Background"]
+[node name="EndOfTurnButton" type="Button" parent="Background"]
 layout_mode = 0
 offset_left = 517.0
 offset_top = 533.0

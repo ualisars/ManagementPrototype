@@ -58,7 +58,8 @@ func init_character_info():
 		
 	
 func init_chosen_characters():
-	var character_info_id = start_number
+	var current_task: Task
+	var task_characters: Array = []
 	
 	for character_id in TaskManager.character_added_to_tasks:
 		var task_data = TaskManager.character_added_to_tasks[character_id]
@@ -67,10 +68,15 @@ func init_chosen_characters():
 		var characteristic: Characterictic = task_data["character"]
 		
 		if task.task_number == task_number:
+			current_task = task
+			task_characters.append(characteristic)
+	
+	if current_task and current_task.mage_number == task_characters.size():
+		var character_info_id = start_number
+		for characteristic in task_characters:
 			Messenger.INIT_CHARACTER_INFO.emit(
 				character_info_id, 
 				characteristic, 
 				task
 			)
-			
 			character_info_id += 1
