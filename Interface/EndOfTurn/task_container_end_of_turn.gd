@@ -80,3 +80,5 @@ func init_chosen_characters():
 				task
 			)
 			character_info_id += 1
+			
+		Messenger.TASK_FILLED.emit(current_task, task_characters)

@@ -117,6 +117,7 @@ offset_right = 595.0
 offset_bottom = 570.0
 theme_override_colors/font_color = Color(0.380392, 0.541176, 0.352941, 1)
 theme_override_font_sizes/font_size = 20
+disabled = true
 text = "End Turn"
 
 [editable path="Background/HBoxContainer/TaskContainerEndOfScene"]
