@@ -25,6 +25,7 @@ var task_provider: String
 var task_title: String
 var image_path: String
 var id: int
+var task_number: int
 
 func init(
 	_action: ActionType, 
@@ -33,7 +34,8 @@ func init(
 	_mage_number: int,
 	_task_provider: TaskProvider,
 	_image_path: String,
-	_id: int
+	_id: int,
+	_task_number: int
 	) -> void:
 		action = ActionType.keys()[_action]
 		enemy_type = EnemyType.keys()[_enemy_type]
@@ -42,4 +44,5 @@ func init(
 		task_provider = TaskProvider.keys()[_task_provider]
 		image_path = _image_path
 		id = _id
+		task_number = _task_number
 		task_title = action + " " + str(enemy_number) + " " + enemy_type

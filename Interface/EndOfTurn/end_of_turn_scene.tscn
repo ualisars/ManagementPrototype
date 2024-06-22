@@ -45,12 +45,69 @@ theme_override_constants/separation = 60
 
 [node name="TaskContainerEndOfScene" parent="Background/HBoxContainer" instance=ExtResource("3_cf46h")]
 layout_mode = 2
+task_number = 1
+
+[node name="CharacterInfoSmall1" parent="Background/HBoxContainer/TaskContainerEndOfScene/ChosenCharacters" index="0"]
+characteristic_id = 301
+
+[node name="CharacterInfoSmall2" parent="Background/HBoxContainer/TaskContainerEndOfScene/ChosenCharacters" index="1"]
+characteristic_id = 302
+
+[node name="CharacterInfoSmall3" parent="Background/HBoxContainer/TaskContainerEndOfScene/ChosenCharacters" index="2"]
+characteristic_id = 303
+
+[node name="CharacterInfoSmall4" parent="Background/HBoxContainer/TaskContainerEndOfScene/ChosenCharacters" index="3"]
+characteristic_id = 304
+
+[node name="CharacterInfoSmall5" parent="Background/HBoxContainer/TaskContainerEndOfScene/ChosenCharacters" index="4"]
+characteristic_id = 305
+
+[node name="CharacterInfoSmall6" parent="Background/HBoxContainer/TaskContainerEndOfScene/ChosenCharacters" index="5"]
+characteristic_id = 306
 
 [node name="TaskContainerEndOfScene2" parent="Background/HBoxContainer" instance=ExtResource("3_cf46h")]
 layout_mode = 2
+task_number = 2
+
+[node name="CharacterInfoSmall1" parent="Background/HBoxContainer/TaskContainerEndOfScene2/ChosenCharacters" index="0"]
+characteristic_id = 401
+
+[node name="CharacterInfoSmall2" parent="Background/HBoxContainer/TaskContainerEndOfScene2/ChosenCharacters" index="1"]
+characteristic_id = 402
+
+[node name="CharacterInfoSmall3" parent="Background/HBoxContainer/TaskContainerEndOfScene2/ChosenCharacters" index="2"]
+characteristic_id = 403
+
+[node name="CharacterInfoSmall4" parent="Background/HBoxContainer/TaskContainerEndOfScene2/ChosenCharacters" index="3"]
+characteristic_id = 404
+
+[node name="CharacterInfoSmall5" parent="Background/HBoxContainer/TaskContainerEndOfScene2/ChosenCharacters" index="4"]
+characteristic_id = 405
+
+[node name="CharacterInfoSmall6" parent="Background/HBoxContainer/TaskContainerEndOfScene2/ChosenCharacters" index="5"]
+characteristic_id = 406
 
 [node name="TaskContainerEndOfScene3" parent="Background/HBoxContainer" instance=ExtResource("3_cf46h")]
 layout_mode = 2
+task_number = 3
+
+[node name="CharacterInfoSmall1" parent="Background/HBoxContainer/TaskContainerEndOfScene3/ChosenCharacters" index="0"]
+characteristic_id = 501
+
+[node name="CharacterInfoSmall2" parent="Background/HBoxContainer/TaskContainerEndOfScene3/ChosenCharacters" index="1"]
+characteristic_id = 502
+
+[node name="CharacterInfoSmall3" parent="Background/HBoxContainer/TaskContainerEndOfScene3/ChosenCharacters" index="2"]
+characteristic_id = 503
+
+[node name="CharacterInfoSmall4" parent="Background/HBoxContainer/TaskContainerEndOfScene3/ChosenCharacters" index="3"]
+characteristic_id = 504
+
+[node name="CharacterInfoSmall5" parent="Background/HBoxContainer/TaskContainerEndOfScene3/ChosenCharacters" index="4"]
+characteristic_id = 505
+
+[node name="CharacterInfoSmall6" parent="Background/HBoxContainer/TaskContainerEndOfScene3/ChosenCharacters" index="5"]
+characteristic_id = 506
 
 [node name="Button" type="Button" parent="Background"]
 layout_mode = 0
@@ -61,3 +118,7 @@ offset_bottom = 570.0
 theme_override_colors/font_color = Color(0.380392, 0.541176, 0.352941, 1)
 theme_override_font_sizes/font_size = 20
 text = "End Turn"
+
+[editable path="Background/HBoxContainer/TaskContainerEndOfScene"]
+[editable path="Background/HBoxContainer/TaskContainerEndOfScene2"]
+[editable path="Background/HBoxContainer/TaskContainerEndOfScene3"]
