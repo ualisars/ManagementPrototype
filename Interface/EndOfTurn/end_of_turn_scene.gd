@@ -17,11 +17,12 @@ func _ready() -> void:
 	if filled_tasks_number > 0:
 		end_of_turn_button.disabled = false
 		
-func on_task_filled(task: Task, characterisctics: Array):
+func on_task_filled(task: Task, characterisctics: Array) -> void:
 	var task_to_character = {
 			"character": characterisctics,
 			"task": task
 		}
 	filled_tasks[task.task_number] = task_to_character
 	filled_tasks_number += 1
+	
 	end_of_turn_button.disabled = false
