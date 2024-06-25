@@ -26,6 +26,7 @@ var task_title: String
 var image_path: String
 var id: int
 var task_number: int
+var characters: Array = []
 
 func init(
 	_action: ActionType, 
@@ -46,3 +47,7 @@ func init(
 		id = _id
 		task_number = _task_number
 		task_title = action + " " + str(enemy_number) + " " + enemy_type
+		
+		for index in range(enemy_number):
+			var character: Characterictic = CharacterGenerator.create_character(false)
+			characters.append(character)

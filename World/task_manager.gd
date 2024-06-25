@@ -8,6 +8,8 @@ var id: int = 1
 
 var rng = RandomNumberGenerator.new()
 
+var current_task_info: Dictionary
+
 var tasks: Array = []
 
 var character_added_to_tasks: Dictionary
@@ -73,4 +75,6 @@ func add_image_path(enemy_type: Task.EnemyType) -> String:
 		_:
 			print_debug("incorrect enemy type")
 			return ""
-	
+
+func set_current_task(task_to_character: Dictionary) -> void:
+	current_task_info = task_to_character

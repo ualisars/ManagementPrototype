@@ -12,6 +12,7 @@ anchors_preset = 0
 offset_right = 1149.0
 offset_bottom = 645.0
 script = ExtResource("1_nodla")
+fight_scene_file = "res://Scenes/fight_scene.tscn"
 
 [node name="PlayerInfoContainer" parent="." instance=ExtResource("1_8b51s")]
 custom_minimum_size = Vector2(800, 20)
@@ -119,6 +120,8 @@ theme_override_colors/font_color = Color(0.380392, 0.541176, 0.352941, 1)
 theme_override_font_sizes/font_size = 20
 disabled = true
 text = "End Turn"
+
+[connection signal="pressed" from="Background/EndOfTurnButton" to="." method="_on_end_of_turn_button_pressed"]
 
 [editable path="Background/HBoxContainer/TaskContainerEndOfScene"]
 [editable path="Background/HBoxContainer/TaskContainerEndOfScene2"]
