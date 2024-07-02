@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn5a44nvhskam"]
+
+[ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="1_xmg07"]
+
+[node name="FightOverScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerInfoContainer" parent="HBoxContainer" instance=ExtResource("1_xmg07")]
+layout_mode = 2
