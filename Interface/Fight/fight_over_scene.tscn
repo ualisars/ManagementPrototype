@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn5a44nvhskam"]
+[gd_scene load_steps=4 format=3 uid="uid://dn5a44nvhskam"]
 
 [ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="1_xmg07"]
+[ext_resource type="Script" path="res://Interface/Fight/fight_over_scene.gd" id="1_y8uub"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pclty"]
+font_size = 32
 
 [node name="FightOverScene" type="Control"]
 layout_mode = 3
@@ -9,11 +13,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_y8uub")
+main_menu_scene_file = "res://Interface/General/player_interface.tscn"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PlayerInfoContainer" parent="HBoxContainer" instance=ExtResource("1_xmg07")]
+[node name="PlayerInfoContainer" parent="VBoxContainer" instance=ExtResource("1_xmg07")]
 layout_mode = 2
+
+[node name="ResultMessageLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Victory"
+label_settings = SubResource("LabelSettings_pclty")
+horizontal_alignment = 1
+
+[node name="TaskDescription" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Kill 5 Vampires"
+
+[node name="CharactersInfoContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="CharactersContainer" type="GridContainer" parent="VBoxContainer/CharactersInfoContainer"]
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 2
+columns = 4
+
+[node name="PlayerEnemySwitcher" type="VBoxContainer" parent="VBoxContainer/CharactersInfoContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="PlayerButton" type="Button" parent="VBoxContainer/CharactersInfoContainer/PlayerEnemySwitcher"]
+layout_mode = 2
+text = "Player"
+
+[node name="EnemyButton" type="Button" parent="VBoxContainer/CharactersInfoContainer/PlayerEnemySwitcher"]
+layout_mode = 2
+text = "Enemy"
+
+[node name="CloseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

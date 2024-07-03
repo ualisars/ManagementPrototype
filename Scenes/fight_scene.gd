@@ -4,7 +4,7 @@ extends Node3D
 @onready var arena_sidebar: Control = $ArenaSidebar
 @onready var arena_console: Control = $ArenaConsole
 
-@export_file("*.tscn") var main_menu_scene_file
+@export_file("*.tscn") var fight_over_scene
 
 var CharacterScene: PackedScene = preload("res://Characters/character.tscn")
 
@@ -52,17 +52,17 @@ func _ready() -> void:
 	FightManager.start_fight()
 	
 
-func move_to_main_menu():
+func move_to_fight_over_scene():
 	var tween = create_tween()
 	tween.tween_interval(3)
-	tween.tween_callback(get_tree().change_scene_to_file.bind(main_menu_scene_file))
+	tween.tween_callback(get_tree().change_scene_to_file.bind(fight_over_scene))
 
 
 func on_fight_ended(is_player_win: bool) -> void:
 		fight_end_window.add_after_fight_message(is_player_win)
 		fight_end_window.visible = true
 		
-		move_to_main_menu()
+		move_to_fight_over_scene()
 
 
 func place_characters(characteristics_list: Array, is_player: bool) -> void:
