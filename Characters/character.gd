@@ -13,6 +13,8 @@ var cast_speed: int
 var id: int
 var is_belongs_to_player: bool
 
+var is_wounded: bool = false
+
 var damage_dealt: int = 0
 var enemies_defeated: int = 0
 
@@ -80,6 +82,8 @@ func on_character_attacked(
 
 func disable_unit() -> void:
 	disabled = true
+	is_wounded = true
+	
 	timer.stop()
 	body.rotate_z(90.0)
 

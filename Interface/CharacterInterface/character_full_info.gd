@@ -30,7 +30,7 @@ func on_character_info_chosen(characteristics: Node) -> void:
 	
 	display_level(characteristics)
 	
-func on_spell_learnt(spell: Node):
+func on_spell_learnt(spell: Node) -> void:
 	var spell_icon = LearntSpellIconClass.instantiate()
 	spell_icon.texture = spell.spell_texture
 		

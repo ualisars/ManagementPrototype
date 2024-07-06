@@ -1,6 +1,6 @@
 extends Node3D
 
-var owner_character: Node3D 
+var owner_character: Character3D 
 var enemy_id: int
 var speed: int = 6
 var target_position: Vector3
@@ -16,4 +16,7 @@ func on_area_entered(body: Node3D):
 		queue_free()
 
 func _physics_process(delta: float) -> void:
+	if owner_character.is_wounded:
+		queue_free()
+
 	position += direction * speed * delta
