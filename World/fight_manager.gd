@@ -63,3 +63,9 @@ func check_enemy_exist(characteristics: Node) -> bool:
 	elif not characteristics.is_belongs_to_player and player_characters_3d.size() == 0:
 		return false
 	return true
+	
+func get_player_characters() -> Array:
+	return player_characters_3d
+
+func get_enemy_characters() -> Array:
+	return enemy_characters_3d

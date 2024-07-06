@@ -41,3 +41,10 @@ signal CHARACTER_ADDED_TO_TASK(characteristic: Characterictic, task: Task)
 signal CHARACTER_INFO_STATE_CHANGES(character_info_id: int)
 
 signal TASK_FILLED(task: Task, characteristics: Array)
+
+signal FIGHT_RESULT_CREATED(
+	task: Task,
+	player_characters3d: Array,
+	enemy_characters3d: Array,
+	is_player_win: bool
+)

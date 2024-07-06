@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn5a44nvhskam"]
+[gd_scene load_steps=5 format=3 uid="uid://dn5a44nvhskam"]
 
 [ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="1_xmg07"]
 [ext_resource type="Script" path="res://Interface/Fight/fight_over_scene.gd" id="1_y8uub"]
+[ext_resource type="PackedScene" uid="uid://o7s4bjxiyenh" path="res://Tasks/character_info_small.tscn" id="3_4vlfp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pclty"]
 font_size = 32
@@ -41,7 +42,31 @@ layout_mode = 2
 [node name="CharactersContainer" type="GridContainer" parent="VBoxContainer/CharactersInfoContainer"]
 custom_minimum_size = Vector2(700, 400)
 layout_mode = 2
-columns = 4
+columns = 3
+
+[node name="CharacterInfoSmall1" parent="VBoxContainer/CharactersInfoContainer/CharactersContainer" instance=ExtResource("3_4vlfp")]
+layout_mode = 2
+characteristic_id = 401
+
+[node name="CharacterInfoSmall2" parent="VBoxContainer/CharactersInfoContainer/CharactersContainer" instance=ExtResource("3_4vlfp")]
+layout_mode = 2
+characteristic_id = 402
+
+[node name="CharacterInfoSmall3" parent="VBoxContainer/CharactersInfoContainer/CharactersContainer" instance=ExtResource("3_4vlfp")]
+layout_mode = 2
+characteristic_id = 403
+
+[node name="CharacterInfoSmall4" parent="VBoxContainer/CharactersInfoContainer/CharactersContainer" instance=ExtResource("3_4vlfp")]
+layout_mode = 2
+characteristic_id = 404
+
+[node name="CharacterInfoSmall5" parent="VBoxContainer/CharactersInfoContainer/CharactersContainer" instance=ExtResource("3_4vlfp")]
+layout_mode = 2
+characteristic_id = 405
+
+[node name="CharacterInfoSmall6" parent="VBoxContainer/CharactersInfoContainer/CharactersContainer" instance=ExtResource("3_4vlfp")]
+layout_mode = 2
+characteristic_id = 406
 
 [node name="PlayerEnemySwitcher" type="VBoxContainer" parent="VBoxContainer/CharactersInfoContainer"]
 custom_minimum_size = Vector2(200, 0)

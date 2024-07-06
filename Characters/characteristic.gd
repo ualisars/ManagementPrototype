@@ -13,6 +13,8 @@ var id: int
 var is_belongs_to_player: int
 var concentration: int
 var learnt_spells: Array = []
+var experience: int
+var level: int
 
 func _init() -> void:
 	health = rng.randi_range(10, 30)
@@ -20,6 +22,8 @@ func _init() -> void:
 	defense = rng.randi_range(1, 3)
 	cast_speed = rng.randi_range(2, 5)
 	concentration = rng.randi_range(2, 6)
+	experience = 0
+	level = 1
 	cost = health + attack + defense + concentration
 	
 func add_id(new_id: int) -> void:

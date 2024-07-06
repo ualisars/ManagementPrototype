@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://o7s4bjxiyenh"]
+[gd_scene load_steps=15 format=3 uid="uid://o7s4bjxiyenh"]
 
 [ext_resource type="Texture2D" uid="uid://bddm7rsjtikb4" path="res://Images/grey.png" id="1_q5vv6"]
 [ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="1_qo8nk"]
@@ -22,6 +22,13 @@ font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_dbp2y"]
 font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_fblbg"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_84hb3"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
 
 [node name="CharacterInfoSmall" type="TextureRect"]
 custom_minimum_size = Vector2(120, 120)
@@ -103,6 +110,45 @@ expand_mode = 1
 layout_mode = 2
 text = "30"
 label_settings = SubResource("LabelSettings_dbp2y")
+
+[node name="LevelContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 67.0
+offset_right = 41.0
+offset_bottom = 107.0
+
+[node name="LevelLabel" type="Label" parent="LevelContainer"]
+layout_mode = 2
+text = "lvl:"
+label_settings = SubResource("LabelSettings_fblbg")
+
+[node name="LevelValueLabel" type="Label" parent="LevelContainer"]
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_fblbg")
+
+[node name="LevelProgressBar" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 26.0
+offset_top = 90.0
+offset_right = 91.0
+offset_bottom = 117.0
+value = 20.0
+show_percentage = false
+
+[node name="ProgressBarValueLabel" type="Label" parent="LevelProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/1000"
+label_settings = SubResource("LabelSettings_84hb3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

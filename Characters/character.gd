@@ -1,6 +1,8 @@
 extends Node3D
 
-var characteristics: Node
+class_name Character3D
+
+var characteristics: Characterictic
 
 var attack: int
 var defense: int

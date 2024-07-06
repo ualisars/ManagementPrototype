@@ -8,6 +8,8 @@ extends Node3D
 
 var CharacterScene: PackedScene = preload("res://Characters/character.tscn")
 
+var current_task: Task
+
 var player_characters: Array = []
 var enemy_characters: Array = []
 
@@ -41,6 +43,8 @@ func _ready() -> void:
 	place_characters(player_characteristics_list, true)
 	
 	var task: Task = task_info["task"]
+	current_task = task
+	
 	var enemy_characteristics_list = task.characters
 	
 	place_characters(enemy_characteristics_list, false)
@@ -63,6 +67,16 @@ func on_fight_ended(is_player_win: bool) -> void:
 		fight_end_window.visible = true
 		
 		move_to_fight_over_scene()
+		
+		var player_characters3d: Array = FightManager.get_player_characters()
+		var enemy_characters3d: Array = FightManager.get_enemy_characters()
+		
+		Messenger.FIGHT_RESULT_CREATED.emit(
+			current_task, 
+			player_characters3d,
+			enemy_characters3d,
+			is_player_win
+		)
 
 
 func place_characters(characteristics_list: Array, is_player: bool) -> void:
