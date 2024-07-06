@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="1_xmg07"]
 [ext_resource type="Script" path="res://Interface/Fight/fight_over_scene.gd" id="1_y8uub"]
-[ext_resource type="PackedScene" uid="uid://o7s4bjxiyenh" path="res://Tasks/character_info_small.tscn" id="3_4vlfp"]
+[ext_resource type="PackedScene" uid="uid://o7s4bjxiyenh" path="res://Interface/CharacterInterface/character_info_small.tscn" id="3_4vlfp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pclty"]
 font_size = 32

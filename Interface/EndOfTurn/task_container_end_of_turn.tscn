@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5nxehx4vbaun"]
 
 [ext_resource type="Script" path="res://Interface/EndOfTurn/task_container_end_of_turn.gd" id="1_63axp"]
-[ext_resource type="PackedScene" uid="uid://o7s4bjxiyenh" path="res://Tasks/character_info_small.tscn" id="2_4ajoe"]
+[ext_resource type="PackedScene" uid="uid://o7s4bjxiyenh" path="res://Interface/CharacterInterface/character_info_small.tscn" id="2_4ajoe"]
 [ext_resource type="Texture2D" uid="uid://jwvb7y2fmhm1" path="res://Images/two-coins(1).svg" id="2_ev2u1"]
 
 [node name="TaskContainerEndOfTurn" type="VBoxContainer"]

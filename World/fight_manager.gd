@@ -12,6 +12,7 @@ var rng = RandomNumberGenerator.new()
 
 var fight_ended: bool = false
 var is_player_win: bool
+var characteristics_added: bool = false
 
 func set_fight(
 	_player_characters_3d: Array,
@@ -48,9 +49,11 @@ func check_win_loss_condition() -> void:
 		is_player_win = true
 		fight_ended = true
 		
-	if fight_ended:
+	if fight_ended and not characteristics_added:
 		init_characteristics()
 		Messenger.FIGHT_ENDED.emit(is_player_win)
+		
+		characteristics_added = true
 	
 
 func clear_wounded_character(character3d: Node3D):

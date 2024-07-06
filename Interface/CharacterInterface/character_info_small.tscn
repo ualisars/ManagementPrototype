@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bddm7rsjtikb4" path="res://Images/grey.png" id="1_q5vv6"]
 [ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="1_qo8nk"]
-[ext_resource type="Script" path="res://Tasks/character_info_small.gd" id="1_yo1fq"]
+[ext_resource type="Script" path="res://Interface/CharacterInterface/character_info_small.gd" id="1_yo1fq"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_s7y8s"]
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_ewn8m"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_mxb3r"]

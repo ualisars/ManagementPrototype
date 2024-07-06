@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cent212mloi1m" path="res://Images/mages.jpg" id="1_gb3pu"]
 [ext_resource type="Script" path="res://Interface/Missions/task_characters_container.gd" id="1_ybew4"]
-[ext_resource type="PackedScene" uid="uid://o7s4bjxiyenh" path="res://Tasks/character_info_small.tscn" id="2_nhvut"]
+[ext_resource type="PackedScene" uid="uid://o7s4bjxiyenh" path="res://Interface/CharacterInterface/character_info_small.tscn" id="2_nhvut"]
 
 [node name="TaskCharactersContainer" type="TextureRect"]
 custom_minimum_size = Vector2(300, 400)
