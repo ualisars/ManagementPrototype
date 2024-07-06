@@ -27,7 +27,12 @@ func _ready() -> void:
 	
 	level_progress_bar.visible = false
 	
-func on_init_character_info(id: int, _characteristic: Characterictic, _task: Task):
+func on_init_character_info(
+	id: int, 
+	_characteristic: Characterictic, 
+	_task: Task,
+	show_experience: bool
+	):
 	if id == characteristic_id:
 		charactetistic = _characteristic
 		task = _task
@@ -39,6 +44,9 @@ func on_init_character_info(id: int, _characteristic: Characterictic, _task: Tas
 		concentration_value.text = str(_characteristic.concentration)
 		
 		visible = true
+		
+		if show_experience:
+			show_progress_bar(charactetistic)
 
 
 func _on_add_pressed() -> void:
@@ -54,10 +62,11 @@ func on_character_info_state_changed(character_info_id: int) -> void:
 
 func show_progress_bar(characteristics: Characterictic) -> void:
 	add_button.visible = false
+	remove_button.visible = false
 	
 	level_progress_bar.visible = true
 	
-	level_value_label.text = characteristics.level
+	level_value_label.text = str(characteristics.level)
 	
 	var level_to_reach: int = characteristics.level + 1
 	

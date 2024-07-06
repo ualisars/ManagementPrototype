@@ -77,7 +77,8 @@ func init_chosen_characters():
 			Messenger.INIT_CHARACTER_INFO.emit(
 				character_info_id, 
 				characteristic, 
-				task
+				task,
+				false
 			)
 			character_info_id += 1
 			

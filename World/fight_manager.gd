@@ -4,18 +4,26 @@ var player_characters_3d: Array
 var enemy_characters_3d: Array
 var characters_3d: Array
 
+var player_characteristics: Array
+var enemy_characteristics: Array
+
 var rng = RandomNumberGenerator.new()
 
 var fight_ended: bool = false
+var is_player_win: bool
 
 func set_fight(
 	_player_characters_3d: Array,
 	_enemy_characters_3d: Array
 ) -> void:
+	fight_ended = false
+	
 	player_characters_3d = _player_characters_3d
 	enemy_characters_3d = _enemy_characters_3d
 	
 	characters_3d = player_characters_3d + enemy_characters_3d
+	
+	init_characteristics()
 
 func get_character_3d_by_id(id: int) -> Node3D:
 	for character in characters_3d:
@@ -34,10 +42,12 @@ func start_fight():
 
 func check_win_loss_condition() -> void:
 	if player_characters_3d.size() == 0:
-		Messenger.FIGHT_ENDED.emit(false)
+		is_player_win = false
+		Messenger.FIGHT_ENDED.emit(is_player_win)
 		fight_ended = true
 	if enemy_characters_3d.size() == 0:
-		Messenger.FIGHT_ENDED.emit(true)
+		is_player_win = true
+		Messenger.FIGHT_ENDED.emit(is_player_win)
 		fight_ended = true
 	
 
@@ -64,8 +74,15 @@ func check_enemy_exist(characteristics: Node) -> bool:
 		return false
 	return true
 	
-func get_player_characters() -> Array:
-	return player_characters_3d
+func get_player_characteristics() -> Array:
+	return player_characteristics
 
-func get_enemy_characters() -> Array:
-	return enemy_characters_3d
+func get_enemy_characteristics() -> Array:
+	return enemy_characteristics
+
+func init_characteristics() -> void:
+	for character3d: Character3D in characters_3d:
+		if character3d.is_belongs_to_player:
+			player_characteristics.append(character3d.characteristics)
+		else:
+			enemy_characteristics.append(character3d.characteristics)

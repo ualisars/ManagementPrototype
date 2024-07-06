@@ -72,7 +72,6 @@ func disable_unit() -> void:
 	timer.stop()
 	body.rotate_z(90.0)
 
-
 func cast_spell(enemy: Node3D):
 	var spell = SpellClass.instantiate()
 	add_child(spell)

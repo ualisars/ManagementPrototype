@@ -28,7 +28,12 @@ signal SPELL_LEARNT(spell: Node)
 
 signal NEW_SCENE_OPENED(scene_file_path: String)
 
-signal INIT_CHARACTER_INFO(id: int, characteristic: Characterictic, task: Task)
+signal INIT_CHARACTER_INFO(
+	id: int, 
+	characteristic: Characterictic, 
+	task: Task,
+	show_experience: bool
+)
 
 signal INIT_TASK_CONTAINER(task_number: int, task: Task)
 
@@ -41,10 +46,3 @@ signal CHARACTER_ADDED_TO_TASK(characteristic: Characterictic, task: Task)
 signal CHARACTER_INFO_STATE_CHANGES(character_info_id: int)
 
 signal TASK_FILLED(task: Task, characteristics: Array)
-
-signal FIGHT_RESULT_CREATED(
-	task: Task,
-	player_characters3d: Array,
-	enemy_characters3d: Array,
-	is_player_win: bool
-)

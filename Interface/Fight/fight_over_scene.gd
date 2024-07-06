@@ -13,15 +13,20 @@ extends Control
 @onready var result_message_label = $VBoxContainer/ResultMessageLabel
 @onready var task_description = $VBoxContainer/TaskDescription
 
-var player_characters: Array
-var enemy_characters: Array
-var current_task: Task
+var player_characteristics: Array
+var enemy_characteristics: Array
+var task: Task
 var character_infos: Array
 
-var player_win: bool
+var is_player_win: bool
+
+var start_characteris_id: int = 401
 
 func _ready():
-	Messenger.FIGHT_RESULT_CREATED.connect(on_fight_result_created)
+	is_player_win = FightManager.is_player_win
+	player_characteristics = FightManager.get_player_characteristics()
+	enemy_characteristics = FightManager.get_enemy_characteristics()
+	task = TaskManager.current_task_info["task"]
 	
 	character_infos = [
 		character_info_small_1,
@@ -33,18 +38,9 @@ func _ready():
 	]
 	
 	init_character_infos()
-
-func on_fight_result_created(
-	task: Task,
-	player_characters3d: Array,
-	enemy_characters3d: Array,
-	is_player_win: bool
-) -> void:
-	current_task = task
-	player_characters = player_characters3d
-	enemy_characters = enemy_characters3d
 	
 	show_task()
+	show_player_characters()
 
 func move_to_main_menu() -> void:
 	var tween = create_tween()
@@ -59,11 +55,26 @@ func init_character_infos() -> void:
 	for character_info in character_infos:
 		character_info.visible = false
 		
-func show_task():
-	if player_win:
+func show_task() -> void:
+	if is_player_win:
 		result_message_label.text = "Victory"
 	else:
 		result_message_label.text = "Defeat"
 	
-	task_description.text = current_task.task_title
+	task_description.text = task.task_title
 	
+func show_player_characters() -> void:
+	init_character_infos()
+	
+	for index in range(0, player_characteristics.size()):
+		var characteristic_id : int = start_characteris_id + index
+		
+		print("characteristic_id " + str(characteristic_id))
+		var characteristics: Characterictic = player_characteristics[index]
+		
+		Messenger.INIT_CHARACTER_INFO.emit(
+			characteristic_id, 
+			characteristics,
+			task,
+			true
+		)

@@ -56,7 +56,7 @@ func _ready() -> void:
 	FightManager.start_fight()
 	
 
-func move_to_fight_over_scene():
+func move_to_fight_over_scene() -> void:
 	var tween = create_tween()
 	tween.tween_interval(3)
 	tween.tween_callback(get_tree().change_scene_to_file.bind(fight_over_scene))
@@ -67,17 +67,6 @@ func on_fight_ended(is_player_win: bool) -> void:
 		fight_end_window.visible = true
 		
 		move_to_fight_over_scene()
-		
-		var player_characters3d: Array = FightManager.get_player_characters()
-		var enemy_characters3d: Array = FightManager.get_enemy_characters()
-		
-		Messenger.FIGHT_RESULT_CREATED.emit(
-			current_task, 
-			player_characters3d,
-			enemy_characters3d,
-			is_player_win
-		)
-
 
 func place_characters(characteristics_list: Array, is_player: bool) -> void:
 	var locations: Array
