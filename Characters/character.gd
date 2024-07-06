@@ -13,6 +13,9 @@ var cast_speed: int
 var id: int
 var is_belongs_to_player: bool
 
+var damage_dealt: int = 0
+var enemies_defeated: int = 0
+
 @onready var timer: Timer = $Timer
 
 var player_color: String = "5e4086"
@@ -53,18 +56,26 @@ func on_fight_started():
 	timer.wait_time = cast_speed
 	timer.start()
 	
-func on_character_attacked(attack_character: Node3D, defend_character: Node3D) -> void:
+func on_character_attacked(
+	attack_character: Character3D, 
+	defend_character: Character3D
+) -> void:
 	if defend_character.id != id:
 		return
+		
+	var damage: int = attack_character.attack
 
 	if health > 0:
-		health -= attack_character.attack
+		health -= damage
 		Messenger.CHARACTER_PENETRATED.emit(defend_character)
+		characteristics.add_dealt_damage(damage)
 		
 	if health <= 0 and not disabled:
 		disable_unit()
 		FightManager.clear_wounded_character(self)
 		FightManager.check_win_loss_condition()
+		
+		characteristics.add_defeated_enemy()
 		
 
 func disable_unit() -> void:

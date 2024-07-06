@@ -3,6 +3,7 @@ extends Node
 var player_characters_3d: Array
 var enemy_characters_3d: Array
 var characters_3d: Array
+var all_characters3d: Array
 
 var player_characteristics: Array
 var enemy_characteristics: Array
@@ -22,8 +23,7 @@ func set_fight(
 	enemy_characters_3d = _enemy_characters_3d
 	
 	characters_3d = player_characters_3d + enemy_characters_3d
-	
-	init_characteristics()
+	all_characters3d = characters_3d.duplicate()
 
 func get_character_3d_by_id(id: int) -> Node3D:
 	for character in characters_3d:
@@ -43,12 +43,14 @@ func start_fight():
 func check_win_loss_condition() -> void:
 	if player_characters_3d.size() == 0:
 		is_player_win = false
-		Messenger.FIGHT_ENDED.emit(is_player_win)
 		fight_ended = true
 	if enemy_characters_3d.size() == 0:
 		is_player_win = true
-		Messenger.FIGHT_ENDED.emit(is_player_win)
 		fight_ended = true
+		
+	if fight_ended:
+		init_characteristics()
+		Messenger.FIGHT_ENDED.emit(is_player_win)
 	
 
 func clear_wounded_character(character3d: Node3D):
@@ -81,8 +83,17 @@ func get_enemy_characteristics() -> Array:
 	return enemy_characteristics
 
 func init_characteristics() -> void:
-	for character3d: Character3D in characters_3d:
+	for character3d: Character3D in all_characters3d:
+		var characteristics: Characterictic = character3d.characteristics
+		var gained_experience: int = calculate_gained_experience(characteristics)
+		characteristics.experience += gained_experience
+		
 		if character3d.is_belongs_to_player:
-			player_characteristics.append(character3d.characteristics)
+			player_characteristics.append(characteristics)
 		else:
-			enemy_characteristics.append(character3d.characteristics)
+			enemy_characteristics.append(characteristics)
+
+func calculate_gained_experience(characteristics: Characterictic) -> int:
+	var experience: int = characteristics.damage_dealth * 10
+	experience += characteristics.enemies_defeated * 100
+	return experience

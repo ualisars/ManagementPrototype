@@ -15,6 +15,8 @@ var concentration: int
 var learnt_spells: Array = []
 var experience: int
 var level: int
+var damage_dealth: int = 0
+var enemies_defeated: int = 0
 
 func _init() -> void:
 	health = rng.randi_range(10, 30)
@@ -37,3 +39,9 @@ func add_belonging_to_player(is_player: bool) -> void:
 	
 func learn_spell(spell: Node) -> void:
 	learnt_spells.append(spell)
+	
+func add_dealt_damage(damage: int) -> void:
+	damage_dealth += damage
+	
+func add_defeated_enemy() -> void:
+	enemies_defeated += 1
