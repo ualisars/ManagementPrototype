@@ -25,7 +25,7 @@ script = ExtResource("1_djaf5")
 [node name="CharacterInfoContainer" type="GridContainer" parent="."]
 layout_mode = 2
 offset_right = 191.0
-offset_bottom = 212.0
+offset_bottom = 498.0
 size_flags_horizontal = 0
 
 [node name="GeneralInfoContainer" type="HBoxContainer" parent="CharacterInfoContainer"]
@@ -93,6 +93,32 @@ expand_mode = 1
 [node name="ConcentrationValue" type="Label" parent="CharacterInfoContainer/CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
+
+[node name="LevelLabel" type="Label" parent="CharacterInfoContainer/CharacteristicsContainer"]
+layout_mode = 2
+text = "lvl:"
+horizontal_alignment = 2
+
+[node name="LevelValue" type="Label" parent="CharacterInfoContainer/CharacteristicsContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="LevelProgressBar" type="ProgressBar" parent="CharacterInfoContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+value = 40.0
+show_percentage = false
+
+[node name="LevelProgressBarValue" type="Label" parent="CharacterInfoContainer/LevelProgressBar"]
+layout_mode = 2
+offset_left = -1.0
+offset_right = 190.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/1000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LearntSpellContainer" type="GridContainer" parent="CharacterInfoContainer"]
 custom_minimum_size = Vector2(150, 150)
