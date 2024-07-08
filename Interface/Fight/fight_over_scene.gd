@@ -51,6 +51,8 @@ func move_to_main_menu() -> void:
 func _on_close_button_pressed() -> void:
 	move_to_main_menu()
 	
+	TaskManager.reset_tasks()
+	
 func init_character_infos() -> void:
 	for character_info in character_infos:
 		character_info.visible = false

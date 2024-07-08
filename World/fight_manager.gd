@@ -19,6 +19,8 @@ func set_fight(
 	_enemy_characters_3d: Array
 ) -> void:
 	fight_ended = false
+	is_player_win = false
+	characteristics_added = false
 	
 	player_characters_3d = _player_characters_3d
 	enemy_characters_3d = _enemy_characters_3d

@@ -78,3 +78,10 @@ func add_image_path(enemy_type: Task.EnemyType) -> String:
 
 func set_current_task(task_to_character: Dictionary) -> void:
 	current_task_info = task_to_character
+	
+func reset_tasks() -> void:
+	character_added_to_tasks = {}
+	current_task_info = {}
+	tasks = []
+	
+	generate_tasks()

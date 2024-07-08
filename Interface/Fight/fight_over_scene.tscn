@@ -32,6 +32,7 @@ label_settings = SubResource("LabelSettings_pclty")
 horizontal_alignment = 1
 
 [node name="TaskDescription" type="Label" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Kill 5 Vampires"
 
