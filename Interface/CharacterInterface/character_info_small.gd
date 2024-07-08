@@ -43,6 +43,8 @@ func on_init_character_info(
 		health_value.text = str(_characteristic.health)
 		concentration_value.text = str(_characteristic.concentration)
 		
+		level_value_label.text = str(_characteristic.level)
+		
 		visible = true
 		
 		if show_experience:
@@ -65,8 +67,6 @@ func show_progress_bar(characteristics: Characterictic) -> void:
 	remove_button.visible = false
 	
 	level_progress_bar.visible = true
-	
-	level_value_label.text = str(characteristics.level)
 	
 	var level_to_reach: int = characteristics.level + 1
 	

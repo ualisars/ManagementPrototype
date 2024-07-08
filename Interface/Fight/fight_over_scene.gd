@@ -71,7 +71,6 @@ func show_player_characters() -> void:
 	for index in range(0, player_characteristics.size()):
 		var characteristic_id : int = start_characteris_id + index
 		
-		print("characteristic_id " + str(characteristic_id))
 		var characteristics: Characterictic = player_characteristics[index]
 		
 		Messenger.INIT_CHARACTER_INFO.emit(
@@ -80,3 +79,5 @@ func show_player_characters() -> void:
 			task,
 			true
 		)
+		
+		characteristics.reset_fight_properties()

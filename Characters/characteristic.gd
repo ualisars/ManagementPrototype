@@ -13,8 +13,21 @@ var id: int
 var is_belongs_to_player: int
 var concentration: int
 var learnt_spells: Array = []
-var experience: int
-var level: int
+
+var level: int = 1
+var experience: int = 0 :
+	set(new_experience):
+		var next_level: int = level + 1
+		var next_level_exp: int = LevelManager.get_level_points(next_level)
+		
+		var exp_after: int = new_experience
+		
+		if new_experience >= next_level_exp:
+			level += 1
+			exp_after = new_experience - next_level_exp
+			
+		experience = exp_after
+			
 var damage_dealth: int = 0
 var enemies_defeated: int = 0
 
@@ -24,8 +37,7 @@ func _init() -> void:
 	defense = rng.randi_range(1, 3)
 	cast_speed = rng.randi_range(2, 5)
 	concentration = rng.randi_range(2, 6)
-	experience = 0
-	level = 1
+	
 	cost = health + attack + defense + concentration
 	
 func add_id(new_id: int) -> void:
@@ -45,3 +57,7 @@ func add_dealt_damage(damage: int) -> void:
 	
 func add_defeated_enemy() -> void:
 	enemies_defeated += 1
+	
+func reset_fight_properties() -> void:
+	damage_dealth = 0
+	enemies_defeated = 0
