@@ -13,6 +13,8 @@ var id: int
 var is_belongs_to_player: int
 var concentration: int
 var learnt_spells: Array = []
+var available_spell_number: int = 0
+var available_level_ups: int = 0
 
 var level: int = 1
 var experience: int = 0 :
@@ -24,6 +26,8 @@ var experience: int = 0 :
 		
 		if new_experience >= next_level_exp:
 			level += 1
+			available_spell_number += 1
+			available_level_ups += 1
 			exp_after = new_experience - next_level_exp
 			
 		experience = exp_after
@@ -50,7 +54,9 @@ func add_belonging_to_player(is_player: bool) -> void:
 	is_belongs_to_player = is_player
 	
 func learn_spell(spell: Node) -> void:
-	learnt_spells.append(spell)
+	if available_spell_number > 0:
+		learnt_spells.append(spell)
+		available_spell_number -= 1
 	
 func add_dealt_damage(damage: int) -> void:
 	damage_dealth += damage

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cideauwj0d7mb"]
+[gd_scene load_steps=10 format=3 uid="uid://cideauwj0d7mb"]
 
 [ext_resource type="Script" path="res://Interface/CharacterInterface/character_full_info.gd" id="1_djaf5"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_265dx"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="5_fhtn5"]
 [ext_resource type="PackedScene" uid="uid://2dkervu4bu1t" path="res://Interface/CharacterInterface/spells_container.tscn" id="7_fyp6t"]
 [ext_resource type="PackedScene" uid="uid://bad72j14cxlna" path="res://Interface/CharacterInterface/spell_schools_container.tscn" id="7_q5ydc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_edwxw"]
+font_size = 26
 
 [node name="CharacterFullInfo" type="Control"]
 layout_mode = 3
@@ -24,7 +27,7 @@ script = ExtResource("1_djaf5")
 
 [node name="CharacterInfoContainer" type="GridContainer" parent="."]
 layout_mode = 2
-offset_right = 191.0
+offset_right = 225.0
 offset_bottom = 498.0
 size_flags_horizontal = 0
 
@@ -103,6 +106,10 @@ horizontal_alignment = 2
 layout_mode = 2
 text = "1"
 
+[node name="LevelUpButton" type="Button" parent="CharacterInfoContainer"]
+layout_mode = 2
+text = "click to level up (+)"
+
 [node name="LevelProgressBar" type="ProgressBar" parent="CharacterInfoContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
@@ -126,12 +133,32 @@ layout_mode = 2
 size_flags_vertical = 8
 columns = 3
 
-[node name="SpellsContainer" parent="." instance=ExtResource("7_fyp6t")]
-layout_mode = 0
-offset_left = 240.0
-offset_top = -13.0
-offset_right = 779.0
-offset_bottom = 554.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -267.5
+offset_right = 372.0
+offset_bottom = 268.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="AvailableSpellLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "You have 1 available spell"
+label_settings = SubResource("LabelSettings_edwxw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpellsContainer" parent="VBoxContainer" instance=ExtResource("7_fyp6t")]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
 
 [node name="SpellSchoolsContainer" parent="." instance=ExtResource("7_q5ydc")]
 layout_mode = 0

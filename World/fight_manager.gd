@@ -100,11 +100,8 @@ func init_characteristics() -> void:
 			player_characteristics.append(characteristics)
 		else:
 			enemy_characteristics.append(characteristics)
-			
-		
 
 func calculate_gained_experience(characteristics: Characterictic) -> int:
-	print("character " + characteristics.character_name + " dealt " + str(characteristics.damage_dealth) + " damage")
 	var experience: int = characteristics.damage_dealth * 10
 	experience += characteristics.enemies_defeated * 100
 	return experience

@@ -12,13 +12,16 @@ extends Control
 @onready var level_progress_bar_value = $CharacterInfoContainer/LevelProgressBar/LevelProgressBarValue
 @onready var level_value = $CharacterInfoContainer/CharacteristicsContainer/LevelValue
 
+@onready var level_up_button = $CharacterInfoContainer/LevelUpButton
+@onready var available_spell_label = $VBoxContainer/AvailableSpellLabel
+
 var LearntSpellIconClass: PackedScene = preload("res://Interface/CharacterInterface/learnt_spell_icon.tscn")
 
 func _ready() -> void:
 	Messenger.CHARACTER_INFO_CHOSEN.connect(on_character_info_chosen)
 	Messenger.SPELL_LEARNT.connect(on_spell_learnt)
 	
-func on_character_info_chosen(characteristics: Node) -> void:
+func on_character_info_chosen(characteristics: Characterictic) -> void:
 	attack_value.text = str(characteristics.attack)
 	defense_value.text = str(characteristics.defense)
 	health_value.text = str(characteristics.health)
@@ -29,6 +32,10 @@ func on_character_info_chosen(characteristics: Node) -> void:
 	init_learnt_spell_container()
 	
 	display_level(characteristics)
+	
+	init_available_spell(characteristics)
+	
+	init_level_up_button(characteristics)
 	
 func on_spell_learnt(spell: Node) -> void:
 	var spell_icon = LearntSpellIconClass.instantiate()
@@ -49,6 +56,22 @@ func display_level(characteristics: Characterictic) -> void:
 	level_progress_bar.value = characteristics.experience
 	
 	level_progress_bar_value.text = str(experience) + "/" + str(experience_to_next_level)
+	
+	
+func init_available_spell(characteristic: Characterictic) -> void:
+	var text = "You have " + str(characteristic.available_spell_number) + " "
+	text += "available spell"
+	if characteristic.available_spell_number > 1:
+		text += "s"
+		
+	available_spell_label.text = text
+	
+func init_level_up_button(characteristic: Characterictic) -> void:
+	if characteristic.available_level_ups > 0:
+		level_up_button.visible = true
+	else:
+		level_up_button.visible = false
+
 	
 func init_learnt_spell_container() -> void:
 	for learnt_spell in learnt_spell_container.get_children():
