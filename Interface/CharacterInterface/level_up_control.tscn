@@ -1,0 +1,162 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpkwexwlqmbks"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_fkx0i"]
+[ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_fvywy"]
+[ext_resource type="Texture2D" uid="uid://bddm7rsjtikb4" path="res://Images/grey.png" id="2_yk44w"]
+[ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_0g2aw"]
+[ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_pawge"]
+[ext_resource type="Texture2D" uid="uid://beu3rdvni3a5a" path="res://Images/gift-of-knowledge.svg" id="5_trltb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v226b"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwm0q"]
+font_size = 24
+
+[node name="LevelUpControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fkx0i")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+offset_top = -3.0
+offset_right = 560.0
+offset_bottom = 270.0
+texture = ExtResource("2_yk44w")
+expand_mode = 1
+
+[node name="BoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -592.0
+offset_bottom = 266.0
+grow_horizontal = 2
+
+[node name="LevelUpLabel" type="Label" parent="BoxContainer"]
+layout_mode = 2
+text = "Level Up"
+label_settings = SubResource("LabelSettings_v226b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PointsLabel" type="Label" parent="BoxContainer"]
+layout_mode = 2
+text = "You have 3 points"
+label_settings = SubResource("LabelSettings_v226b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacteristicsMarginContainer" type="MarginContainer" parent="BoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CharacteristicsContainer" type="GridContainer" parent="BoxContainer/CharacteristicsMarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="AttackCharacteristicContainer" type="HBoxContainer" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer"]
+layout_mode = 2
+
+[node name="AttackCharacteristicImage" type="TextureRect" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/AttackCharacteristicContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+texture = ExtResource("2_fvywy")
+expand_mode = 1
+
+[node name="AttackValueLabel" type="Label" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/AttackCharacteristicContainer"]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_cwm0q")
+
+[node name="AttackIncreaseButton" type="Button" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/AttackCharacteristicContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "+1"
+
+[node name="DefenseCharacteristicContainer" type="HBoxContainer" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer"]
+layout_mode = 2
+
+[node name="DefenseCharacteristicImage" type="TextureRect" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/DefenseCharacteristicContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+texture = ExtResource("3_0g2aw")
+expand_mode = 1
+
+[node name="DefenseValueLabel" type="Label" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/DefenseCharacteristicContainer"]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_cwm0q")
+
+[node name="DefenseIncrease Button" type="Button" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/DefenseCharacteristicContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "+1"
+
+[node name="HealthCharacteristicContainer" type="HBoxContainer" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer"]
+layout_mode = 2
+
+[node name="HealthCharacteristicImage" type="TextureRect" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/HealthCharacteristicContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+texture = ExtResource("4_pawge")
+expand_mode = 1
+
+[node name="HealthValueLabel" type="Label" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/HealthCharacteristicContainer"]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_cwm0q")
+
+[node name="HealthIncrease Button" type="Button" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/HealthCharacteristicContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "+1"
+
+[node name="CastSpeedCharacteristicContainer" type="HBoxContainer" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer"]
+layout_mode = 2
+
+[node name="CastSpeedCharacteristicImage" type="TextureRect" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/CastSpeedCharacteristicContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+texture = ExtResource("5_trltb")
+expand_mode = 1
+
+[node name="CastSpeedValueLabel" type="Label" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/CastSpeedCharacteristicContainer"]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_cwm0q")
+
+[node name="CastSpeedIncrease Button" type="Button" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/CastSpeedCharacteristicContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "+1"
+
+[node name="ButtonsMarginContainer" type="MarginContainer" parent="BoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 170
+
+[node name="ButtonsBoxContainer" type="HBoxContainer" parent="BoxContainer/ButtonsMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="AcceptButton" type="Button" parent="BoxContainer/ButtonsMarginContainer/ButtonsBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Accept"
+
+[node name="CancelButton" type="Button" parent="BoxContainer/ButtonsMarginContainer/ButtonsBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Cancel
+"
+
+[connection signal="pressed" from="BoxContainer/ButtonsMarginContainer/ButtonsBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

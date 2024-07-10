@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cideauwj0d7mb"]
+[gd_scene load_steps=11 format=3 uid="uid://cideauwj0d7mb"]
 
 [ext_resource type="Script" path="res://Interface/CharacterInterface/character_full_info.gd" id="1_djaf5"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_265dx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="5_fhtn5"]
 [ext_resource type="PackedScene" uid="uid://2dkervu4bu1t" path="res://Interface/Spells/spells_container.tscn" id="7_u2n0x"]
 [ext_resource type="PackedScene" uid="uid://bad72j14cxlna" path="res://Interface/Spells/spell_schools_container.tscn" id="8_2hnjt"]
+[ext_resource type="PackedScene" uid="uid://dpkwexwlqmbks" path="res://Interface/CharacterInterface/level_up_control.tscn" id="9_7trvi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_edwxw"]
 font_size = 26
@@ -166,3 +167,8 @@ offset_left = 918.0
 offset_top = -10.0
 offset_right = 1029.0
 offset_bottom = 564.0
+
+[node name="LevelUpControl" parent="." instance=ExtResource("9_7trvi")]
+layout_mode = 1
+
+[connection signal="pressed" from="CharacterInfoContainer/LevelUpButton" to="." method="_on_level_up_button_pressed"]

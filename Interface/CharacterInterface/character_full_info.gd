@@ -15,6 +15,8 @@ extends Control
 @onready var level_up_button = $CharacterInfoContainer/LevelUpButton
 @onready var available_spell_label = $VBoxContainer/AvailableSpellLabel
 
+@onready var level_up_control = $LevelUpControl
+
 var current_character: Characterictic
 
 var LearntSpellIconClass: PackedScene = preload("res://Interface/Spells/learnt_spell_icon.tscn")
@@ -22,6 +24,9 @@ var LearntSpellIconClass: PackedScene = preload("res://Interface/Spells/learnt_s
 func _ready() -> void:
 	Messenger.CHARACTER_INFO_CHOSEN.connect(on_character_info_chosen)
 	Messenger.SPELL_LEARNT.connect(on_spell_learnt)
+	Messenger.LEVEL_UP_CLOSED.connect(on_level_up_closed)
+	
+	init_level_up_control()
 	
 func on_character_info_chosen(characteristics: Characterictic) -> void:
 	current_character = characteristics
@@ -86,3 +91,16 @@ func init_learnt_spell_container() -> void:
 			spell_icon.texture = learnt_spell.spell_texture
 			
 			learnt_spell_container.add_child(spell_icon)
+			
+
+func init_level_up_control() -> void:
+	level_up_control.visible = false
+
+
+func _on_level_up_button_pressed() -> void:
+	level_up_control.visible = true
+	
+	Messenger.LEVEL_UP_OPENED.emit(current_character)
+	
+func on_level_up_closed() -> void:
+	level_up_control.visible = false
