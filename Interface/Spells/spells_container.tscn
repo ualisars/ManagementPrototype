@@ -1,21 +1,21 @@
 [gd_scene load_steps=17 format=3 uid="uid://2dkervu4bu1t"]
 
-[ext_resource type="Script" path="res://Interface/Spells/spells_container.gd" id="1_7ln22"]
-[ext_resource type="PackedScene" uid="uid://rwtg2deoxrpw" path="res://Interface/Spells/physic_spells_container.tscn" id="1_c3hcw"]
-[ext_resource type="PackedScene" uid="uid://5t6pedxsmio8" path="res://Interface/Spells/dark_spells_container.tscn" id="2_3i85d"]
-[ext_resource type="PackedScene" uid="uid://cgoruox14c6q8" path="res://Interface/Spells/elemental_spells_container.tscn" id="3_37r8c"]
-[ext_resource type="PackedScene" uid="uid://dfvjhw5v6tqqi" path="res://Interface/Spells/spell_icon.tscn" id="3_56e12"]
-[ext_resource type="PackedScene" uid="uid://cyfmv12fv07vq" path="res://Interface/Spells/faith_spells_container.tscn" id="4_3ltu4"]
-[ext_resource type="Texture2D" uid="uid://bjmhhctyhstwy" path="res://Images/distraction.svg" id="4_rklkh"]
-[ext_resource type="Texture2D" uid="uid://cxg2m8bs73g7y" path="res://Images/despair.svg" id="5_nekri"]
-[ext_resource type="Texture2D" uid="uid://06cu1lrddk0j" path="res://Images/apathy.svg" id="6_lcwrb"]
-[ext_resource type="Texture2D" uid="uid://dfwb44j6p8bsq" path="res://Images/insanity.svg" id="7_8n8bc"]
-[ext_resource type="Texture2D" uid="uid://tfjk4la481al" path="res://Images/necromancy.svg" id="9_qqtcx"]
-[ext_resource type="Texture2D" uid="uid://b2s7bpqubb8ah" path="res://Images/decay.svg" id="10_qp61g"]
-[ext_resource type="Texture2D" uid="uid://bgddauvuhvol7" path="res://Images/roots.svg" id="12_cogw6"]
-[ext_resource type="Texture2D" uid="uid://bjyhksgfv1d81" path="res://Images/blindness.svg" id="14_d28ta"]
-[ext_resource type="Texture2D" uid="uid://cr2fu62smc8ja" path="res://Images/divinity_hammer.svg" id="15_2xk5e"]
-[ext_resource type="Texture2D" uid="uid://ihldty8weqf2" path="res://Images/selectial_support.svg" id="16_505lw"]
+[ext_resource type="Script" path="res://Interface/Spells/spells_container.gd" id="1_lpjxu"]
+[ext_resource type="PackedScene" uid="uid://rwtg2deoxrpw" path="res://Interface/Spells/physic_spells_container.tscn" id="2_6m1ql"]
+[ext_resource type="PackedScene" uid="uid://dfvjhw5v6tqqi" path="res://Interface/Spells/spell_icon.tscn" id="3_650rv"]
+[ext_resource type="Texture2D" uid="uid://bjmhhctyhstwy" path="res://Images/distraction.svg" id="4_dmh1c"]
+[ext_resource type="Texture2D" uid="uid://cxg2m8bs73g7y" path="res://Images/despair.svg" id="5_pt27a"]
+[ext_resource type="Texture2D" uid="uid://06cu1lrddk0j" path="res://Images/apathy.svg" id="6_ibnlf"]
+[ext_resource type="Texture2D" uid="uid://dfwb44j6p8bsq" path="res://Images/insanity.svg" id="7_yoidp"]
+[ext_resource type="PackedScene" uid="uid://5t6pedxsmio8" path="res://Interface/Spells/dark_spells_container.tscn" id="8_2cxep"]
+[ext_resource type="Texture2D" uid="uid://tfjk4la481al" path="res://Images/necromancy.svg" id="9_v3xee"]
+[ext_resource type="Texture2D" uid="uid://b2s7bpqubb8ah" path="res://Images/decay.svg" id="10_hp6bi"]
+[ext_resource type="PackedScene" uid="uid://cgoruox14c6q8" path="res://Interface/Spells/elemental_spells_container.tscn" id="11_6icyh"]
+[ext_resource type="Texture2D" uid="uid://bgddauvuhvol7" path="res://Images/roots.svg" id="12_yyx1n"]
+[ext_resource type="PackedScene" uid="uid://cyfmv12fv07vq" path="res://Interface/Spells/faith_spells_container.tscn" id="13_5d8c2"]
+[ext_resource type="Texture2D" uid="uid://bjyhksgfv1d81" path="res://Images/blindness.svg" id="14_aa2eb"]
+[ext_resource type="Texture2D" uid="uid://cr2fu62smc8ja" path="res://Images/divinity_hammer.svg" id="15_l5bg1"]
+[ext_resource type="Texture2D" uid="uid://ihldty8weqf2" path="res://Images/selectial_support.svg" id="16_tc5wt"]
 
 [node name="SpellsContainer" type="Control"]
 layout_mode = 3
@@ -23,9 +23,9 @@ anchors_preset = 0
 offset_top = 1.0
 offset_right = 543.0
 offset_bottom = 564.0
-script = ExtResource("1_7ln22")
+script = ExtResource("1_lpjxu")
 
-[node name="PhysicSpellsContainer" parent="." instance=ExtResource("1_c3hcw")]
+[node name="PhysicSpellsContainer" parent="." instance=ExtResource("2_6m1ql")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -34,41 +34,41 @@ grow_horizontal = 1
 grow_vertical = 1
 columns = 3
 
-[node name="DominationSpell" parent="PhysicSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="DominationSpell" parent="PhysicSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
 spell_name = "Domination"
 spell_school = "Physic"
 spell_description = "Force enemy to attack their ally"
 
-[node name="DistractionSpell" parent="PhysicSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="DistractionSpell" parent="PhysicSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("4_rklkh")
+texture = ExtResource("4_dmh1c")
 spell_name = "Distraction"
 spell_school = "Physic"
 spell_description = "Decrease enemy's concentration "
 
-[node name="DespairSpell" parent="PhysicSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="DespairSpell" parent="PhysicSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("5_nekri")
+texture = ExtResource("5_pt27a")
 spell_name = "Despair"
 spell_school = "Physic"
 spell_description = "Force enemy to attack youself"
 
-[node name="ApathySpell" parent="PhysicSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="ApathySpell" parent="PhysicSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("6_lcwrb")
+texture = ExtResource("6_ibnlf")
 spell_name = "Apathy"
 spell_school = "Physic"
 spell_description = "Force enemy to skip attacking"
 
-[node name="InsanitySpell" parent="PhysicSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="InsanitySpell" parent="PhysicSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("7_8n8bc")
+texture = ExtResource("7_yoidp")
 spell_name = "Insanity"
 spell_school = "Physic"
 spell_description = "Enemy will make random actions"
 
-[node name="DarkSpellsContainer" parent="." instance=ExtResource("2_3i85d")]
+[node name="DarkSpellsContainer" parent="." instance=ExtResource("8_2cxep")]
 visible = false
 layout_mode = 0
 anchors_preset = 0
@@ -78,21 +78,21 @@ grow_horizontal = 1
 grow_vertical = 1
 columns = 3
 
-[node name="NecromancySpell" parent="DarkSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="NecromancySpell" parent="DarkSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("9_qqtcx")
+texture = ExtResource("9_v3xee")
 spell_name = "Necromancy"
 spell_school = "Dark"
 spell_description = "Revive ally"
 
-[node name="DecaySpell" parent="DarkSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="DecaySpell" parent="DarkSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("10_qp61g")
+texture = ExtResource("10_hp6bi")
 spell_name = "Decay"
 spell_school = "Dark"
 spell_description = "Increase the absorbed damage"
 
-[node name="ElementalSpellsContainer" parent="." instance=ExtResource("3_37r8c")]
+[node name="ElementalSpellsContainer" parent="." instance=ExtResource("11_6icyh")]
 visible = false
 layout_mode = 0
 anchors_preset = 0
@@ -102,14 +102,14 @@ grow_horizontal = 1
 grow_vertical = 1
 columns = 3
 
-[node name="RootsSpell" parent="ElementalSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="RootsSpell" parent="ElementalSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("12_cogw6")
+texture = ExtResource("12_yyx1n")
 spell_name = "Roots"
 spell_school = "Elemental"
 spell_description = "Decrease enemy's magic defense"
 
-[node name="FaithSpellsContainer" parent="." instance=ExtResource("4_3ltu4")]
+[node name="FaithSpellsContainer" parent="." instance=ExtResource("13_5d8c2")]
 visible = false
 layout_mode = 0
 anchors_preset = 0
@@ -119,23 +119,23 @@ grow_horizontal = 1
 grow_vertical = 1
 columns = 3
 
-[node name="BlindnessSpell" parent="FaithSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="BlindnessSpell" parent="FaithSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("14_d28ta")
+texture = ExtResource("14_aa2eb")
 spell_name = "Blindness"
 spell_school = "Faith"
 spell_description = "Increase the possibility to miss"
 
-[node name="DivineHammerSpell" parent="FaithSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="DivineHammerSpell" parent="FaithSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("15_2xk5e")
+texture = ExtResource("15_l5bg1")
 spell_name = "Divine Hammer"
 spell_school = "Faith"
 spell_description = "Damage enemy"
 
-[node name="SelestialSupportSpell" parent="FaithSpellsContainer" instance=ExtResource("3_56e12")]
+[node name="SelestialSupportSpell" parent="FaithSpellsContainer" instance=ExtResource("3_650rv")]
 layout_mode = 2
-texture = ExtResource("16_505lw")
+texture = ExtResource("16_tc5wt")
 spell_name = "Selestial Support"
 spell_school = "Faith"
 spell_description = "Increase the magic defense"

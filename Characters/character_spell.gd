@@ -1,5 +1,7 @@
 extends Node
 
+class_name CharacterSpell
+
 var spell_name: String
 var description: String
 var effects: String

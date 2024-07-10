@@ -43,8 +43,6 @@ func on_magic_school_icon_chosen(magic_school_name: String) -> void:
 			
 	current_spells_container.show()
 	
-	print("magic school chosen: " + magic_school_name)
-	
 func on_spell_icon_mouse_entered(
 	spell_name: String, 
 	spell_school: String, 

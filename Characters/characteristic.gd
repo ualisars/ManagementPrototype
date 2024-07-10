@@ -54,7 +54,7 @@ func add_belonging_to_player(is_player: bool) -> void:
 	is_belongs_to_player = is_player
 	
 func learn_spell(spell: Node) -> void:
-	if available_spell_number > 0:
+	if available_spell_number > 0 and not is_spell_learnt(spell):
 		learnt_spells.append(spell)
 		available_spell_number -= 1
 	
@@ -67,3 +67,9 @@ func add_defeated_enemy() -> void:
 func reset_fight_properties() -> void:
 	damage_dealth = 0
 	enemies_defeated = 0
+
+func is_spell_learnt(spell: Node) -> bool:
+	for learnt_spell in learnt_spells:
+		if spell.spell_name == learnt_spell.spell_name:
+			return true
+	return false

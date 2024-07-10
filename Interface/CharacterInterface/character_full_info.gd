@@ -15,6 +15,8 @@ extends Control
 @onready var level_up_button = $CharacterInfoContainer/LevelUpButton
 @onready var available_spell_label = $VBoxContainer/AvailableSpellLabel
 
+var current_character: Characterictic
+
 var LearntSpellIconClass: PackedScene = preload("res://Interface/Spells/learnt_spell_icon.tscn")
 
 func _ready() -> void:
@@ -22,26 +24,27 @@ func _ready() -> void:
 	Messenger.SPELL_LEARNT.connect(on_spell_learnt)
 	
 func on_character_info_chosen(characteristics: Characterictic) -> void:
-	attack_value.text = str(characteristics.attack)
-	defense_value.text = str(characteristics.defense)
-	health_value.text = str(characteristics.health)
-	concentration_value.text = str(characteristics.concentration)
+	current_character = characteristics
 	
-	character_name.text = characteristics.character_name
+	attack_value.text = str(current_character.attack)
+	defense_value.text = str(current_character.defense)
+	health_value.text = str(current_character.health)
+	concentration_value.text = str(current_character.concentration)
+	
+	character_name.text = current_character.character_name
 	
 	init_learnt_spell_container()
 	
-	display_level(characteristics)
+	display_level(current_character)
 	
-	init_available_spell(characteristics)
+	init_available_spell(current_character)
 	
-	init_level_up_button(characteristics)
+	init_level_up_button(current_character)
 	
 func on_spell_learnt(spell: Node) -> void:
-	var spell_icon = LearntSpellIconClass.instantiate()
-	spell_icon.texture = spell.spell_texture
-		
-	learnt_spell_container.add_child(spell_icon)
+	init_learnt_spell_container()
+	
+	init_available_spell(current_character)
 	
 func display_level(characteristics: Characterictic) -> void:
 	var level: int = characteristics.level
@@ -78,7 +81,7 @@ func init_learnt_spell_container() -> void:
 		learnt_spell_container.remove_child(learnt_spell)
 		learnt_spell.queue_free()
 		
-	for learnt_spell in GameManager.current_character_chosen_in_camp.learnt_spells:
+	for learnt_spell in current_character.learnt_spells:
 			var spell_icon = LearntSpellIconClass.instantiate()
 			spell_icon.texture = learnt_spell.spell_texture
 			
