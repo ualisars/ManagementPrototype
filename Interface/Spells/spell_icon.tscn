@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfvjhw5v6tqqi"]
 
 [ext_resource type="Texture2D" uid="uid://5oy44m8a0p4f" path="res://Images/domination.svg" id="1_fn7f6"]
-[ext_resource type="Script" path="res://Interface/CharacterInterface/spell_icon.gd" id="2_gybfu"]
+[ext_resource type="Script" path="res://Interface/Spells/spell_icon.gd" id="2_gybfu"]
 
 [node name="SpellIcon" type="TextureRect"]
 custom_minimum_size = Vector2(80, 80)

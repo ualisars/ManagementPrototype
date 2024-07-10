@@ -15,7 +15,7 @@ extends Control
 @onready var level_up_button = $CharacterInfoContainer/LevelUpButton
 @onready var available_spell_label = $VBoxContainer/AvailableSpellLabel
 
-var LearntSpellIconClass: PackedScene = preload("res://Interface/CharacterInterface/learnt_spell_icon.tscn")
+var LearntSpellIconClass: PackedScene = preload("res://Interface/Spells/learnt_spell_icon.tscn")
 
 func _ready() -> void:
 	Messenger.CHARACTER_INFO_CHOSEN.connect(on_character_info_chosen)

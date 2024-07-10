@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_7qe87"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_hs7eg"]
 [ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="5_fhtn5"]
-[ext_resource type="PackedScene" uid="uid://2dkervu4bu1t" path="res://Interface/CharacterInterface/spells_container.tscn" id="7_fyp6t"]
-[ext_resource type="PackedScene" uid="uid://bad72j14cxlna" path="res://Interface/CharacterInterface/spell_schools_container.tscn" id="7_q5ydc"]
+[ext_resource type="PackedScene" uid="uid://2dkervu4bu1t" path="res://Interface/Spells/spells_container.tscn" id="7_fyp6t"]
+[ext_resource type="PackedScene" uid="uid://bad72j14cxlna" path="res://Interface/Spells/spell_schools_container.tscn" id="7_q5ydc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_edwxw"]
 font_size = 26
