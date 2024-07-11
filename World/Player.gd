@@ -35,6 +35,7 @@ func on_character_level_up(
 	characteristics.defense += update_characteristics_object.defense
 	characteristics.health += update_characteristics_object.health
 	characteristics.cast_speed += update_characteristics_object.cast_speed
+	characteristics.concentration += update_characteristics_object.concentration
 	
 	characteristics.available_level_ups -= 1
 	

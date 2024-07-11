@@ -7,11 +7,13 @@ extends Control
 @onready var defense_value_label = $BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/DefenseCharacteristicContainer/DefenseValueLabel
 @onready var health_value_label = $BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/HealthCharacteristicContainer/HealthValueLabel
 @onready var cast_speed_value_label = $BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/CastSpeedCharacteristicContainer/CastSpeedValueLabel
+@onready var concentration_value_label = $BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/ConcentrationCharacteristicContainer/ConcentrationValueLabel
 
 @onready var attack_increase_button = $BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/AttackCharacteristicContainer/AttackIncreaseButton
 @onready var defense_increase_button = $"BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/DefenseCharacteristicContainer/DefenseIncrease Button"
 @onready var health_increase_button = $"BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/HealthCharacteristicContainer/HealthIncrease Button"
 @onready var cast_speed_increase_button = $"BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/CastSpeedCharacteristicContainer/CastSpeedIncrease Button"
+@onready var concentration_increase_button = $BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/ConcentrationCharacteristicContainer/ConcentrationIncreaseButton
 
 @onready var accept_button = $BoxContainer/ButtonsMarginContainer/ButtonsBoxContainer/AcceptButton
 @onready var cancel_button = $BoxContainer/ButtonsMarginContainer/ButtonsBoxContainer/CancelButton
@@ -23,11 +25,13 @@ var attack_update: int
 var defense_update: int
 var health_update: int
 var cast_speed_update: int
+var concentration_update: int
 
 var is_attack_increased: bool = false
 var is_defense_increased: bool = false
 var is_health_increased: bool = false
 var is_cast_speed_increased: bool = false
+var is_concentration_increased: bool = false
 
 var available_points: int
 
@@ -42,15 +46,19 @@ func _ready() -> void:
 	defense_value_label.add_theme_font_size_override("font_size", 24)
 	health_value_label.add_theme_font_size_override("font_size", 24)
 	cast_speed_value_label.add_theme_font_size_override("font_size", 24)
+	concentration_value_label.add_theme_font_size_override("font_size", 24)
 	
 	attack_update = 1
 	defense_update = 1
 	health_update = 2
 	cast_speed_update = 1
+	concentration_update = 2
 	
 
 func on_level_up_chosen(characteristic: Characterictic) -> void:
-	update_characteristics_object = UpdateCharacteristicsObject.new(0, 0, 0, 0)
+	update_characteristics_object = UpdateCharacteristicsObject.new(
+		0, 0, 0, 0, 0
+	)
 	
 	current_character = characteristic
 	
@@ -60,6 +68,7 @@ func on_level_up_chosen(characteristic: Characterictic) -> void:
 	defense_value_label.text = str(characteristic.defense)
 	health_value_label.text = str(characteristic.health)
 	cast_speed_value_label.text = str(characteristic.cast_speed)
+	concentration_value_label.text = str(characteristic.concentration)
 	
 	init_increase_buttons()
 	
@@ -77,6 +86,7 @@ func init_increase_buttons() -> void:
 	defense_increase_button.text = "+" + str(defense_update)
 	health_increase_button.text = "+" + str(health_update)
 	cast_speed_increase_button.text = "+" + str(cast_speed_update)
+	concentration_increase_button.text = "+" + str(concentration_update)
 
 func _on_accept_button_pressed():
 	if available_points == 0:
@@ -100,6 +110,8 @@ func update_characteristics() -> void:
 		update_characteristics_object.health = health_update
 	if is_cast_speed_increased:
 		update_characteristics_object.cast_speed = cast_speed_update
+	if is_concentration_increased:
+		update_characteristics_object.concentration = concentration_update
 
 func update_button(
 	button: Button, 
@@ -184,3 +196,15 @@ func _on_cast_speed_increase_button_pressed():
 	
 	if is_value_updated:
 		is_cast_speed_increased = !is_cast_speed_increased
+
+
+func _on_concentration_increase_button_pressed():
+	var is_value_updated: bool = update_button(
+		concentration_increase_button,
+		concentration_value_label,
+		concentration_update,
+		is_concentration_increased
+	)
+	
+	if is_value_updated:
+		is_concentration_increased = !is_concentration_increased

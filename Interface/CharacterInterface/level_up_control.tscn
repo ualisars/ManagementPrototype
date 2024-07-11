@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpkwexwlqmbks"]
+[gd_scene load_steps=9 format=3 uid="uid://dpkwexwlqmbks"]
 
 [ext_resource type="Script" path="res://Control.gd" id="1_fkx0i"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_fvywy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_0g2aw"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_pawge"]
 [ext_resource type="Texture2D" uid="uid://beu3rdvni3a5a" path="res://Images/gift-of-knowledge.svg" id="5_trltb"]
+[ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="7_8gop5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v226b"]
 font_size = 26
@@ -22,8 +23,8 @@ script = ExtResource("1_fkx0i")
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 2
 offset_top = -3.0
-offset_right = 560.0
-offset_bottom = 270.0
+offset_right = 598.0
+offset_bottom = 351.0
 texture = ExtResource("2_yk44w")
 expand_mode = 1
 
@@ -137,6 +138,25 @@ custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "+1"
 
+[node name="ConcentrationCharacteristicContainer" type="HBoxContainer" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ConcentrationCharacteristicImage" type="TextureRect" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/ConcentrationCharacteristicContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+texture = ExtResource("7_8gop5")
+expand_mode = 1
+
+[node name="ConcentrationValueLabel" type="Label" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/ConcentrationCharacteristicContainer"]
+layout_mode = 2
+text = "20"
+
+[node name="ConcentrationIncreaseButton" type="Button" parent="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/ConcentrationCharacteristicContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "+1"
+
 [node name="ButtonsMarginContainer" type="MarginContainer" parent="BoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 170
@@ -160,5 +180,6 @@ text = "Cancel
 [connection signal="pressed" from="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/DefenseCharacteristicContainer/DefenseIncrease Button" to="." method="_on_defense_increase_button_pressed"]
 [connection signal="pressed" from="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/HealthCharacteristicContainer/HealthIncrease Button" to="." method="_on_health_increase_button_pressed"]
 [connection signal="pressed" from="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/CastSpeedCharacteristicContainer/CastSpeedIncrease Button" to="." method="_on_cast_speed_increase_button_pressed"]
+[connection signal="pressed" from="BoxContainer/CharacteristicsMarginContainer/CharacteristicsContainer/ConcentrationCharacteristicContainer/ConcentrationIncreaseButton" to="." method="_on_concentration_increase_button_pressed"]
 [connection signal="pressed" from="BoxContainer/ButtonsMarginContainer/ButtonsBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="BoxContainer/ButtonsMarginContainer/ButtonsBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
