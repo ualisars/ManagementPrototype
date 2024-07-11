@@ -20,6 +20,7 @@ var start_number: int
 @onready var character_info_small_5: TextureRect = $ChosenCharacters/CharacterInfoSmall5
 @onready var character_info_small_6: TextureRect = $ChosenCharacters/CharacterInfoSmall6
 
+@onready var bounty_value = $BountyMarginContainer/BountyContainer/BountyValue
 
 func _ready() -> void:
 	Messenger.INIT_TASK_CONTAINER.connect(on_init_task_container)
@@ -45,19 +46,24 @@ func on_init_task_container(number: int, passed_task: Task):
 		
 		init_chosen_characters()
 		
-func init_container():
+		init_bounty()
+		
+func init_container() -> void:
 	title_label.text = task.task_title
 	task_provider_label.text = task.task_provider
 	mage_number_value_label.text = str(task.mage_number)
 	
-func init_character_info():
+func init_character_info() -> void:
 	for index in range(character_infos.size()):
 		var character_info = character_infos[index]
 		character_info.visible = false
-		character_info.characteristic_id = start_number + index 
+		character_info.characteristic_id = start_number + index
+		
+func init_bounty() -> void:
+	bounty_value.text = str(task.bounty)
 		
 	
-func init_chosen_characters():
+func init_chosen_characters() -> void:
 	var current_task: Task
 	var task_characters: Array = []
 	
