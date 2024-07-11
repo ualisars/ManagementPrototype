@@ -8,6 +8,7 @@ extends TextureRect
 @onready var defense_value: Label = $CharacteristicsLayout/DefenseValue
 @onready var health_value: Label = $CharacteristicsLayout/HealthValue
 @onready var concentration_value: Label = $CharacteristicsLayout/ConcentrationValue
+@onready var cast_speed_value = $CharacteristicsLayout/CastSpeedValue
 
 @onready var add_button: Button = $ButtonContainer/AddButton
 @onready var remove_button: Button = $ButtonContainer/RemoveButton
@@ -41,6 +42,7 @@ func on_init_character_info(
 		attack_value.text = str(_characteristic.attack)
 		defense_value.text = str(_characteristic.defense)
 		health_value.text = str(_characteristic.health)
+		cast_speed_value.text = str(charactetistic.cast_speed)
 		concentration_value.text = str(_characteristic.concentration)
 		
 		level_value_label.text = str(_characteristic.level)

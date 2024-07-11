@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://o7s4bjxiyenh"]
+[gd_scene load_steps=16 format=3 uid="uid://o7s4bjxiyenh"]
 
 [ext_resource type="Texture2D" uid="uid://bddm7rsjtikb4" path="res://Images/grey.png" id="1_q5vv6"]
 [ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="1_qo8nk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_ewn8m"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_mxb3r"]
 [ext_resource type="Texture2D" uid="uid://beu3rdvni3a5a" path="res://Images/gift-of-knowledge.svg" id="5_c75b1"]
+[ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="8_7xmtj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ww834"]
 font_size = 10
@@ -55,16 +56,16 @@ horizontal_alignment = 1
 layout_mode = 0
 offset_top = 15.0
 offset_right = 56.0
-offset_bottom = 79.0
+offset_bottom = 70.0
 texture = ExtResource("1_qo8nk")
 expand_mode = 1
 
 [node name="CharacteristicsLayout" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 61.0
+offset_left = 80.0
 offset_top = 15.0
-offset_right = 114.0
-offset_bottom = 86.0
+offset_right = 118.0
+offset_bottom = 101.0
 columns = 2
 
 [node name="AttackImage" type="TextureRect" parent="CharacteristicsLayout"]
@@ -100,10 +101,21 @@ layout_mode = 2
 text = "30"
 label_settings = SubResource("LabelSettings_y1twj")
 
-[node name="ConcentrationImage" type="TextureRect" parent="CharacteristicsLayout"]
+[node name="CastSpeedImage" type="TextureRect" parent="CharacteristicsLayout"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 texture = ExtResource("5_c75b1")
+expand_mode = 1
+
+[node name="CastSpeedValue" type="Label" parent="CharacteristicsLayout"]
+layout_mode = 2
+text = "30"
+label_settings = SubResource("LabelSettings_dbp2y")
+
+[node name="ConcentrationImage" type="TextureRect" parent="CharacteristicsLayout"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("8_7xmtj")
 expand_mode = 1
 
 [node name="ConcentrationValue" type="Label" parent="CharacteristicsLayout"]
@@ -114,9 +126,9 @@ label_settings = SubResource("LabelSettings_dbp2y")
 [node name="LevelContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 67.0
+offset_top = 60.0
 offset_right = 41.0
-offset_bottom = 107.0
+offset_bottom = 100.0
 
 [node name="LevelLabel" type="Label" parent="LevelContainer"]
 layout_mode = 2
@@ -152,15 +164,11 @@ vertical_alignment = 1
 
 [node name="ButtonContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -35.5
 offset_top = -31.0
-offset_right = 35.5
-grow_horizontal = 2
+offset_right = 71.0
 grow_vertical = 0
 alignment = 1
 
