@@ -6,6 +6,7 @@ var cost_texture_path = "res://Images/two-coins(1).svg"
 var health_texture_path = "res://Images/hearts.svg"
 var character_texture_path =  "res://Images/cultist.svg"
 var concentration_texture_path = "res://Images/brainstorm.svg"
+var cast_speed_texture_path = "res://Images/gift-of-knowledge.svg"
 
 var current_full_character
 

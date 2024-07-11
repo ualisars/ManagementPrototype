@@ -5,6 +5,7 @@ extends Control
 @onready var health_value: Label = $CharacterInfoContainer/CharacteristicsContainer/HealthValue
 @onready var concentration_value: Label = $CharacterInfoContainer/CharacteristicsContainer/ConcentrationValue
 @onready var character_name: Label = $CharacterInfoContainer/GeneralInfoContainer/CharacterName
+@onready var cast_speed_value = $CharacterInfoContainer/CharacteristicsContainer/CastSpeedValue
 
 @onready var learnt_spell_container: GridContainer = $CharacterInfoContainer/LearntSpellContainer
 
@@ -36,6 +37,7 @@ func on_character_info_chosen(characteristics: Characterictic) -> void:
 	defense_value.text = str(current_character.defense)
 	health_value.text = str(current_character.health)
 	concentration_value.text = str(current_character.concentration)
+	cast_speed_value.text = str(current_character.cast_speed)
 	
 	character_name.text = current_character.character_name
 	

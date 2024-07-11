@@ -15,6 +15,9 @@ var defense_value: Label = Label.new()
 var health_image: TextureRect = TextureRect.new()
 var health_value: Label = Label.new()
 
+var cast_speed_image: TextureRect = TextureRect.new()
+var cast_speed_value: Label = Label.new()
+
 var concentration_image: TextureRect = TextureRect.new()
 var concentration_value: Label = Label.new()
 
@@ -33,10 +36,10 @@ var CONTAINER_SIZE_X: int = 300
 var CONTAINER_SIZE_Y: int = 300
 
 var BUTTON_SIZE_LARGE = {
-	"size_x": 100,
-	"size_y": 40,
-	"position_x": 80,
-	"position_y": 190
+	"size_x": 70,
+	"size_y": 30,
+	"position_x": 120,
+	"position_y": 200
 }
 
 func add_button(button: Button) -> void:
@@ -105,6 +108,11 @@ func init_characteristics_layout():
 			"label": health_value
 		},
 		{
+			"image": cast_speed_image, 
+			"texture_path": UiCommon.cast_speed_texture_path,
+			"label": cast_speed_value
+		},
+		{
 			"image": concentration_image, 
 			"texture_path": UiCommon.concentration_texture_path,
 			"label": concentration_value
@@ -137,10 +145,10 @@ func init_layout() -> void:
 		UiCommon.cost_texture_path, 
 		image_size_x, 
 		size_y,
-		96, 
-		140
+		40, 
+		205
 	)
-	UiCommon.add_label(cost_value, label_size_x, size_y, 146, 148)
+	UiCommon.add_label(cost_value, label_size_x, size_y, 90, 205)
 	
 	UiCommon.add_label(character_name, 129, size_y, 20, 90)
 	
@@ -175,6 +183,9 @@ func init(_is_hirable: bool = true) -> void:
 	add_child(health_image)
 	add_child(health_value)
 	
+	add_child(cast_speed_image)
+	add_child(cast_speed_value)
+	
 	add_child(concentration_image)
 	add_child(concentration_value)
 	
@@ -185,11 +196,12 @@ func init(_is_hirable: bool = true) -> void:
 	add_child(character_image)
 	add_child(hire_button)
 
-func init_characteristics(character_characteristics: Node) -> void:
+func init_characteristics(character_characteristics: Characterictic) -> void:
 	characteristics = character_characteristics
 	attack_value.text = str(character_characteristics.attack)
 	defense_value.text = str(character_characteristics.defense)
 	health_value.text = str(character_characteristics.health)
+	cast_speed_value.text = str(character_characteristics.cast_speed)
 	concentration_value.text = str(character_characteristics.concentration)
 	
 	character_name.text = str(character_characteristics.character_name)

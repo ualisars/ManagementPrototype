@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cideauwj0d7mb"]
+[gd_scene load_steps=12 format=3 uid="uid://cideauwj0d7mb"]
 
 [ext_resource type="Script" path="res://Interface/CharacterInterface/character_full_info.gd" id="1_djaf5"]
 [ext_resource type="Texture2D" uid="uid://ddu8hwd3a15k7" path="res://Images/stiletto(1).svg" id="2_265dx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bitw5ttwb7f7k" path="res://Images/shield.svg" id="3_7qe87"]
 [ext_resource type="Texture2D" uid="uid://diee2feq6hrn0" path="res://Images/hearts.svg" id="4_hs7eg"]
 [ext_resource type="Texture2D" uid="uid://d3jb7t70e14o6" path="res://Images/brainstorm.svg" id="5_fhtn5"]
+[ext_resource type="Texture2D" uid="uid://beu3rdvni3a5a" path="res://Images/gift-of-knowledge.svg" id="6_nx0ds"]
 [ext_resource type="PackedScene" uid="uid://2dkervu4bu1t" path="res://Interface/Spells/spells_container.tscn" id="7_u2n0x"]
 [ext_resource type="PackedScene" uid="uid://bad72j14cxlna" path="res://Interface/Spells/spell_schools_container.tscn" id="8_2hnjt"]
 [ext_resource type="PackedScene" uid="uid://dpkwexwlqmbks" path="res://Interface/CharacterInterface/level_up_control.tscn" id="9_7trvi"]
@@ -84,6 +85,17 @@ texture = ExtResource("4_hs7eg")
 expand_mode = 1
 
 [node name="HealthValue" type="Label" parent="CharacterInfoContainer/CharacteristicsContainer"]
+layout_mode = 2
+text = "50"
+
+[node name="CastSpeedImage" type="TextureRect" parent="CharacterInfoContainer/CharacteristicsContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(40, 23)
+layout_mode = 2
+texture = ExtResource("6_nx0ds")
+expand_mode = 1
+
+[node name="CastSpeedValue" type="Label" parent="CharacterInfoContainer/CharacteristicsContainer"]
 layout_mode = 2
 text = "50"
 
@@ -169,6 +181,7 @@ offset_right = 1029.0
 offset_bottom = 564.0
 
 [node name="LevelUpControl" parent="." instance=ExtResource("9_7trvi")]
+visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="CharacterInfoContainer/LevelUpButton" to="." method="_on_level_up_button_pressed"]

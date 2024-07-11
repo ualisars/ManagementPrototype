@@ -130,10 +130,10 @@ text = "Name"
 [node name="Cost" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 146.0
-offset_top = 178.0
-offset_right = 208.0
-offset_bottom = 201.0
+offset_left = 149.0
+offset_top = 205.0
+offset_right = 211.0
+offset_bottom = 228.0
 text = "Price"
 
 [node name="CharacterImage" type="TextureRect" parent="."]
@@ -162,10 +162,10 @@ text = "Hire
 [node name="CostImage" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 96.0
-offset_top = 168.0
-offset_right = 136.0
-offset_bottom = 208.0
+offset_left = 97.0
+offset_top = 196.0
+offset_right = 137.0
+offset_bottom = 236.0
 texture = ExtResource("5_revet")
 expand_mode = 1
 
