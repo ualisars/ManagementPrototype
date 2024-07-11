@@ -11,6 +11,7 @@ var task: Task
 @onready var task_texture: TextureRect = $TaskTexture
 
 @onready var mage_number_value_label: Label = $HBoxContainer/MageNumberValue
+@onready var bounty_value = $BountyMarginContainer/BountyContainer/BountyValue
 
 
 func _ready() -> void:
@@ -29,6 +30,7 @@ func init_container():
 	title_label.text = task.task_title
 	task_provider_label.text = task.task_provider
 	mage_number_value_label.text = str(task.mage_number)
+	bounty_value.text = str(task.bounty)
 	
 	var image = load(task.image_path)
 	task_texture.texture = image

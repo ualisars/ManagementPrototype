@@ -27,6 +27,7 @@ var image_path: String
 var id: int
 var task_number: int
 var characters: Array = []
+var bounty: int
 
 func init(
 	_action: ActionType, 
@@ -51,3 +52,12 @@ func init(
 		for index in range(enemy_number):
 			var character: Characterictic = CharacterGenerator.create_character(false)
 			characters.append(character)
+			
+		bounty = calculate_bounty()
+			
+func calculate_bounty() -> int:
+	var bountry = 0
+	for character: Characterictic in characters:
+		bountry += round(character.cost / 2)
+		
+	return bountry

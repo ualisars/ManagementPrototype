@@ -42,7 +42,7 @@ func _init() -> void:
 	cast_speed = rng.randi_range(2, 5)
 	concentration = rng.randi_range(2, 6)
 	
-	cost = health + attack + defense + concentration
+	cost = health + attack + defense + concentration + cast_speed
 	
 func add_id(new_id: int) -> void:
 	id = new_id
