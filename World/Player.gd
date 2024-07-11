@@ -37,3 +37,6 @@ func on_character_level_up(
 	characteristics.cast_speed += update_characteristics_object.cast_speed
 	
 	characteristics.available_level_ups -= 1
+	
+func add_gold(amount: int) -> void:
+	gold += amount

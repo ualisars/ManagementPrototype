@@ -67,6 +67,9 @@ func on_fight_ended(is_player_win: bool) -> void:
 		fight_end_window.visible = true
 		
 		move_to_fight_over_scene()
+		
+		if is_player_win:
+			Player.add_gold(current_task.bounty)
 
 func place_characters(characteristics_list: Array, is_player: bool) -> void:
 	var locations: Array
