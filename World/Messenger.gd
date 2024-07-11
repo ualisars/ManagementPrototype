@@ -50,3 +50,8 @@ signal TASK_FILLED(task: Task, characteristics: Array)
 signal LEVEL_UP_OPENED(characteristic: Characterictic)
 
 signal LEVEL_UP_CLOSED()
+
+signal CHARACTER_LEVEL_UP(
+	characteristics: Characterictic, 
+	update_characteristics_object: UpdateCharacteristicsObject
+)

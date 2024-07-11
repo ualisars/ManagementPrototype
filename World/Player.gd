@@ -13,6 +13,8 @@ func _ready() -> void:
 
 	Messenger.connect("UNIT_HIRED", on_character_hired)
 	Messenger.SPELL_LEARNT.connect(on_spell_learnt)
+	
+	Messenger.CHARACTER_LEVEL_UP.connect(on_character_level_up)
 
 func on_character_hired(characteristic: Node):
 	gold -= characteristic.cost
@@ -24,3 +26,14 @@ func on_character_hired(characteristic: Node):
 func on_spell_learnt(spell: Node) -> void:
 	var characteristics = GameManager.current_character_chosen_in_camp
 	characteristics.learn_spell(spell)
+	
+func on_character_level_up(
+	characteristics: Characterictic,
+	update_characteristics_object: UpdateCharacteristicsObject
+):
+	characteristics.attack += update_characteristics_object.attack
+	characteristics.defense += update_characteristics_object.defense
+	characteristics.health += update_characteristics_object.health
+	characteristics.cast_speed += update_characteristics_object.cast_speed
+	
+	characteristics.available_level_ups -= 1

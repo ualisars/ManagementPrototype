@@ -14,7 +14,7 @@ var is_belongs_to_player: int
 var concentration: int
 var learnt_spells: Array = []
 var available_spell_number: int = 0
-var available_level_ups: int = 0
+var available_level_ups: int = 1
 
 var level: int = 1
 var experience: int = 0 :
@@ -52,18 +52,18 @@ func add_character_name(_character_name: String) -> void:
 
 func add_belonging_to_player(is_player: bool) -> void:
 	is_belongs_to_player = is_player
-	
+
 func learn_spell(spell: Node) -> void:
 	if available_spell_number > 0 and not is_spell_learnt(spell):
 		learnt_spells.append(spell)
 		available_spell_number -= 1
-	
+
 func add_dealt_damage(damage: int) -> void:
 	damage_dealth += damage
-	
+
 func add_defeated_enemy() -> void:
 	enemies_defeated += 1
-	
+
 func reset_fight_properties() -> void:
 	damage_dealth = 0
 	enemies_defeated = 0

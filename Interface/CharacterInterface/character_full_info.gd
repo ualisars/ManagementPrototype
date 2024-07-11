@@ -25,6 +25,7 @@ func _ready() -> void:
 	Messenger.CHARACTER_INFO_CHOSEN.connect(on_character_info_chosen)
 	Messenger.SPELL_LEARNT.connect(on_spell_learnt)
 	Messenger.LEVEL_UP_CLOSED.connect(on_level_up_closed)
+	Messenger.CHARACTER_LEVEL_UP.connect(on_character_level_up)
 	
 	init_level_up_control()
 	
@@ -50,6 +51,14 @@ func on_spell_learnt(spell: Node) -> void:
 	init_learnt_spell_container()
 	
 	init_available_spell(current_character)
+	
+func on_character_level_up(
+	_characteristics: Characterictic,
+	_update_characteristics_object: UpdateCharacteristicsObject
+) -> void:
+	level_up_control.visible = false
+	on_character_info_chosen(current_character)
+	
 	
 func display_level(characteristics: Characterictic) -> void:
 	var level: int = characteristics.level
