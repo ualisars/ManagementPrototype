@@ -10,6 +10,15 @@ var id: int = 1
 
 var academy_characters: Array = []
 
+func _ready() -> void:
+	add_academy_characters()
+	
+	Messenger.FIGHT_ENDED.connect(on_fight_ended)
+	
+
+func on_fight_ended(_is_player_win: bool) -> void:
+	add_academy_characters()
+
 func create_character(is_player) -> Characterictic:
 	var characteristic = CharacteristicClass.instantiate()
 	characteristic.add_id(id)
@@ -35,6 +44,7 @@ func pick_name() -> String:
 	return character_name
 
 func add_academy_characters() -> void:
+	academy_characters = []
 	for i in range(5):
 		var character = create_character(false)
 		academy_characters.append(character)
@@ -58,8 +68,8 @@ func add_names() -> void:
 		"Gen",
 		"Trendor",
 		"Avinor",
-		"Bob"
+		"Bob",
+		"Uni",
+		"Telver",
+		"Agitus"
 	]
-
-func _ready() -> void:
-	add_academy_characters()
