@@ -12,6 +12,7 @@ var is_player_controlled: bool
 var cast_speed: int
 var id: int
 var is_belongs_to_player: bool
+var cast_time: float
 
 var is_wounded: bool = false
 
@@ -39,6 +40,7 @@ func init(_characteristics: Node, player_controlled: bool) -> void:
 	is_player_controlled = player_controlled
 	id = characteristics.id
 	is_belongs_to_player = characteristics.is_belongs_to_player
+	cast_time = calculate_cast_time(cast_speed)
 
 func _ready() -> void:
 	Messenger.FIGHT_STARTED.connect(on_fight_started)
@@ -55,7 +57,7 @@ func _ready() -> void:
 	body.material_override = material
 	
 func on_fight_started():
-	timer.wait_time = cast_speed
+	timer.wait_time = cast_time
 	timer.start()
 	
 func on_character_attacked(
@@ -95,6 +97,21 @@ func cast_spell(enemy: Node3D):
 	spell.global_position = global_position + Vector3(0, 1.2, 0)
 	spell.damage = attack
 	spell.direction = global_position.direction_to(enemy.global_position)
+	
+func calculate_cast_time(cast_speed: int) -> float:
+	var maximum_cast_time: float = 5.0
+	var minimum_cast_time: float = 0.4
+	var maximum_cast_speed: float = 25.0
+	var minimum_cast_speed: float = 1
+
+	var slope = (minimum_cast_time - maximum_cast_time) / (maximum_cast_speed - minimum_cast_speed)
+
+	var y_intercept = maximum_cast_time + (slope * minimum_cast_speed)
+
+	var cast_time = slope * cast_speed + y_intercept
+
+	return cast_time
+	
 
 func _on_timer_timeout() -> void: 
 	if FightManager.check_enemy_exist(characteristics):

@@ -14,7 +14,7 @@ var is_belongs_to_player: int
 var concentration: int
 var learnt_spells: Array = []
 var available_spell_number: int = 0
-var available_level_ups: int = 1
+var available_level_ups: int = 0
 
 var level: int = 1
 var experience: int = 0 :
@@ -39,7 +39,7 @@ func _init() -> void:
 	health = rng.randi_range(10, 30)
 	attack = rng.randi_range(2, 5)
 	defense = rng.randi_range(1, 3)
-	cast_speed = rng.randi_range(2, 5)
+	cast_speed = rng.randi_range(2, 8)
 	concentration = rng.randi_range(2, 6)
 	
 	cost = health + attack + defense + concentration + cast_speed
