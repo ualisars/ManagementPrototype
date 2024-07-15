@@ -14,8 +14,12 @@ var tasks: Array = []
 
 var character_added_to_tasks: Dictionary
 
+var task_fraction_providers: Array
+
 func _ready() -> void:
 	Messenger.CHARACTER_ADDED_TO_TASK.connect(on_character_added_to_task)
+	
+	task_fraction_providers = FractionManager.get_providers_from_fractions()
 	
 	generate_tasks()
 	
@@ -34,7 +38,7 @@ func generate_task(task_number: int) -> Task:
 	var enemy_number: int = rng.randi_range(2, 6)
 	var mage_number: int = rng.randi_range(2, 4)
 	
-	var provider: Task.TaskProvider = Task.TaskProvider.values().pick_random()
+	var fraction = task_fraction_providers.pop_front()
 	
 	var task: Task = Task.new()
 	var image_path: String = add_image_path(enemy)
@@ -44,7 +48,7 @@ func generate_task(task_number: int) -> Task:
 		enemy, 
 		enemy_number, 
 		mage_number, 
-		provider, 
+		fraction, 
 		image_path, 
 		id, 
 		task_number
@@ -84,4 +88,5 @@ func reset_tasks() -> void:
 	current_task_info = {}
 	tasks = []
 	
+	task_fraction_providers = FractionManager.get_providers_from_fractions()
 	generate_tasks()

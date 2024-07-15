@@ -13,15 +13,17 @@ enum EnemyType {
 }
 
 enum TaskProvider {
-	CITIZENS,
-	INQUISITION
+	INQUISITION,
+	CHAOS,
+	KEEPERS,
+	SEEKERS
 }
 
 var action: String
 var enemy_type: String
 var enemy_number: int
 var mage_number: int
-var task_provider: String
+var provider_fraction: Fraction
 var task_title: String
 var image_path: String
 var id: int
@@ -34,7 +36,7 @@ func init(
 	_enemy_type: EnemyType,
 	_enemy_number: int,
 	_mage_number: int,
-	_task_provider: TaskProvider,
+	_provider_fraction: Fraction,
 	_image_path: String,
 	_id: int,
 	_task_number: int
@@ -43,7 +45,7 @@ func init(
 		enemy_type = EnemyType.keys()[_enemy_type]
 		enemy_number = _enemy_number
 		mage_number = _mage_number
-		task_provider = TaskProvider.keys()[_task_provider]
+		provider_fraction = _provider_fraction
 		image_path = _image_path
 		id = _id
 		task_number = _task_number

@@ -50,7 +50,7 @@ func on_init_task_container(number: int, passed_task: Task):
 		
 func init_container() -> void:
 	title_label.text = task.task_title
-	task_provider_label.text = task.task_provider
+	task_provider_label.text = task.provider_fraction.fraction_name
 	mage_number_value_label.text = str(task.mage_number)
 	
 func init_character_info() -> void:
