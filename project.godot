@@ -26,6 +26,7 @@ UiCommon="*res://World/ui_common.tscn"
 GameManager="*res://World/game_manager.tscn"
 TaskManager="*res://World/task_manager.tscn"
 LevelManager="*res://World/level_manager.tscn"
+FractionManager="*res://World/fraction_manager.tscn"
 
 [editor]
 

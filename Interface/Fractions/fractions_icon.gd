@@ -3,6 +3,7 @@ extends TextureRect
 @export_file("*.tscn") var scene_file
 @export_file("*.tscn") var parent_file_path
 
+
 func open_scene():
 	Messenger.NEW_SCENE_OPENED.emit(parent_file_path)
 	

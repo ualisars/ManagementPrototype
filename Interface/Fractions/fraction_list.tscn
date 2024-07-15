@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf5e4uxktordi"]
+[gd_scene load_steps=9 format=3 uid="uid://cf5e4uxktordi"]
 
 [ext_resource type="PackedScene" uid="uid://c45vn5g0rmckg" path="res://Interface/General/player_info_container.tscn" id="1_hldiw"]
+[ext_resource type="Script" path="res://Interface/Fractions/fraction_list.gd" id="1_ywlde"]
 [ext_resource type="Texture2D" uid="uid://bhanw6wri0e4n" path="res://Images/power.svg" id="2_4ne6t"]
 [ext_resource type="Texture2D" uid="uid://cuxv74y4s8u71" path="res://Images/relationship.svg" id="3_gri5e"]
 [ext_resource type="Texture2D" uid="uid://daritu3vcrwvu" path="res://Images/inquisition.jpg" id="4_otpkp"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ywlde")
 
 [node name="PlayerInfoContainer" parent="." instance=ExtResource("1_hldiw")]
 layout_mode = 0
@@ -46,28 +48,28 @@ size_flags_vertical = 0
 text = "Inquisition"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="FractionListContainer/InquisitionFraction"]
+[node name="StatsContainer" type="HBoxContainer" parent="FractionListContainer/InquisitionFraction"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/InquisitionFraction/VBoxContainer"]
+[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/InquisitionFraction/StatsContainer"]
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 texture = ExtResource("2_4ne6t")
 expand_mode = 1
 
-[node name="PowerValue" type="Label" parent="FractionListContainer/InquisitionFraction/VBoxContainer"]
+[node name="PowerValue" type="Label" parent="FractionListContainer/InquisitionFraction/StatsContainer"]
 layout_mode = 2
 text = "20
 "
 
-[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/InquisitionFraction/VBoxContainer"]
+[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/InquisitionFraction/StatsContainer"]
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 texture = ExtResource("3_gri5e")
 expand_mode = 1
 
-[node name="RelationshipValue" type="Label" parent="FractionListContainer/InquisitionFraction/VBoxContainer"]
+[node name="RelationshipValue" type="Label" parent="FractionListContainer/InquisitionFraction/StatsContainer"]
 layout_mode = 2
 text = "20
 "
@@ -88,28 +90,28 @@ size_flags_vertical = 0
 text = "Seekers"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="FractionListContainer/SeekersFraction"]
+[node name="StatsContainer" type="HBoxContainer" parent="FractionListContainer/SeekersFraction"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/SeekersFraction/VBoxContainer"]
+[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/SeekersFraction/StatsContainer"]
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 texture = ExtResource("2_4ne6t")
 expand_mode = 1
 
-[node name="PowerValue" type="Label" parent="FractionListContainer/SeekersFraction/VBoxContainer"]
+[node name="PowerValue" type="Label" parent="FractionListContainer/SeekersFraction/StatsContainer"]
 layout_mode = 2
 text = "20
 "
 
-[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/SeekersFraction/VBoxContainer"]
+[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/SeekersFraction/StatsContainer"]
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 texture = ExtResource("3_gri5e")
 expand_mode = 1
 
-[node name="RelationshipValue" type="Label" parent="FractionListContainer/SeekersFraction/VBoxContainer"]
+[node name="RelationshipValue" type="Label" parent="FractionListContainer/SeekersFraction/StatsContainer"]
 layout_mode = 2
 text = "20
 "
@@ -130,28 +132,28 @@ size_flags_vertical = 0
 text = "Chaos"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="FractionListContainer/ChaosFraction"]
+[node name="StatsContainer" type="HBoxContainer" parent="FractionListContainer/ChaosFraction"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/ChaosFraction/VBoxContainer"]
+[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/ChaosFraction/StatsContainer"]
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 texture = ExtResource("2_4ne6t")
 expand_mode = 1
 
-[node name="PowerValue" type="Label" parent="FractionListContainer/ChaosFraction/VBoxContainer"]
+[node name="PowerValue" type="Label" parent="FractionListContainer/ChaosFraction/StatsContainer"]
 layout_mode = 2
 text = "20
 "
 
-[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/ChaosFraction/VBoxContainer"]
+[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/ChaosFraction/StatsContainer"]
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 texture = ExtResource("3_gri5e")
 expand_mode = 1
 
-[node name="RelationshipValue" type="Label" parent="FractionListContainer/ChaosFraction/VBoxContainer"]
+[node name="RelationshipValue" type="Label" parent="FractionListContainer/ChaosFraction/StatsContainer"]
 layout_mode = 2
 text = "20
 "
@@ -172,28 +174,28 @@ size_flags_vertical = 0
 text = "Keepers of Order"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="FractionListContainer/KeepersOfOrderFraction"]
+[node name="StatsContainer" type="HBoxContainer" parent="FractionListContainer/KeepersOfOrderFraction"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/KeepersOfOrderFraction/VBoxContainer"]
+[node name="PowerIcon" type="TextureRect" parent="FractionListContainer/KeepersOfOrderFraction/StatsContainer"]
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 texture = ExtResource("2_4ne6t")
 expand_mode = 1
 
-[node name="PowerValue" type="Label" parent="FractionListContainer/KeepersOfOrderFraction/VBoxContainer"]
+[node name="PowerValue" type="Label" parent="FractionListContainer/KeepersOfOrderFraction/StatsContainer"]
 layout_mode = 2
 text = "20
 "
 
-[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/KeepersOfOrderFraction/VBoxContainer"]
+[node name="RelationshipIcon" type="TextureRect" parent="FractionListContainer/KeepersOfOrderFraction/StatsContainer"]
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 texture = ExtResource("3_gri5e")
 expand_mode = 1
 
-[node name="RelationshipValue" type="Label" parent="FractionListContainer/KeepersOfOrderFraction/VBoxContainer"]
+[node name="RelationshipValue" type="Label" parent="FractionListContainer/KeepersOfOrderFraction/StatsContainer"]
 layout_mode = 2
 text = "20
 "
