@@ -12,17 +12,39 @@ func _ready():
 
 
 func init_franctions() -> void:
+	var relationships = [0, 30, 40, 80, 20, 50]
+	
 	keepers = Fraction.new()
-	keepers.init("Keepers of Order", 40, 20, 80)
+	keepers.init(
+		"Keepers of Order",
+		randi_range(10, 90),
+		20,
+		relationships.pop_at(randi_range(0, relationships.size() - 1))
+	)
 	
 	chaos = Fraction.new()
-	chaos.init("Chaos", 40, 10, 0)
+	chaos.init(
+		"Chaos",
+		randi_range(10, 90),
+		10,
+		relationships.pop_at(randi_range(0, relationships.size() - 1))
+	)
 	
 	seekers = Fraction.new()
-	seekers.init("Seekers", 20, 10, 50)
+	seekers.init(
+		"Seekers",
+		randi_range(10, 90),
+		10,
+		relationships.pop_at(randi_range(0, relationships.size() - 1))
+	)
 	
 	inquisition = Fraction.new()
-	inquisition.init("Inquisition", 80, 80, 30)
+	inquisition.init(
+		"Inquisition",
+		randi_range(10, 90),
+		80,
+		relationships.pop_at(randi_range(0, relationships.size() - 1))
+	)
 	
 	fractions.append(keepers)
 	fractions.append(chaos)
