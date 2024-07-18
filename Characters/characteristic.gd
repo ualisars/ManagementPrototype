@@ -13,7 +13,7 @@ var id: int
 var is_belongs_to_player: int
 var concentration: int
 var learnt_spells: Array = []
-var available_spell_number: int = 0
+var available_spell_number: int = 2
 var available_level_ups: int = 0
 
 var level: int = 1
@@ -44,6 +44,8 @@ func _init() -> void:
 	
 	cost = health + attack + defense + concentration + cast_speed
 	
+	add_default_spell()
+	
 func add_id(new_id: int) -> void:
 	id = new_id
 
@@ -53,7 +55,7 @@ func add_character_name(_character_name: String) -> void:
 func add_belonging_to_player(is_player: bool) -> void:
 	is_belongs_to_player = is_player
 
-func learn_spell(spell: Node) -> void:
+func learn_spell(spell: CharacterSpell) -> void:
 	if available_spell_number > 0 and not is_spell_learnt(spell):
 		learnt_spells.append(spell)
 		available_spell_number -= 1
@@ -73,3 +75,10 @@ func is_spell_learnt(spell: Node) -> bool:
 		if spell.spell_name == learnt_spell.spell_name:
 			return true
 	return false
+
+func add_default_spell() -> void:
+	if not Spells.get_spell_by_name("fireball"):
+		Spells.init_spells()
+		
+	var fireball: CharacterSpell = Spells.get_spell_by_name("fireball")
+	learn_spell(fireball)

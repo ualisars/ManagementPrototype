@@ -24,7 +24,7 @@ signal SPELL_ICON_MOUSE_ENTERED(
 
 signal SPELL_ICON_MOUSE_EXITED
 
-signal SPELL_LEARNT(spell: Node)
+signal SPELL_LEARNT(spell: CharacterSpell)
 
 signal NEW_SCENE_OPENED(scene_file_path: String)
 

@@ -19,6 +19,9 @@ func _ready():
 	init_spells()
 
 func init_spells():
+	if spells.size() > 0:
+		return
+	
 	fireball.init(
 		"Fireball",
 		"Elemental",
@@ -141,4 +144,4 @@ func init_spells():
 	
 
 func get_spell_by_name(spell_name: String) -> CharacterSpell:
-	return spells[spell_name]
+	return spells.get(spell_name)
