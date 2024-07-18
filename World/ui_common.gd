@@ -8,6 +8,19 @@ var character_texture_path =  "res://Images/cultist.svg"
 var concentration_texture_path = "res://Images/brainstorm.svg"
 var cast_speed_texture_path = "res://Images/gift-of-knowledge.svg"
 
+@export var fireball_spell_texture: Texture2D
+@export var domination_spell_texture: Texture2D
+@export var distraction_spell_texture: Texture2D
+@export var despair_spell_texture: Texture2D
+@export var apathy_spell_texture: Texture2D
+@export var insanity_spell_texture: Texture2D
+@export var necromancy_spell_texture: Texture2D
+@export var decay_spell_texture: Texture2D
+@export var roots_spell_texture: Texture2D
+@export var blindness_spell_texture: Texture2D
+@export var divine_hammer_spell_texture: Texture2D
+@export var selestial_support_spell_texture: Texture2D
+
 var current_full_character
 
 func add_image(

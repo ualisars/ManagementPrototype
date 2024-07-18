@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://cobcigbt30map"]
+[gd_scene load_steps=14 format=3 uid="uid://cobcigbt30map"]
 
 [ext_resource type="Script" path="res://World/ui_common.gd" id="1_xtmlj"]
+[ext_resource type="Texture2D" uid="uid://dqsvd73dxygx6" path="res://Images/flamer.svg" id="2_avtq7"]
+[ext_resource type="Texture2D" uid="uid://5oy44m8a0p4f" path="res://Images/domination.svg" id="3_33btw"]
+[ext_resource type="Texture2D" uid="uid://bjmhhctyhstwy" path="res://Images/distraction.svg" id="4_8dil1"]
+[ext_resource type="Texture2D" uid="uid://cxg2m8bs73g7y" path="res://Images/despair.svg" id="5_puu0b"]
+[ext_resource type="Texture2D" uid="uid://06cu1lrddk0j" path="res://Images/apathy.svg" id="6_wpcjj"]
+[ext_resource type="Texture2D" uid="uid://dfwb44j6p8bsq" path="res://Images/insanity.svg" id="7_r0kw0"]
+[ext_resource type="Texture2D" uid="uid://tfjk4la481al" path="res://Images/necromancy.svg" id="8_vhcro"]
+[ext_resource type="Texture2D" uid="uid://b2s7bpqubb8ah" path="res://Images/decay.svg" id="9_uwcm8"]
+[ext_resource type="Texture2D" uid="uid://bgddauvuhvol7" path="res://Images/roots.svg" id="10_4lpvd"]
+[ext_resource type="Texture2D" uid="uid://bjyhksgfv1d81" path="res://Images/blindness.svg" id="11_bqkok"]
+[ext_resource type="Texture2D" uid="uid://cr2fu62smc8ja" path="res://Images/divinity_hammer.svg" id="12_7tkva"]
+[ext_resource type="Texture2D" uid="uid://ihldty8weqf2" path="res://Images/selectial_support.svg" id="13_mwgh3"]
 
 [node name="UICommon" type="Node"]
 script = ExtResource("1_xtmlj")
+fireball_spell_texture = ExtResource("2_avtq7")
+domination_spell_texture = ExtResource("3_33btw")
+distraction_spell_texture = ExtResource("4_8dil1")
+despair_spell_texture = ExtResource("5_puu0b")
+apathy_spell_texture = ExtResource("6_wpcjj")
+insanity_spell_texture = ExtResource("7_r0kw0")
+necromancy_spell_texture = ExtResource("8_vhcro")
+decay_spell_texture = ExtResource("9_uwcm8")
+roots_spell_texture = ExtResource("10_4lpvd")
+blindness_spell_texture = ExtResource("11_bqkok")
+divine_hammer_spell_texture = ExtResource("12_7tkva")
+selestial_support_spell_texture = ExtResource("13_mwgh3")

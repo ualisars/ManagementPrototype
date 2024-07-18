@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhgcgbcjowf80"]
 
 [ext_resource type="Script" path="res://Characters/character.gd" id="1_gnmmy"]
-[ext_resource type="PackedScene" uid="uid://cy5myjp0j0tf" path="res://Spells/distraction_spell_cast.tscn" id="2_31kf0"]
+[ext_resource type="PackedScene" uid="uid://cy5myjp0j0tf" path="res://World/distraction_spell_cast.tscn" id="2_31kf0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_445sv"]
 

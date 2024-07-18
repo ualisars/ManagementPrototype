@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bayhff8qa00d6"]
+
+[ext_resource type="Script" path="res://World/spells.gd" id="1_rmlog"]
+
+[node name="Spells" type="Node"]
+script = ExtResource("1_rmlog")

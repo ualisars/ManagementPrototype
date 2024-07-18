@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4l5xprtxgi5g"]
+
+[ext_resource type="Script" path="res://Spells/SpellEffects.gd" id="1_bp7ya"]
+
+[node name="SpellEffects" type="Node"]
+script = ExtResource("1_bp7ya")

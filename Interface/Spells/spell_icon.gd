@@ -1,19 +1,16 @@
 extends TextureRect
 
 @export var spell_name: String
-@export var spell_school: String
-@export var spell_description: String
 
-var SpellClass: PackedScene = preload("res://Characters/character_spell.tscn")
-var spell: Node = SpellClass.instantiate()
+var spell: CharacterSpell
 
 
 func _ready() -> void:
-	spell.init(spell_name, spell_school, spell_description, texture)
+	spell = Spells.get_spell_by_name(spell_name)
 
 
 func _on_mouse_entered() -> void:
-	Messenger.SPELL_ICON_MOUSE_ENTERED.emit(spell_name, spell_school, spell_description)
+	Messenger.SPELL_ICON_MOUSE_ENTERED.emit(spell.spell_name, spell.magic_school, spell.description)
 
 
 func _on_mouse_exited() -> void:
