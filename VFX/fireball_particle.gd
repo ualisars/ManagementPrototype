@@ -1,6 +1,6 @@
 extends Node3D
 
-var owner_character: Character3D 
+var owner_character: Character3D
 var enemy_id: int
 var speed: int = 6
 var target_position: Vector3

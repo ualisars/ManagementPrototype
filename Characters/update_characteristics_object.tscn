@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://gwoqb3hk2d27"]
 
-[ext_resource type="Script" path="res://UpdateCharacteristicsObject.gd" id="1_bsi7a"]
+[ext_resource type="Script" path="res://Characters/UpdateCharacteristicsObject.gd" id="1_bsi7a"]
 
 [node name="UpdateCharacteristicsObject" type="Node"]
 script = ExtResource("1_bsi7a")
