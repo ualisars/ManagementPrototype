@@ -13,6 +13,8 @@ var blindness: CharacterSpell = CharacterSpell.new()
 var divine_hammer: CharacterSpell = CharacterSpell.new()
 var selestial_support: CharacterSpell = CharacterSpell.new()
 
+@export var fireball_particle: PackedScene
+
 var spells: Dictionary = {}
 
 func _ready():
@@ -29,6 +31,8 @@ func init_spells():
 		SpellEffects.Effects.DAMAGE,
 		UiCommon.fireball_spell_texture
 	)
+	
+	fireball.add_spell_particle(fireball_particle)
 	
 	spells["fireball"] = fireball
 	

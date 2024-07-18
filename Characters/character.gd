@@ -90,13 +90,14 @@ func disable_unit() -> void:
 	body.rotate_z(90.0)
 
 func cast_spell(enemy: Node3D):
-	var spell = SpellClass.instantiate()
-	add_child(spell)
-	spell.owner_character = self
-	spell.enemy_id = enemy.id
-	spell.global_position = global_position + Vector3(0, 1.2, 0)
-	spell.damage = attack
-	spell.direction = global_position.direction_to(enemy.global_position)
+	var spell: CharacterSpell = characteristics.learnt_spells[0]
+	var spell_particle = spell.spell_particle.instantiate()
+	add_child(spell_particle)
+	spell_particle.owner_character = self
+	spell_particle.enemy_id = enemy.id
+	spell_particle.global_position = global_position + Vector3(0, 1.2, 0)
+	spell_particle.damage = attack
+	spell_particle.direction = global_position.direction_to(enemy.global_position)
 	
 func calculate_cast_time(cast_speed: int) -> float:
 	var maximum_cast_time: float = 5.0

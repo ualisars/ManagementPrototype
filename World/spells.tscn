@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bayhff8qa00d6"]
+[gd_scene load_steps=3 format=3 uid="uid://bayhff8qa00d6"]
 
 [ext_resource type="Script" path="res://World/spells.gd" id="1_rmlog"]
+[ext_resource type="PackedScene" uid="uid://d04dm3d1nnk1c" path="res://VFX/fireball_particle.tscn" id="2_5urtq"]
 
 [node name="Spells" type="Node"]
 script = ExtResource("1_rmlog")
+fireball_particle = ExtResource("2_5urtq")
