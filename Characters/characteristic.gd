@@ -81,4 +81,8 @@ func add_default_spell() -> void:
 		Spells.init_spells()
 		
 	var fireball: CharacterSpell = Spells.get_spell_by_name("fireball")
+	
 	learn_spell(fireball)
+
+func choose_spell() -> CharacterSpell:
+	return learnt_spells.pick_random()

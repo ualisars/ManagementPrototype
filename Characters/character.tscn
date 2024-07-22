@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhgcgbcjowf80"]
+[gd_scene load_steps=5 format=3 uid="uid://bhgcgbcjowf80"]
 
 [ext_resource type="Script" path="res://Characters/character.gd" id="1_gnmmy"]
-[ext_resource type="PackedScene" uid="uid://cy5myjp0j0tf" path="res://World/distraction_spell_cast.tscn" id="2_c6ntv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_445sv"]
 
@@ -22,8 +21,5 @@ mesh = SubResource("CylinderMesh_3pw2q")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22667, 0)
 shape = SubResource("CylinderShape3D_wj0yu")
-
-[node name="DistractionSpellCast" parent="." instance=ExtResource("2_c6ntv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38111, 1.05359, -0.234786)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

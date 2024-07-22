@@ -14,6 +14,7 @@ var divine_hammer: CharacterSpell = CharacterSpell.new()
 var selestial_support: CharacterSpell = CharacterSpell.new()
 
 @export var fireball_particle: PackedScene
+@export var distraction_particle: PackedScene
 
 var spells: Dictionary = {}
 
@@ -53,6 +54,9 @@ func init_spells():
 		SpellEffects.Effects.DECREASE_CONCENTRATION,
 		UiCommon.distraction_spell_texture
 	)
+	
+	distraction.add_spell_particle(distraction_particle)
+	
 	
 	spells["distraction"] = distraction
 

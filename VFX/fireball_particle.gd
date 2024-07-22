@@ -1,11 +1,5 @@
-extends Node3D
+extends Spell3D
 
-var owner_character: Character3D
-var enemy_id: int
-var speed: int = 6
-var target_position: Vector3
-var direction: Vector3
-var damage: int
 
 func _ready() -> void:
 	connect("area_entered", on_area_entered)
@@ -13,6 +7,7 @@ func _ready() -> void:
 func on_area_entered(body: Node3D):
 	if "id" in body and body.id == enemy_id:
 		Messenger.CHARACTER_ATTACKED.emit(owner_character, body)
+		Messenger.SPELL_EFFECT_APPLIED.emit(owner_character, body, spell)
 		queue_free()
 
 func _physics_process(delta: float) -> void:

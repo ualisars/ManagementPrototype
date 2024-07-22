@@ -13,6 +13,7 @@ var cast_speed: int
 var id: int
 var is_belongs_to_player: bool
 var cast_time: float
+var concentration: int
 
 var is_wounded: bool = false
 
@@ -35,6 +36,7 @@ func init(_characteristics: Node, player_controlled: bool) -> void:
 	attack = characteristics.attack
 	defense = characteristics.defense
 	health = characteristics.health
+	concentration = characteristics.concentration
 	character_name = characteristics.character_name
 	cast_speed = characteristics.cast_speed
 	is_player_controlled = player_controlled
@@ -45,7 +47,7 @@ func init(_characteristics: Node, player_controlled: bool) -> void:
 func _ready() -> void:
 	Messenger.FIGHT_STARTED.connect(on_fight_started)
 	
-	Messenger.CHARACTER_ATTACKED.connect(on_character_attacked)
+	Messenger.SPELL_EFFECT_APPLIED.connect(on_spell_effect_applied)
 	
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	
@@ -81,6 +83,33 @@ func on_character_attacked(
 		
 		characteristics.add_defeated_enemy()
 		
+func decrease_concentration(
+	owner_character: Character3D,
+	target_character: Character3D,
+	spell: CharacterSpell
+) -> void:
+	if target_character.id != id:
+		return
+	print("concentration descreased for " + target_character.character_name)
+	print(" from " + str(target_character.concentration))
+	concentration -= owner_character.attack
+	print(" to " + str(target_character.concentration))
+
+		
+func on_spell_effect_applied(
+	owner_character: Character3D, 
+	target_character: Character3D, 
+	spell: CharacterSpell
+) -> void:
+	if target_character.id != id:
+		return
+	
+	match spell.effect:
+		SpellEffects.Effects.DAMAGE:
+			on_character_attacked(owner_character, target_character)
+		SpellEffects.Effects.DECREASE_CONCENTRATION:
+			decrease_concentration(owner_character, target_character, spell)
+		
 
 func disable_unit() -> void:
 	disabled = true
@@ -90,15 +119,20 @@ func disable_unit() -> void:
 	body.rotate_z(90.0)
 
 func cast_spell(enemy: Node3D):
-	var spell: CharacterSpell = characteristics.learnt_spells[0]
+	var spell: CharacterSpell = characteristics.choose_spell()
 	var spell_particle = spell.spell_particle.instantiate()
+	
 	add_child(spell_particle)
+	
 	spell_particle.owner_character = self
 	spell_particle.enemy_id = enemy.id
+	spell_particle.target_character = enemy
 	spell_particle.global_position = global_position + Vector3(0, 1.2, 0)
 	spell_particle.damage = attack
 	spell_particle.direction = global_position.direction_to(enemy.global_position)
-	
+	spell_particle.spell = spell
+	spell_particle.cast_speed = cast_speed
+
 func calculate_cast_time(cast_speed: int) -> float:
 	var maximum_cast_time: float = 5.0
 	var minimum_cast_time: float = 0.4
