@@ -40,7 +40,7 @@ func _init() -> void:
 	attack = rng.randi_range(2, 5)
 	defense = rng.randi_range(1, 3)
 	cast_speed = rng.randi_range(2, 8)
-	concentration = rng.randi_range(2, 6)
+	concentration = rng.randi_range(20, 30)
 	
 	cost = health + attack + defense + concentration + cast_speed
 	

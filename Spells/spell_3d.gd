@@ -11,6 +11,8 @@ var damage: int
 var cast_speed: float
 var spell: CharacterSpell
 var target_character: Character3D
+var cast_usage_speed: float
+var cast_time: float
 
 
 func _process(delta):

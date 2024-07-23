@@ -121,16 +121,20 @@ func cast_spell(enemy: Node3D):
 	var spell: CharacterSpell = characteristics.choose_spell()
 	var spell_particle = spell.spell_particle.instantiate()
 	
+	spell_particle.cast_time = calculate_cast_time(cast_speed)
+	spell_particle.spell = spell
+	spell_particle.damage = attack
+	
 	add_child(spell_particle)
 	
 	spell_particle.owner_character = self
 	spell_particle.enemy_id = enemy.id
 	spell_particle.target_character = enemy
 	spell_particle.global_position = global_position + Vector3(0, 1.2, 0)
-	spell_particle.damage = attack
+	
 	spell_particle.direction = global_position.direction_to(enemy.global_position)
-	spell_particle.spell = spell
-	spell_particle.cast_speed = cast_speed
+	
+	
 
 func calculate_cast_time(cast_speed: int) -> float:
 	var maximum_cast_time: float = 5.0
