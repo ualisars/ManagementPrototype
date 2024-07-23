@@ -61,3 +61,5 @@ signal SPELL_EFFECT_APPLIED(
 	target_character: Character3D,
 	spell: CharacterSpell
 )
+
+signal CONCENTRATION_DESCREASED(character: Character3D)

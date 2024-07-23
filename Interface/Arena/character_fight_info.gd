@@ -49,7 +49,12 @@ func set_max_concentration(concentration: int) -> void:
 func _ready() -> void:
 	health_bar.modulate = green
 	Messenger.CHARACTER_PENETRATED.connect(on_character_penetrated)
+	Messenger.CONCENTRATION_DESCREASED.connect(on_concentration_decreased)
 
 func on_character_penetrated(character: Node3D) -> void:
 	if character_id == character.id:
 		current_health = character.health
+		
+func on_concentration_decreased(character: Character3D) -> void:
+	if character_id == character.id:
+		current_concentration = character.concentration

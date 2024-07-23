@@ -90,10 +90,9 @@ func decrease_concentration(
 ) -> void:
 	if target_character.id != id:
 		return
-	print("concentration descreased for " + target_character.character_name)
-	print(" from " + str(target_character.concentration))
+	
 	concentration -= owner_character.attack
-	print(" to " + str(target_character.concentration))
+	Messenger.CONCENTRATION_DESCREASED.emit(self)
 
 		
 func on_spell_effect_applied(
