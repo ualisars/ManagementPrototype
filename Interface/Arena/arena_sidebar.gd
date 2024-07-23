@@ -16,6 +16,7 @@ func add_characters(characters3d: Array, is_player: bool) -> void:
 		character_fight_info.set_character_name(character3d.character_name)
 		character_fight_info.set_max_health(character3d.health)
 		character_fight_info.set_character_id(character3d.id)
+		character_fight_info.set_max_concentration(character3d.concentration)
 
 func add_player_characters(characters3d: Array):
 	add_characters(characters3d, true)

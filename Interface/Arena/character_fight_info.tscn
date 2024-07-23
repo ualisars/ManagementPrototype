@@ -4,41 +4,64 @@
 [ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="2_cxgag"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dh38o"]
+font_size = 10
 
 [node name="CharacterFightInfo" type="Panel"]
 custom_minimum_size = Vector2(70, 70)
 offset_right = 94.0
-offset_bottom = 73.0
+offset_bottom = 77.0
 script = ExtResource("1_kcvsn")
 
-[node name="CharacterImage" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(30, 20)
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 77.0
-offset_bottom = 60.0
-texture = ExtResource("2_cxgag")
-expand_mode = 1
+[node name="InfoContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-modulate = Color(0.392157, 1, 0.286275, 1)
-layout_mode = 0
-offset_left = 9.0
-offset_top = 61.0
-offset_right = 90.0
-offset_bottom = 71.0
-step = 1.0
-value = 100.0
-show_percentage = false
-
-[node name="CharacterNameLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 97.0
-offset_bottom = 23.0
+[node name="CharacterNameLabel" type="Label" parent="InfoContainer"]
+layout_mode = 2
 text = "Name"
 label_settings = SubResource("LabelSettings_dh38o")
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 0
 clip_text = true
+
+[node name="ImageMarginContainer" type="MarginContainer" parent="InfoContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="CharacterImage" type="TextureRect" parent="InfoContainer/ImageMarginContainer"]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_cxgag")
+expand_mode = 1
+
+[node name="BarMarginContainer" type="MarginContainer" parent="InfoContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="BarContainer" type="VBoxContainer" parent="InfoContainer/BarMarginContainer"]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="InfoContainer/BarMarginContainer/BarContainer"]
+modulate = Color(0.392157, 1, 0.286275, 1)
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="ConcentrationBar" type="ProgressBar" parent="InfoContainer/BarMarginContainer/BarContainer"]
+modulate = Color(0.977776, 0.976368, 0.989213, 1)
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+step = 1.0
+value = 100.0
+show_percentage = false
