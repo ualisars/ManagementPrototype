@@ -93,6 +93,9 @@ func decrease_concentration(
 	
 	concentration -= owner_character.attack
 	Messenger.CONCENTRATION_DESCREASED.emit(self)
+	
+	if spell.spell_name == Spells.distraction.spell_name:
+		add_distraction_effect_particle(spell)
 
 		
 func on_spell_effect_applied(
@@ -134,7 +137,13 @@ func cast_spell(enemy: Node3D):
 	
 	spell_particle.direction = global_position.direction_to(enemy.global_position)
 	
+func add_distraction_effect_particle(spell: CharacterSpell) -> void:
+	print("add distraction effect")
+	var particle: Node3D = spell.spell_effect_particle.instantiate()
 	
+	add_child(particle)
+	
+	particle.global_position = global_position + Vector3(0, 2.4, 0)
 
 func calculate_cast_time(cast_speed: int) -> float:
 	var maximum_cast_time: float = 5.0

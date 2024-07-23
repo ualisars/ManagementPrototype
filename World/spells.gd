@@ -15,6 +15,7 @@ var selestial_support: CharacterSpell = CharacterSpell.new()
 
 @export var fireball_particle: PackedScene
 @export var distraction_particle: PackedScene
+@export var distraction_effect_particle: PackedScene
 
 var spells: Dictionary = {}
 
@@ -56,7 +57,7 @@ func init_spells():
 	)
 	
 	distraction.add_spell_particle(distraction_particle)
-	
+	distraction.add_spell_effect_particle(distraction_effect_particle)
 	
 	spells["distraction"] = distraction
 

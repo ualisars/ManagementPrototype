@@ -8,6 +8,7 @@ var effect: SpellEffects.Effects
 var magic_school: String
 var spell_texture: Texture2D
 var spell_particle: PackedScene
+var spell_effect_particle: PackedScene
 
 func init(
 	_spell_name: String,
@@ -25,3 +26,6 @@ func init(
 
 func add_spell_particle(_spell_particle: PackedScene) -> void:
 	spell_particle = _spell_particle
+	
+func add_spell_effect_particle(particle: PackedScene) -> void:
+	spell_effect_particle = particle
