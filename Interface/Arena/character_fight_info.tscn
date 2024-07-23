@@ -1,22 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://clh8yxc6r4yph"]
+[gd_scene load_steps=5 format=3 uid="uid://clh8yxc6r4yph"]
 
 [ext_resource type="Script" path="res://Interface/Arena/character_fight_info.gd" id="1_kcvsn"]
 [ext_resource type="Texture2D" uid="uid://curv6qkdp78d3" path="res://Images/cultist.svg" id="2_cxgag"]
+[ext_resource type="Texture2D" uid="uid://bddm7rsjtikb4" path="res://Images/grey.png" id="2_ta6uh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dh38o"]
 font_size = 10
 
 [node name="CharacterFightInfo" type="Panel"]
 custom_minimum_size = Vector2(70, 70)
-offset_right = 94.0
-offset_bottom = 77.0
+offset_right = 91.0
+offset_bottom = 72.0
 script = ExtResource("1_kcvsn")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.565044, 0.26093, 0.0895842, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ta6uh")
+expand_mode = 1
 
 [node name="InfoContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -65,3 +79,7 @@ layout_mode = 2
 step = 1.0
 value = 100.0
 show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
