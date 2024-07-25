@@ -62,6 +62,39 @@ func on_fight_started():
 	timer.wait_time = cast_time
 	timer.start()
 	
+func cast_spell(enemy: Node3D):
+	var spell: CharacterSpell = characteristics.choose_spell()
+	var spell_particle = spell.spell_particle.instantiate()
+	
+	spell_particle.cast_time = calculate_cast_time(cast_speed)
+	spell_particle.spell = spell
+	spell_particle.damage = attack
+	
+	add_child(spell_particle)
+	
+	spell_particle.owner_character = self
+	spell_particle.enemy_id = enemy.id
+	spell_particle.target_character = enemy
+	spell_particle.global_position = global_position + spell.spell_position3d
+	
+	spell_particle.direction = global_position.direction_to(enemy.global_position)
+
+func on_spell_effect_applied(
+	owner_character: Character3D, 
+	target_character: Character3D, 
+	spell: CharacterSpell
+) -> void:
+	if target_character.id != id:
+		return
+	
+	match spell.effect:
+		SpellEffects.Effects.DAMAGE:
+			on_character_attacked(owner_character, target_character)
+		SpellEffects.Effects.DECREASE_CONCENTRATION:
+			decrease_concentration(owner_character, target_character, spell)
+		SpellEffects.Effects.ATTACK_ALLY:
+			attack_ally(owner_character, target_character, spell)
+
 func on_character_attacked(
 	attack_character: Character3D, 
 	defend_character: Character3D
@@ -82,7 +115,7 @@ func on_character_attacked(
 		FightManager.check_win_loss_condition()
 		
 		characteristics.add_defeated_enemy()
-		
+
 func decrease_concentration(
 	owner_character: Character3D,
 	target_character: Character3D,
@@ -94,24 +127,24 @@ func decrease_concentration(
 	concentration -= owner_character.attack
 	Messenger.CONCENTRATION_DESCREASED.emit(self)
 	
-	if spell.spell_name == Spells.distraction.spell_name:
-		add_distraction_effect_particle(spell)
-
+	add_spell_effect_particle(spell)
 		
-func on_spell_effect_applied(
-	owner_character: Character3D, 
-	target_character: Character3D, 
+func attack_ally(
+	owner_character: Character3D,
+	target_character: Character3D,
 	spell: CharacterSpell
-) -> void:
+):
 	if target_character.id != id:
 		return
 	
-	match spell.effect:
-		SpellEffects.Effects.DAMAGE:
-			on_character_attacked(owner_character, target_character)
-		SpellEffects.Effects.DECREASE_CONCENTRATION:
-			decrease_concentration(owner_character, target_character, spell)
+	var character_target: Character3D = FightManager.choose_ally(characteristics)
+	if character_target:
+		Messenger.SPELL_CANCELED.emit(self)
+		cast_spell(character_target)
+		timer.stop()
+		timer.start()
 		
+		add_spell_effect_particle(spell)
 
 func disable_unit() -> void:
 	disabled = true
@@ -120,25 +153,7 @@ func disable_unit() -> void:
 	timer.stop()
 	body.rotate_z(90.0)
 
-func cast_spell(enemy: Node3D):
-	var spell: CharacterSpell = characteristics.choose_spell()
-	var spell_particle = spell.spell_particle.instantiate()
-	
-	spell_particle.cast_time = calculate_cast_time(cast_speed)
-	spell_particle.spell = spell
-	spell_particle.damage = attack
-	
-	add_child(spell_particle)
-	
-	spell_particle.owner_character = self
-	spell_particle.enemy_id = enemy.id
-	spell_particle.target_character = enemy
-	spell_particle.global_position = global_position + Vector3(0, 1.2, 0)
-	
-	spell_particle.direction = global_position.direction_to(enemy.global_position)
-	
-func add_distraction_effect_particle(spell: CharacterSpell) -> void:
-	print("add distraction effect")
+func add_spell_effect_particle(spell: CharacterSpell) -> void:
 	var particle: Node3D = spell.spell_effect_particle.instantiate()
 	
 	add_child(particle)

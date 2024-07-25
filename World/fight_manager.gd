@@ -77,6 +77,22 @@ func choose_enemy(characteristics: Node) -> Node3D:
 		var player_index = rng.randi_range(0, player_characters_3d.size() - 1)
 		return player_characters_3d[player_index]
 		
+func choose_ally(
+	characteristics: Characterictic, can_choose_youself: bool = false) -> Character3D:
+	var allies: Array
+	if characteristics.is_belongs_to_player:
+		allies = player_characters_3d.duplicate()
+	else:
+		allies = enemy_characters_3d.duplicate()
+	
+	if not can_choose_youself:
+		remove_character_by_id(characteristics.id, allies)
+		
+	if allies.size() == 0:
+		return null
+	
+	return allies.pick_random()
+		
 func check_enemy_exist(characteristics: Node) -> bool:
 	if characteristics.is_belongs_to_player and enemy_characters_3d.size() == 0:
 		return false

@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://durp0ga042oso"]
+
+[ext_resource type="Shader" uid="uid://bmwatg23ius74" path="res://SpellsShaders/transition_shader.tres" id="1_7xaa1"]
+[ext_resource type="Script" path="res://SpellsShaders/domination_effect_particle.gd" id="1_ail7c"]
+[ext_resource type="Texture2D" uid="uid://dylrbjfr3aed1" path="res://addons/kenney_particle_pack/star_05.png" id="2_0ryq4"]
+[ext_resource type="Texture2D" uid="uid://5oy44m8a0p4f" path="res://Images/domination.svg" id="3_rapwo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wykym"]
+render_priority = 0
+shader = ExtResource("1_7xaa1")
+shader_parameter/TransitionAmount = 0.0
+shader_parameter/BeginTexture = ExtResource("2_0ryq4")
+shader_parameter/EndTexture = ExtResource("3_rapwo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xmu6r"]
+gravity = Vector3(0, 0, 0)
+color = Color(0.447544, 0.000173848, 0.461039, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_i0y7p"]
+
+[node name="DominationEffectParticle" type="Node3D"]
+script = ExtResource("1_ail7c")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_wykym")
+process_material = SubResource("ParticleProcessMaterial_xmu6r")
+draw_pass_1 = SubResource("QuadMesh_i0y7p")

@@ -63,3 +63,6 @@ signal SPELL_EFFECT_APPLIED(
 )
 
 signal CONCENTRATION_DESCREASED(character: Character3D)
+
+signal SPELL_CANCELED(character3d: Character3D)
+	

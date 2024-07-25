@@ -16,6 +16,8 @@ var selestial_support: CharacterSpell = CharacterSpell.new()
 @export var fireball_particle: PackedScene
 @export var distraction_particle: PackedScene
 @export var distraction_effect_particle: PackedScene
+@export var domination_cast_particle: PackedScene
+@export var domination_effect_particle: PackedScene
 
 var spells: Dictionary = {}
 
@@ -35,6 +37,7 @@ func init_spells():
 	)
 	
 	fireball.add_spell_particle(fireball_particle)
+	fireball.add_spell_position_3d(Vector3(0, 1.2, 0))
 	
 	spells["fireball"] = fireball
 	
@@ -45,6 +48,10 @@ func init_spells():
 		SpellEffects.Effects.ATTACK_ALLY,
 		UiCommon.domination_spell_texture
 	)
+	
+	domination.add_spell_particle(domination_cast_particle)
+	domination.add_spell_effect_particle(domination_effect_particle)
+	domination.add_spell_position_3d(Vector3(0, 4.0, 0))
 	
 	spells["domination"] = domination
 	
@@ -58,6 +65,7 @@ func init_spells():
 	
 	distraction.add_spell_particle(distraction_particle)
 	distraction.add_spell_effect_particle(distraction_effect_particle)
+	distraction.add_spell_position_3d(Vector3(0, 1.2, 0))
 	
 	spells["distraction"] = distraction
 

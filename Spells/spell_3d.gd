@@ -15,10 +15,16 @@ var cast_usage_speed: float
 var cast_time: float
 
 
+func _ready():
+	Messenger.SPELL_CANCELED.connect(on_spell_canceled)
+
 func _process(delta):
 	if owner_character.is_wounded:
 		queue_free()
 		
+func on_spell_canceled(character3d: Character3D):
+	if owner_character.id == character3d.id:
+		queue_free()
 
 func apply_spell_effect(enemy_character: Character3D):
 	Messenger.SPELL_EFFECT_APPLIED.emit(

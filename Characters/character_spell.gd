@@ -9,6 +9,7 @@ var magic_school: String
 var spell_texture: Texture2D
 var spell_particle: PackedScene
 var spell_effect_particle: PackedScene
+var spell_position3d: Vector3
 
 func init(
 	_spell_name: String,
@@ -29,3 +30,6 @@ func add_spell_particle(_spell_particle: PackedScene) -> void:
 	
 func add_spell_effect_particle(particle: PackedScene) -> void:
 	spell_effect_particle = particle
+	
+func add_spell_position_3d(_spell_position3d: Vector3) -> void:
+	spell_position3d = _spell_position3d
