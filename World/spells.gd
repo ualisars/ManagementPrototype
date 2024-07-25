@@ -52,6 +52,7 @@ func init_spells():
 	domination.add_spell_particle(domination_cast_particle)
 	domination.add_spell_effect_particle(domination_effect_particle)
 	domination.add_spell_position_3d(Vector3(0, 4.0, 0))
+	domination.add_spell_effect_position_3d(Vector3(0, 4.0, 0))
 	
 	spells["domination"] = domination
 	
@@ -66,6 +67,7 @@ func init_spells():
 	distraction.add_spell_particle(distraction_particle)
 	distraction.add_spell_effect_particle(distraction_effect_particle)
 	distraction.add_spell_position_3d(Vector3(0, 1.2, 0))
+	distraction.add_spell_effect_position_3d(Vector3(0, 2.4, 0))
 	
 	spells["distraction"] = distraction
 

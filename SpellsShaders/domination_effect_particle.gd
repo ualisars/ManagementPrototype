@@ -14,7 +14,7 @@ func _ready():
 	material = gpu_particles_3d.material_override
 	material.set_shader_parameter("TransitionAmount", 0.0)
 	
-	total_duration = 4.2
+	total_duration = 1.2
 
 
 func _process(delta):

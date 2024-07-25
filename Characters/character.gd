@@ -140,11 +140,10 @@ func attack_ally(
 	var character_target: Character3D = FightManager.choose_ally(characteristics)
 	if character_target:
 		Messenger.SPELL_CANCELED.emit(self)
+		add_spell_effect_particle(spell)
 		cast_spell(character_target)
 		timer.stop()
 		timer.start()
-		
-		add_spell_effect_particle(spell)
 
 func disable_unit() -> void:
 	disabled = true
@@ -158,7 +157,7 @@ func add_spell_effect_particle(spell: CharacterSpell) -> void:
 	
 	add_child(particle)
 	
-	particle.global_position = global_position + Vector3(0, 2.4, 0)
+	particle.global_position = global_position + spell.spell_effect_position3d
 
 func calculate_cast_time(cast_speed: int) -> float:
 	var maximum_cast_time: float = 5.0
