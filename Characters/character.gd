@@ -27,8 +27,6 @@ var enemy_color: String = "fc4086"
 
 var disabled: bool = false
 
-var SpellClass: PackedScene = preload("res://VFX/fireball_particle.tscn")
-
 @onready var body: MeshInstance3D = $Body
 
 func init(_characteristics: Node, player_controlled: bool) -> void:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bayhff8qa00d6"]
 
 [ext_resource type="Script" path="res://World/spells.gd" id="1_rmlog"]
-[ext_resource type="PackedScene" uid="uid://d04dm3d1nnk1c" path="res://VFX/fireball_particle.tscn" id="2_5urtq"]
+[ext_resource type="PackedScene" uid="uid://d04dm3d1nnk1c" path="res://SpellParticles/fireball_particle.tscn" id="2_5urtq"]
 [ext_resource type="PackedScene" uid="uid://cy5myjp0j0tf" path="res://SpellParticles/distraction_spell_cast.tscn" id="3_7xf86"]
 [ext_resource type="PackedScene" uid="uid://dmxa1c85hg4v1" path="res://SpellParticles/distraction_effect_particle.tscn" id="4_2j245"]
 [ext_resource type="PackedScene" uid="uid://c11syh0gb6hrx" path="res://SpellParticles/domination_cast_spell.tscn" id="5_yjf5d"]

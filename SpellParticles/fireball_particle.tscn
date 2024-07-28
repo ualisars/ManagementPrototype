@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://d04dm3d1nnk1c"]
 
-[ext_resource type="Script" path="res://VFX/fireball_particle.gd" id="1_05fpn"]
-[ext_resource type="Texture2D" uid="uid://chgq4wcojwihd" path="res://VFX/particle_sprite_smoke.webp" id="1_qntv3"]
+[ext_resource type="Script" path="res://SpellParticles/fireball_particle.gd" id="1_05fpn"]
+[ext_resource type="Texture2D" uid="uid://chgq4wcojwihd" path="res://Images/particle_sprite_smoke.webp" id="1_qntv3"]
 
 [sub_resource type="Curve" id="Curve_5an63"]
 min_value = -360.0

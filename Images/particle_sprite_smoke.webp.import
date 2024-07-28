@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chgq4wcojwihd"
-path.s3tc="res://.godot/imported/particle_sprite_smoke.webp-2e32185d8619c418e4be2ad21e7c2bf2.s3tc.ctex"
+path.s3tc="res://.godot/imported/particle_sprite_smoke.webp-e0ae28e145a99e476a6cf59404a4bbe2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://VFX/particle_sprite_smoke.webp"
-dest_files=["res://.godot/imported/particle_sprite_smoke.webp-2e32185d8619c418e4be2ad21e7c2bf2.s3tc.ctex"]
+source_file="res://Images/particle_sprite_smoke.webp"
+dest_files=["res://.godot/imported/particle_sprite_smoke.webp-e0ae28e145a99e476a6cf59404a4bbe2.s3tc.ctex"]
 
 [params]
 
