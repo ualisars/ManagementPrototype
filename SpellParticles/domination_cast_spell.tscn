@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c11syh0gb6hrx"]
 
 [ext_resource type="Shader" uid="uid://bmwatg23ius74" path="res://SpellsShaders/transition_shader.tres" id="1_efrf4"]
-[ext_resource type="Script" path="res://SpellsShaders/domination_cast_spell.gd" id="1_x3cf1"]
+[ext_resource type="Script" path="res://SpellParticles/domination_cast_spell.gd" id="1_x3cf1"]
 [ext_resource type="Texture2D" uid="uid://d05qtsyom4fr5" path="res://addons/kenney_particle_pack/light_01.png" id="2_208vt"]
 [ext_resource type="Texture2D" uid="uid://dga0q4nknyvs7" path="res://addons/kenney_particle_pack/light_03.png" id="3_80phr"]
 

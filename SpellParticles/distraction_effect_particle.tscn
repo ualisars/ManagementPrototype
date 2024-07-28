@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmxa1c85hg4v1"]
 
-[ext_resource type="Script" path="res://SpellsShaders/distraction_effect_particle.gd" id="1_xr7s3"]
+[ext_resource type="Script" path="res://SpellParticles/distraction_effect_particle.gd" id="1_xr7s3"]
 [ext_resource type="Shader" uid="uid://bmwatg23ius74" path="res://SpellsShaders/transition_shader.tres" id="1_yti0h"]
 [ext_resource type="Texture2D" uid="uid://dylrbjfr3aed1" path="res://addons/kenney_particle_pack/star_05.png" id="2_g41s0"]
 [ext_resource type="Texture2D" uid="uid://bjmhhctyhstwy" path="res://Images/distraction.svg" id="3_3na3c"]

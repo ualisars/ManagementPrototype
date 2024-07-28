@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://durp0ga042oso"]
 
 [ext_resource type="Shader" uid="uid://bmwatg23ius74" path="res://SpellsShaders/transition_shader.tres" id="1_7xaa1"]
-[ext_resource type="Script" path="res://SpellsShaders/domination_effect_particle.gd" id="1_ail7c"]
+[ext_resource type="Script" path="res://SpellParticles/domination_effect_particle.gd" id="1_ail7c"]
 [ext_resource type="Texture2D" uid="uid://dylrbjfr3aed1" path="res://addons/kenney_particle_pack/star_05.png" id="2_0ryq4"]
 [ext_resource type="Texture2D" uid="uid://5oy44m8a0p4f" path="res://Images/domination.svg" id="3_rapwo"]
 
