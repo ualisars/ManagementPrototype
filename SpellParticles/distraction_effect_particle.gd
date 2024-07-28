@@ -1,4 +1,4 @@
-extends Node3D
+extends Spell3D
 
 var elapsed_time: float = 0.0
 

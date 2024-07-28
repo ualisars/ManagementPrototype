@@ -14,7 +14,6 @@ var total_duration: float
 func _ready():
 	material = gpu_particles_3d.material_override
 	material.set_shader_parameter("TransitionAmount", 0.0)
-	cast_usage_speed = 2.4
 	
 	total_duration = cast_usage_speed + cast_time
 

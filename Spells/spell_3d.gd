@@ -12,15 +12,16 @@ var cast_speed: float
 var spell: CharacterSpell
 var target_character: Character3D
 
-var cast_usage_speed: float
 var cast_time: float
 
-var concentration_to_cast: int = 0
-var concentration_to_max_damage: int = 0
-var concentration_to_min_damage: int = 0
+@export var concentration_to_cast: int
+@export var concentration_to_max_damage: int
+@export var concentration_to_min_damage: int
 
-var min_damage: int
-var max_damage: int
+@export var max_damage: int
+@export var min_damage: int
+
+@export var cast_usage_speed: float
 
 func _ready():
 	Messenger.SPELL_CANCELED.connect(on_spell_canceled)

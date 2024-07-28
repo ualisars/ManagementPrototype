@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://c11syh0gb6hrx"]
 
-[ext_resource type="Shader" uid="uid://bmwatg23ius74" path="res://SpellsShaders/transition_shader.tres" id="1_efrf4"]
-[ext_resource type="Script" path="res://SpellParticles/domination_cast_spell.gd" id="1_x3cf1"]
-[ext_resource type="Texture2D" uid="uid://d05qtsyom4fr5" path="res://addons/kenney_particle_pack/light_01.png" id="2_208vt"]
-[ext_resource type="Texture2D" uid="uid://dga0q4nknyvs7" path="res://addons/kenney_particle_pack/light_03.png" id="3_80phr"]
+[ext_resource type="Script" path="res://SpellParticles/domination_cast_spell.gd" id="1_gwxjc"]
+[ext_resource type="Shader" uid="uid://bmwatg23ius74" path="res://SpellsShaders/transition_shader.tres" id="2_yuu3m"]
+[ext_resource type="Texture2D" uid="uid://d05qtsyom4fr5" path="res://addons/kenney_particle_pack/light_01.png" id="3_yus3d"]
+[ext_resource type="Texture2D" uid="uid://dga0q4nknyvs7" path="res://addons/kenney_particle_pack/light_03.png" id="4_w2aou"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw2pr"]
 render_priority = 0
-shader = ExtResource("1_efrf4")
+shader = ExtResource("2_yuu3m")
 shader_parameter/TransitionAmount = 0.0
-shader_parameter/BeginTexture = ExtResource("2_208vt")
-shader_parameter/EndTexture = ExtResource("3_80phr")
+shader_parameter/BeginTexture = ExtResource("3_yus3d")
+shader_parameter/EndTexture = ExtResource("4_w2aou")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jcndr"]
 gravity = Vector3(0, 0, 0)
@@ -19,7 +19,9 @@ color = Color(0.703249, 8.25924e-05, 0.58424, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_g8fgg"]
 
 [node name="domination_cast_spell" type="Node3D"]
-script = ExtResource("1_x3cf1")
+script = ExtResource("1_gwxjc")
+concentration_to_cast = 15
+cast_usage_speed = 2.4
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_mw2pr")
