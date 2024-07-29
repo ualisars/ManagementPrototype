@@ -4,7 +4,11 @@ signal UNIT_HIRED(CharacterCharacteristics: Node)
 
 signal PLAYER_INFO_UPDATED
 
-signal CHARACTER_ATTACKED(attack_character: Node3D, defend_character: Node3D)
+signal CHARACTER_ATTACKED(
+	attack_character: Node3D, 
+	defend_character: Node3D,
+	spell: Spell3D
+)
 
 signal FIGHT_ENDED(is_player_win: bool)
 
