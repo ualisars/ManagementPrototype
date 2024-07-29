@@ -6,7 +6,6 @@ func _ready() -> void:
 	
 func on_area_entered(body: Node3D):
 	if "id" in body and body.id == enemy_id:
-		Messenger.CHARACTER_ATTACKED.emit(owner_character, body)
 		Messenger.SPELL_EFFECT_APPLIED.emit(owner_character, body, self)
 		queue_free()
 

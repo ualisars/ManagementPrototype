@@ -20,7 +20,10 @@ var is_wounded: bool = false
 var damage_dealt: int = 0
 var enemies_defeated: int = 0
 
+@export var concentration_restoration: int
+
 @onready var timer: Timer = $Timer
+@onready var concentration_timer = $ConcentrationTimer
 
 var player_color: String = "5e4086"
 var enemy_color: String = "fc4086"
@@ -59,6 +62,8 @@ func _ready() -> void:
 func on_fight_started():
 	timer.wait_time = cast_time
 	timer.start()
+	
+	concentration_timer.start()
 	
 func cast_spell(enemy: Node3D):
 	var spell: CharacterSpell = characteristics.choose_spell()
@@ -177,3 +182,8 @@ func _on_timer_timeout() -> void:
 	if FightManager.check_enemy_exist(characteristics):
 		var enemy: Node = FightManager.choose_enemy(characteristics)
 		cast_spell(enemy)
+
+
+func _on_concentration_timer_timeout():
+	concentration += concentration_restoration
+	Messenger.CONCENTRATION_CHANGED.emit(self)

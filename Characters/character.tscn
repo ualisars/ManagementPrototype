@@ -10,6 +10,7 @@
 
 [node name="Character" type="Area3D"]
 script = ExtResource("1_gnmmy")
+concentration_restoration = 1
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23, 0)
@@ -22,4 +23,7 @@ mesh = SubResource("CylinderMesh_3pw2q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22667, 0)
 shape = SubResource("CylinderShape3D_wj0yu")
 
+[node name="ConcentrationTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ConcentrationTimer" to="." method="_on_concentration_timer_timeout"]

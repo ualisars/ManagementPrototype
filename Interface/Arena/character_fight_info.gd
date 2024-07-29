@@ -35,7 +35,7 @@ var max_concentration: int:
 		
 
 var current_concentration: int:
-	set(new_concentration): 
+	set(new_concentration):
 		current_concentration = new_concentration
 		concentration_bar.value = current_concentration
 
@@ -56,6 +56,7 @@ func _ready() -> void:
 	health_bar.modulate = green
 	Messenger.CHARACTER_PENETRATED.connect(on_character_penetrated)
 	Messenger.CONCENTRATION_DESCREASED.connect(on_concentration_decreased)
+	Messenger.CONCENTRATION_CHANGED.connect(on_concentration_changed)
 	
 	background.modulate = default_background_color
 
@@ -67,6 +68,10 @@ func on_concentration_decreased(character: Character3D) -> void:
 	if character_id == character.id:
 		current_concentration = character.concentration
 
+
+func on_concentration_changed(character: Character3D):
+	if character_id == character.id:
+		current_concentration = character.concentration
 
 func set_damage_timeout():
 	background.modulate = receive_damage_color

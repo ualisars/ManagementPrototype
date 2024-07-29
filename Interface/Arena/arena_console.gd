@@ -31,7 +31,7 @@ func on_spell_effect_applied(
 		SpellEffects.Effects.DAMAGE:
 			console_text += owner_name + " dealt " + damage + " damage"
 			console_text += " to " + target_name + ", "
-			console_text += " cased by " + spell_name + " spell ."
+			console_text += " cased by " + spell_name + " spell. "
 			console_text += target_name + " has " + health + " health now."
 		SpellEffects.Effects.DECREASE_CONCENTRATION:
 			console_text += target_name + " is effected by "

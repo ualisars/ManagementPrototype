@@ -4,12 +4,6 @@ signal UNIT_HIRED(CharacterCharacteristics: Node)
 
 signal PLAYER_INFO_UPDATED
 
-signal CHARACTER_ATTACKED(
-	attack_character: Node3D, 
-	defend_character: Node3D,
-	spell: Spell3D
-)
-
 signal FIGHT_ENDED(is_player_win: bool)
 
 signal FIGHT_STARTED
@@ -69,4 +63,5 @@ signal SPELL_EFFECT_APPLIED(
 signal CONCENTRATION_DESCREASED(character: Character3D)
 
 signal SPELL_CANCELED(character3d: Character3D)
-	
+
+signal CONCENTRATION_CHANGED(character3d: Character3D)
