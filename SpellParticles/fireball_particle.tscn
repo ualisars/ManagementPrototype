@@ -50,6 +50,9 @@ radius = 0.4
 [node name="FireballParticle" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0112109, 0)
 script = ExtResource("1_05fpn")
+concentration_to_max_damage = 15
+max_damage = 5
+min_damage = 2
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0889251, 0)

@@ -22,6 +22,12 @@ anim_speed_max = 10.0
 [node name="DistractionSpellCast" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.018652, 0)
 script = ExtResource("1_r48q4")
+concentration_to_cast = 5
+concentration_to_max_damage = 14
+concentration_to_min_damage = 6
+max_damage = 10
+min_damage = 5
+cast_usage_speed = 1.8
 
 [node name="DistractionSpellCastParticle" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0336, 1.8587, 0)

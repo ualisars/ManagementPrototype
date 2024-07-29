@@ -38,5 +38,15 @@ func apply_spell_effect(enemy_character: Character3D):
 	Messenger.SPELL_EFFECT_APPLIED.emit(
 		owner_character,
 		enemy_character,
-		spell
+		Spell3D
 	)
+
+func calculate_damage() -> int:
+	if owner_character.concentration <= concentration_to_min_damage:
+		return min_damage
+	elif owner_character.concentration >= concentration_to_max_damage:
+		return max_damage
+	else:
+		var slope: float = (max_damage - min_damage) / (concentration_to_max_damage - concentration_to_min_damage)
+		var damage: float = min_damage + slope * (owner_character.concentration - concentration_to_min_damage)
+		return int(damage)

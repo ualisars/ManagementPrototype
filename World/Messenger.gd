@@ -59,7 +59,7 @@ signal CHARACTER_LEVEL_UP(
 signal SPELL_EFFECT_APPLIED(
 	owner_character: Character3D,
 	target_character: Character3D,
-	spell: CharacterSpell
+	spell: Spell3D
 )
 
 signal CONCENTRATION_DESCREASED(character: Character3D)

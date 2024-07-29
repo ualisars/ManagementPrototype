@@ -25,7 +25,7 @@ func _process(delta):
 	transition_amount = clamp(transition_amount, 0.0, 1.0)
 
 	if transition_amount >= 1.0:
-		Messenger.SPELL_EFFECT_APPLIED.emit(owner_character, target_character, spell)
+		Messenger.SPELL_EFFECT_APPLIED.emit(owner_character, target_character, self)
 		set_process(false)
 		queue_free()
 

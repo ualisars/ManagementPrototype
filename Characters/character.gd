@@ -80,27 +80,28 @@ func cast_spell(enemy: Node3D):
 func on_spell_effect_applied(
 	owner_character: Character3D, 
 	target_character: Character3D, 
-	spell: CharacterSpell
+	spell3d: Spell3D
 ) -> void:
 	if target_character.id != id:
 		return
 	
-	match spell.effect:
+	match spell3d.spell.effect:
 		SpellEffects.Effects.DAMAGE:
-			on_character_attacked(owner_character, target_character)
+			damage_character(owner_character, target_character, spell3d)
 		SpellEffects.Effects.DECREASE_CONCENTRATION:
-			decrease_concentration(owner_character, target_character, spell)
+			decrease_concentration(owner_character, target_character, spell3d)
 		SpellEffects.Effects.ATTACK_ALLY:
-			attack_ally(owner_character, target_character, spell)
+			attack_ally(owner_character, target_character, spell3d)
 
-func on_character_attacked(
+func damage_character(
 	attack_character: Character3D, 
-	defend_character: Character3D
+	defend_character: Character3D,
+	spell3d: Spell3D
 ) -> void:
 	if defend_character.id != id:
 		return
 		
-	var damage: int = attack_character.attack
+	var damage: int = spell3d.calculate_damage()
 
 	if health > 0:
 		health -= damage
@@ -117,20 +118,20 @@ func on_character_attacked(
 func decrease_concentration(
 	owner_character: Character3D,
 	target_character: Character3D,
-	spell: CharacterSpell
+	spell3d: Spell3D
 ) -> void:
 	if target_character.id != id:
 		return
 	
-	concentration -= owner_character.attack
+	concentration -= spell3d.calculate_damage()
 	Messenger.CONCENTRATION_DESCREASED.emit(self)
 	
-	add_spell_effect_particle(spell)
+	add_spell_effect_particle(spell3d)
 		
 func attack_ally(
 	owner_character: Character3D,
 	target_character: Character3D,
-	spell: CharacterSpell
+	spell3d: Spell3D
 ):
 	if target_character.id != id:
 		return
@@ -138,7 +139,7 @@ func attack_ally(
 	var character_target: Character3D = FightManager.choose_ally(characteristics)
 	if character_target:
 		Messenger.SPELL_CANCELED.emit(self)
-		add_spell_effect_particle(spell)
+		add_spell_effect_particle(spell3d)
 		cast_spell(character_target)
 		timer.stop()
 		timer.start()
@@ -150,12 +151,12 @@ func disable_unit() -> void:
 	timer.stop()
 	body.rotate_z(90.0)
 
-func add_spell_effect_particle(spell: CharacterSpell) -> void:
-	var particle: Node3D = spell.spell_effect_particle.instantiate()
+func add_spell_effect_particle(spell3d: Spell3D) -> void:
+	var particle: Node3D = spell3d.spell.spell_effect_particle.instantiate()
 	
 	add_child(particle)
 	
-	particle.global_position = global_position + spell.spell_effect_position3d
+	particle.global_position = global_position + spell3d.spell.spell_effect_position3d
 
 func calculate_cast_time(cast_speed: int) -> float:
 	var maximum_cast_time: float = 5.0
