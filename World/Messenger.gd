@@ -54,7 +54,7 @@ signal CHARACTER_LEVEL_UP(
 	update_characteristics_object: UpdateCharacteristicsObject
 )
 
-signal SPELL_EFFECT_APPLIED(
+signal SPELL_EFFECTS_APPLIED(
 	owner_character: Character3D,
 	target_character: Character3D,
 	spell: Spell3D

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://d04dm3d1nnk1c"]
 
 [ext_resource type="Script" path="res://SpellParticles/fireball_particle.gd" id="1_05fpn"]
-[ext_resource type="Texture2D" uid="uid://chgq4wcojwihd" path="res://Images/particle_sprite_smoke.webp" id="1_qntv3"]
+[ext_resource type="Texture2D" uid="uid://chgq4wcojwihd" path="res://Images/particle_sprite_smoke.webp" id="2_cblbn"]
 
 [sub_resource type="Curve" id="Curve_5an63"]
 min_value = -360.0
@@ -34,7 +34,7 @@ anim_speed_max = 2.0
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_qntv3")
+albedo_texture = ExtResource("2_cblbn")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 8
@@ -53,6 +53,8 @@ script = ExtResource("1_05fpn")
 concentration_to_max_damage = 15
 max_damage = 5
 min_damage = 2
+max_concentration_damage = 1
+min_concentration_damage = 1
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0889251, 0)

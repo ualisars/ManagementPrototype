@@ -32,7 +32,7 @@ func init_spells():
 		"Fireball",
 		"Elemental",
 		"Cast a fireball dealt magic damage",
-		SpellEffects.Effects.DAMAGE,
+		[SpellEffects.Effects.DAMAGE, SpellEffects.Effects.DECREASE_CONCENTRATION],
 		UiCommon.fireball_spell_texture
 	)
 	
@@ -45,7 +45,7 @@ func init_spells():
 		"Domination",
 		"Physic",
 		"Force enemy to attack their ally",
-		SpellEffects.Effects.ATTACK_ALLY,
+		[SpellEffects.Effects.ATTACK_ALLY],
 		UiCommon.domination_spell_texture
 	)
 	
@@ -60,7 +60,7 @@ func init_spells():
 		"Distraction",
 		"Physic",
 		"Decrease enemy's concentration",
-		SpellEffects.Effects.DECREASE_CONCENTRATION,
+		[SpellEffects.Effects.DECREASE_CONCENTRATION],
 		UiCommon.distraction_spell_texture
 	)
 	
@@ -75,7 +75,7 @@ func init_spells():
 		"Despair",
 		"Physic",
 		"Force enemy to attack youself",
-		SpellEffects.Effects.ATTACK_YOURSELF,
+		[SpellEffects.Effects.ATTACK_YOURSELF],
 		UiCommon.despair_spell_texture
 	)
 	
@@ -85,7 +85,7 @@ func init_spells():
 		"Apathy",
 		"Physic",
 		"Force enemy to skip attack",
-		SpellEffects.Effects.SKIP_ATTACK,
+		[SpellEffects.Effects.SKIP_ATTACK],
 		UiCommon.apathy_spell_texture
 	)
 	
@@ -95,7 +95,7 @@ func init_spells():
 		"Insanity",
 		"Physic",
 		"Enemy will make random actions",
-		SpellEffects.Effects.DO_RANDOM_ACTIONS,
+		[SpellEffects.Effects.DO_RANDOM_ACTIONS],
 		UiCommon.insanity_spell_texture
 	)
 	
@@ -105,7 +105,7 @@ func init_spells():
 		"Necromancy",
 		"Dark",
 		"Revive ally",
-		SpellEffects.Effects.REVIVE_ALLY,
+		[SpellEffects.Effects.REVIVE_ALLY],
 		UiCommon.necromancy_spell_texture
 	)
 	
@@ -115,7 +115,7 @@ func init_spells():
 		"Decay",
 		"Dark",
 		"Increase the absorbed damage",
-		SpellEffects.Effects.DECREASE_MAGIC_DEFENSE,
+		[SpellEffects.Effects.DECREASE_MAGIC_DEFENSE],
 		UiCommon.decay_spell_texture
 	)
 	
@@ -125,7 +125,7 @@ func init_spells():
 		"Roots",
 		"Elemental",
 		"Decrease enemy's magic defense",
-		SpellEffects.Effects.DECREASE_MAGIC_DEFENSE,
+		[SpellEffects.Effects.DECREASE_MAGIC_DEFENSE],
 		UiCommon.roots_spell_texture
 	)
 	
@@ -135,7 +135,7 @@ func init_spells():
 		"Blindness",
 		"Faith",
 		"Increase the possibility to miss",
-		SpellEffects.Effects.DECREASE_CONCENTRATION,
+		[SpellEffects.Effects.DECREASE_CONCENTRATION],
 		UiCommon.blindness_spell_texture
 	)
 	
@@ -145,7 +145,7 @@ func init_spells():
 		"Divine Hammer",
 		"Faith",
 		"Damage enemy",
-		SpellEffects.Effects.DAMAGE,
+		[SpellEffects.Effects.DAMAGE],
 		UiCommon.divine_hammer_spell_texture
 	)
 	
@@ -155,7 +155,7 @@ func init_spells():
 		"Selestial Support",
 		"Faith",
 		"Increase the magic defense",
-		SpellEffects.Effects.INCREASE_MAGIC_DEFENSE,
+		[SpellEffects.Effects.INCREASE_MAGIC_DEFENSE],
 		UiCommon.selestial_support_spell_texture
 	)
 	
