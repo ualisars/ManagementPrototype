@@ -2,13 +2,13 @@ extends Spell3D
 
 @onready var gpu_particles_3d = $GPUParticles3D
 
-var transition_amount
-
-var elapsed_time: float = 0.0
-
-var material: ShaderMaterial
-
-var total_duration: float
+#var transition_amount
+#
+#var elapsed_time: float = 0.0
+#
+#var material: ShaderMaterial
+#
+#var total_duration: float
 
 
 func _ready():

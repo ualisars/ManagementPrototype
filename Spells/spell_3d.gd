@@ -26,13 +26,45 @@ var cast_time: float
 
 @export var cast_usage_speed: float
 
+var elapsed_time: float = 0.0
+var transition_amount: float = 0.0
+var total_duration: float
+var material: ShaderMaterial
+
 func _ready():
 	Messenger.SPELL_CANCELED.connect(on_spell_canceled)
+	
+	print("Spell name: ", spell.spell_name)
+	print("Spell type: ", spell.spell_interaction_type)
+	print("owner: ", owner_character.character_name)
+	
+	if spell.spell_name == Spells.distraction.spell_name:
+		print("distraction")
+	
+	match spell.spell_interaction_type:
+		CharacterSpell.SpellInterationType.PROJECTILE:
+			print("PROJECTILE")
+			set_process(false)
+		CharacterSpell.SpellInterationType.IMMATERIAL:
+			print("IMMATERIAL")
+			set_physics_process(false)
 
 func _process(delta):
 	if owner_character.is_wounded:
+		set_process(false)
 		queue_free()
+		return
 		
+	cast_spell(delta)
+	
+
+func _physics_process(delta: float) -> void:
+	if owner_character and owner_character.is_wounded:
+		set_physics_process(false)
+		queue_free()
+
+	position += direction * speed * delta
+
 func on_spell_canceled(character3d: Character3D):
 	if owner_character.id == character3d.id:
 		queue_free()
@@ -60,3 +92,24 @@ func calculate_damage(is_concentration_damage: bool = false) -> int:
 		var slope: float = (_max_damage - _min_damage) / (concentration_to_max_damage - concentration_to_min_damage)
 		var damage: float = _min_damage + slope * (owner_character.concentration - concentration_to_min_damage)
 		return int(damage)
+		
+
+func cast_spell(delta):
+	elapsed_time += delta
+
+	transition_amount = lerp(0.0, 1.0, elapsed_time / total_duration)
+
+	transition_amount = clamp(transition_amount, 0.0, 1.0)
+
+	if transition_amount >= 1.0:
+		for effect in spell.effects:
+			Messenger.SPELL_EFFECTS_APPLIED.emit(
+				owner_character,
+				target_character,
+				self
+			)
+		
+		set_process(false)
+		queue_free()
+
+	material.set_shader_parameter("TransitionAmount", transition_amount)

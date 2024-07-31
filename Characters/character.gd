@@ -67,17 +67,21 @@ func on_fight_started():
 	
 func cast_spell(enemy: Node3D):
 	var spell: CharacterSpell = characteristics.choose_spell()
+	print("character: ", character_name)
+	print("chose spell: ", spell.spell_name)
 	var spell_particle = spell.spell_particle.instantiate()
 	
 	spell_particle.cast_time = calculate_cast_time(cast_speed)
 	spell_particle.spell = spell
 	spell_particle.damage = attack
 	
+	spell_particle.owner_character = self
+	
 	add_child(spell_particle)
 	
-	spell_particle.owner_character = self
 	spell_particle.enemy_id = enemy.id
 	spell_particle.target_character = enemy
+	
 	spell_particle.global_position = global_position + spell.spell_position3d
 	
 	spell_particle.direction = global_position.direction_to(enemy.global_position)

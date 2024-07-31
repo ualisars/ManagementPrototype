@@ -33,7 +33,8 @@ func init_spells():
 		"Elemental",
 		"Cast a fireball dealt magic damage",
 		[SpellEffects.Effects.DAMAGE, SpellEffects.Effects.DECREASE_CONCENTRATION],
-		UiCommon.fireball_spell_texture
+		UiCommon.fireball_spell_texture,
+		CharacterSpell.SpellInterationType.PROJECTILE
 	)
 	
 	fireball.add_spell_particle(fireball_particle)
@@ -46,7 +47,8 @@ func init_spells():
 		"Physic",
 		"Force enemy to attack their ally",
 		[SpellEffects.Effects.ATTACK_ALLY],
-		UiCommon.domination_spell_texture
+		UiCommon.domination_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	domination.add_spell_particle(domination_cast_particle)
@@ -61,13 +63,14 @@ func init_spells():
 		"Physic",
 		"Decrease enemy's concentration",
 		[SpellEffects.Effects.DECREASE_CONCENTRATION],
-		UiCommon.distraction_spell_texture
+		UiCommon.distraction_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	distraction.add_spell_particle(distraction_particle)
 	distraction.add_spell_effect_particle(distraction_effect_particle)
-	distraction.add_spell_position_3d(Vector3(0, 1.2, 0))
-	distraction.add_spell_effect_position_3d(Vector3(0, 2.4, 0))
+	distraction.add_spell_position_3d(Vector3(0, 4.2, 0))
+	distraction.add_spell_effect_position_3d(Vector3(0, 4.4, 0))
 	
 	spells["distraction"] = distraction
 
@@ -76,7 +79,8 @@ func init_spells():
 		"Physic",
 		"Force enemy to attack youself",
 		[SpellEffects.Effects.ATTACK_YOURSELF],
-		UiCommon.despair_spell_texture
+		UiCommon.despair_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	spells["despair"] = despair
@@ -86,7 +90,8 @@ func init_spells():
 		"Physic",
 		"Force enemy to skip attack",
 		[SpellEffects.Effects.SKIP_ATTACK],
-		UiCommon.apathy_spell_texture
+		UiCommon.apathy_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	spells["apathy"] = apathy
@@ -96,7 +101,8 @@ func init_spells():
 		"Physic",
 		"Enemy will make random actions",
 		[SpellEffects.Effects.DO_RANDOM_ACTIONS],
-		UiCommon.insanity_spell_texture
+		UiCommon.insanity_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	spells["insanity"] = insanity
@@ -106,7 +112,8 @@ func init_spells():
 		"Dark",
 		"Revive ally",
 		[SpellEffects.Effects.REVIVE_ALLY],
-		UiCommon.necromancy_spell_texture
+		UiCommon.necromancy_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	spells["necromancy"] = necromancy
@@ -116,7 +123,8 @@ func init_spells():
 		"Dark",
 		"Increase the absorbed damage",
 		[SpellEffects.Effects.DECREASE_MAGIC_DEFENSE],
-		UiCommon.decay_spell_texture
+		UiCommon.decay_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	spells["decay"] = decay
@@ -126,7 +134,8 @@ func init_spells():
 		"Elemental",
 		"Decrease enemy's magic defense",
 		[SpellEffects.Effects.DECREASE_MAGIC_DEFENSE],
-		UiCommon.roots_spell_texture
+		UiCommon.roots_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	spells["roots"] = roots
@@ -136,7 +145,8 @@ func init_spells():
 		"Faith",
 		"Increase the possibility to miss",
 		[SpellEffects.Effects.DECREASE_CONCENTRATION],
-		UiCommon.blindness_spell_texture
+		UiCommon.blindness_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	spells["blindness"] = blindness
@@ -146,7 +156,8 @@ func init_spells():
 		"Faith",
 		"Damage enemy",
 		[SpellEffects.Effects.DAMAGE],
-		UiCommon.divine_hammer_spell_texture
+		UiCommon.divine_hammer_spell_texture,
+		CharacterSpell.SpellInterationType.PROJECTILE
 	)
 	
 	spells["divine_hammer"] = divine_hammer
@@ -156,7 +167,8 @@ func init_spells():
 		"Faith",
 		"Increase the magic defense",
 		[SpellEffects.Effects.INCREASE_MAGIC_DEFENSE],
-		UiCommon.selestial_support_spell_texture
+		UiCommon.selestial_support_spell_texture,
+		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
 	
 	spells["selestial_support"] = selestial_support
