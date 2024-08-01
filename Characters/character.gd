@@ -67,8 +67,6 @@ func on_fight_started():
 	
 func cast_spell(enemy: Node3D):
 	var spell: CharacterSpell = characteristics.choose_spell()
-	print("character: ", character_name)
-	print("chose spell: ", spell.spell_name)
 	var spell_particle = spell.spell_particle.instantiate()
 	
 	spell_particle.cast_time = calculate_cast_time(cast_speed)
@@ -160,6 +158,7 @@ func disable_unit() -> void:
 	is_wounded = true
 	
 	timer.stop()
+	concentration_timer.stop()
 	body.rotate_z(90.0)
 
 func add_spell_effect_particle(spell3d: Spell3D) -> void:

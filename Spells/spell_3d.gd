@@ -34,28 +34,18 @@ var material: ShaderMaterial
 func _ready():
 	Messenger.SPELL_CANCELED.connect(on_spell_canceled)
 	
-	print("Spell name: ", spell.spell_name)
-	print("Spell type: ", spell.spell_interaction_type)
-	print("owner: ", owner_character.character_name)
-	
-	if spell.spell_name == Spells.distraction.spell_name:
-		print("distraction")
-	
 	match spell.spell_interaction_type:
 		CharacterSpell.SpellInterationType.PROJECTILE:
-			print("PROJECTILE")
 			set_process(false)
 		CharacterSpell.SpellInterationType.IMMATERIAL:
-			print("IMMATERIAL")
 			set_physics_process(false)
 
 func _process(delta):
 	if owner_character.is_wounded:
 		set_process(false)
 		queue_free()
-		return
-		
-	cast_spell(delta)
+	else:
+		cast_spell(delta)
 	
 
 func _physics_process(delta: float) -> void:
