@@ -20,6 +20,7 @@ color = Color(0.447544, 0.000173848, 0.461039, 1)
 
 [node name="DominationEffectParticle" type="Node3D"]
 script = ExtResource("1_ail7c")
+total_duration = 0.8
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_wykym")

@@ -18,6 +18,8 @@ var selestial_support: CharacterSpell = CharacterSpell.new()
 @export var distraction_effect_particle: PackedScene
 @export var domination_cast_particle: PackedScene
 @export var domination_effect_particle: PackedScene
+@export var decay_cast_particle: PackedScene
+@export var decay_effect_particle: PackedScene
 
 var spells: Dictionary = {}
 
@@ -126,6 +128,11 @@ func init_spells():
 		UiCommon.decay_spell_texture,
 		CharacterSpell.SpellInterationType.IMMATERIAL
 	)
+	
+	decay.add_spell_particle(decay_cast_particle)
+	decay.add_spell_effect_particle(decay_effect_particle)
+	decay.add_spell_position_3d(Vector3(0, 4.2, 0))
+	decay.add_spell_effect_position_3d(Vector3(0, 4.4, 0))
 	
 	spells["decay"] = decay
 	

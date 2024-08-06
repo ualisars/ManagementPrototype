@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0483gy01c5x7"]
+
+[ext_resource type="Script" path="res://SpellParticles/spell_effect_particle.gd" id="1_pmtl3"]
+
+[node name="SpellEffectParticle" type="Node3D"]
+script = ExtResource("1_pmtl3")

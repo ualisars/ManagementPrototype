@@ -164,6 +164,7 @@ func disable_unit() -> void:
 func add_spell_effect_particle(spell3d: Spell3D) -> void:
 	if spell3d.spell.spell_effect_particle:
 		var particle: Node3D = spell3d.spell.spell_effect_particle.instantiate()
+		particle.spell3D = spell3d
 		
 		add_child(particle)
 		

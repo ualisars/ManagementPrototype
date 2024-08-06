@@ -1,0 +1,28 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca87jm1w5vd8n"]
+
+[ext_resource type="Script" path="res://SpellParticles/decay_effect_particle.gd" id="1_bhwdy"]
+[ext_resource type="Shader" uid="uid://bmwatg23ius74" path="res://SpellsShaders/transition_shader.tres" id="1_t6rca"]
+[ext_resource type="Texture2D" uid="uid://7ncuyvea34fc" path="res://addons/kenney_particle_pack/twirl_01.png" id="2_2ippf"]
+[ext_resource type="Texture2D" uid="uid://b2s7bpqubb8ah" path="res://Images/decay.svg" id="3_itl3y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ph64"]
+render_priority = 0
+shader = ExtResource("1_t6rca")
+shader_parameter/TransitionAmount = 0.0
+shader_parameter/BeginTexture = ExtResource("2_2ippf")
+shader_parameter/EndTexture = ExtResource("3_itl3y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ej8sv"]
+gravity = Vector3(0, 0, 0)
+color = Color(0.235947, 0.628491, 0.339167, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fc8yj"]
+
+[node name="DecayEffectParticle" type="Node3D"]
+script = ExtResource("1_bhwdy")
+total_duration = 1.5
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_1ph64")
+process_material = SubResource("ParticleProcessMaterial_ej8sv")
+draw_pass_1 = SubResource("QuadMesh_fc8yj")

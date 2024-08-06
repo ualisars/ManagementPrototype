@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bayhff8qa00d6"]
+[gd_scene load_steps=9 format=3 uid="uid://bayhff8qa00d6"]
 
 [ext_resource type="Script" path="res://World/spells.gd" id="1_rmlog"]
 [ext_resource type="PackedScene" uid="uid://d04dm3d1nnk1c" path="res://SpellParticles/fireball_particle.tscn" id="2_5urtq"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dmxa1c85hg4v1" path="res://SpellParticles/distraction_effect_particle.tscn" id="4_2j245"]
 [ext_resource type="PackedScene" uid="uid://c11syh0gb6hrx" path="res://SpellParticles/domination_cast_spell.tscn" id="5_yjf5d"]
 [ext_resource type="PackedScene" uid="uid://durp0ga042oso" path="res://SpellParticles/domination_effect_particle.tscn" id="6_08yby"]
+[ext_resource type="PackedScene" uid="uid://bi1l682iygbt8" path="res://SpellParticles/decay_spell_cast_particle.tscn" id="7_2sxrh"]
+[ext_resource type="PackedScene" uid="uid://ca87jm1w5vd8n" path="res://SpellParticles/decay_effect_particle.tscn" id="8_jtcip"]
 
 [node name="Spells" type="Node"]
 script = ExtResource("1_rmlog")
@@ -14,3 +16,5 @@ distraction_particle = ExtResource("3_7xf86")
 distraction_effect_particle = ExtResource("4_2j245")
 domination_cast_particle = ExtResource("5_yjf5d")
 domination_effect_particle = ExtResource("6_08yby")
+decay_cast_particle = ExtResource("7_2sxrh")
+decay_effect_particle = ExtResource("8_jtcip")
