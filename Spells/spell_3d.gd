@@ -25,6 +25,7 @@ var cast_time: float
 @export var min_concentration_damage: int = 0
 
 @export var cast_usage_speed: float
+@export var spell_effect_duration: float
 
 var elapsed_time: float = 0.0
 var transition_amount: float = 0.0
@@ -66,14 +67,21 @@ func apply_spell_effect(enemy_character: Character3D):
 		Spell3D
 	)
 
-func calculate_damage(is_concentration_damage: bool = false) -> int:
+func calculate_damage(damage_type: SpellDamageType.DamageType) -> int:
 	var _max_damage: int = max_damage
 	var _min_damage: int = min_damage
 	
-	if is_concentration_damage:
-		_max_damage = max_concentration_damage
-		_min_damage = min_concentration_damage
-		
+	match damage_type:
+		SpellDamageType.DamageType.HEALTH:
+			_max_damage = max_damage
+			_min_damage = min_damage
+		SpellDamageType.DamageType.CONCENTRATION:
+			_max_damage = max_concentration_damage
+			_min_damage = min_concentration_damage
+		SpellDamageType.DamageType.DEFENSE:
+			_max_damage = max_damage
+			_min_damage = min_damage
+
 	if owner_character.concentration <= concentration_to_min_damage:
 		return _min_damage
 	elif owner_character.concentration >= concentration_to_max_damage:
@@ -83,7 +91,6 @@ func calculate_damage(is_concentration_damage: bool = false) -> int:
 		var damage: float = _min_damage + slope * (owner_character.concentration - concentration_to_min_damage)
 		return int(damage)
 		
-
 func cast_spell(delta):
 	elapsed_time += delta
 

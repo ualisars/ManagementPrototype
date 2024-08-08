@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt0gbal4s84pl"]
+
+[ext_resource type="Script" path="res://Spells/spell_damage_type.gd" id="1_fi84t"]
+
+[node name="SpellDamageType" type="Node"]
+script = ExtResource("1_fi84t")

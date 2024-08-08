@@ -25,8 +25,8 @@ script = ExtResource("1_r48q4")
 concentration_to_cast = 5
 concentration_to_max_damage = 14
 concentration_to_min_damage = 6
-max_concentration_damage = 10
-min_concentration_damage = 5
+max_concentration_damage = 40
+min_concentration_damage = 20
 cast_usage_speed = 1.8
 
 [node name="DistractionSpellCastParticle" type="GPUParticles3D" parent="."]

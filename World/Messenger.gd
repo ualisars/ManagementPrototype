@@ -65,3 +65,7 @@ signal CONCENTRATION_DESCREASED(character: Character3D)
 signal SPELL_CANCELED(character3d: Character3D)
 
 signal CONCENTRATION_CHANGED(character3d: Character3D)
+
+signal DEFENSE_DECREASE_STARTED(character3d: Character3D, amount: int, effect_duration: float)
+
+signal DEFENSE_DECREASE_ENDED(character3d: Character3D, amount: int)

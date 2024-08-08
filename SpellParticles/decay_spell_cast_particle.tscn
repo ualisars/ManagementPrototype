@@ -20,6 +20,11 @@ color = Color(0.294418, 0.636057, 2.88785e-06, 1)
 
 [node name="DecaySpellCastParticle" type="Node3D"]
 script = ExtResource("1_8jvsl")
+concentration_to_cast = 3
+max_damage = 2
+min_damage = 2
+cast_usage_speed = 2.2
+spell_effect_duration = 5.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_8jsbk")

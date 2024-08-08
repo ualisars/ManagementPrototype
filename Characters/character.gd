@@ -5,7 +5,11 @@ class_name Character3D
 var characteristics: Characterictic
 
 var attack: int
-var defense: int
+var defense: int :
+	set(new_defense):
+		defense = new_defense
+		if defense <= 0:
+			defense = 0
 var health: int
 var character_name: String
 var is_player_controlled: bool
@@ -13,7 +17,11 @@ var cast_speed: int
 var id: int
 var is_belongs_to_player: bool
 var cast_time: float
-var concentration: int
+var concentration: int:
+	set(new_concentration):
+		concentration = new_concentration
+		if concentration <= 0:
+			concentration = 0
 
 var is_wounded: bool = false
 
@@ -49,6 +57,8 @@ func _ready() -> void:
 	Messenger.FIGHT_STARTED.connect(on_fight_started)
 	
 	Messenger.SPELL_EFFECTS_APPLIED.connect(on_spell_effects_applied)
+	
+	Messenger.DEFENSE_DECREASE_STARTED.connect(on_defense_decrease_started)
 	
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	
@@ -100,6 +110,8 @@ func on_spell_effects_applied(
 				decrease_concentration(owner_character, target_character, spell3d)
 			SpellEffects.Effects.ATTACK_ALLY:
 				attack_ally(owner_character, target_character, spell3d)
+			SpellEffects.Effects.DECREASE_MAGIC_DEFENSE:
+				decrease_magic_defense(owner_character, target_character, spell3d)
 
 func damage_character(
 	attack_character: Character3D, 
@@ -109,7 +121,7 @@ func damage_character(
 	if defend_character.id != id:
 		return
 		
-	var damage: int = spell3d.calculate_damage()
+	var damage: int = spell3d.calculate_damage(SpellDamageType.DamageType.HEALTH)
 
 	if health > 0:
 		health -= damage
@@ -131,7 +143,7 @@ func decrease_concentration(
 	if target_character.id != id:
 		return
 	
-	concentration -= spell3d.calculate_damage(true)
+	concentration -= spell3d.calculate_damage(SpellDamageType.DamageType.CONCENTRATION)
 	
 	Messenger.CONCENTRATION_DESCREASED.emit(self)
 	
@@ -152,6 +164,20 @@ func attack_ally(
 		cast_spell(character_target)
 		timer.stop()
 		timer.start()
+		
+
+func decrease_magic_defense(
+	owner_character: Character3D,
+	target_character: Character3D,
+	spell3d: Spell3D
+):
+	if target_character.id != id:
+		return
+	
+	var defense_decrease: int = spell3d.calculate_damage(SpellDamageType.DamageType.DEFENSE)
+	Messenger.DEFENSE_DECREASE_STARTED.emit(self, defense_decrease, spell3d.spell_effect_duration)
+	add_spell_effect_particle(spell3d)
+	
 
 func disable_unit() -> void:
 	disabled = true
@@ -194,3 +220,26 @@ func _on_timer_timeout() -> void:
 func _on_concentration_timer_timeout():
 	concentration += concentration_restoration
 	Messenger.CONCENTRATION_CHANGED.emit(self)
+	
+
+func on_defense_decrease_started(character3d: Character3D, amount: int, effect_duration: float):
+	if character3d.id != id:
+		return
+	
+	if defense <= 0:
+		return
+	
+	var defense_decrease_timer: Timer = Timer.new()
+	
+	defense_decrease_timer.timeout.connect(_on_defense_decrease_timer_timeout.bind(amount))
+	defense_decrease_timer.one_shot = true
+	defense_decrease_timer.wait_time = effect_duration
+	defense_decrease_timer.autostart = true
+	
+	defense -= amount
+	
+	add_child(defense_decrease_timer)
+
+
+func _on_defense_decrease_timer_timeout(defense_decrease: int):
+	defense += defense_decrease

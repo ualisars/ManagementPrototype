@@ -22,7 +22,8 @@ func on_spell_effects_applied(
 	
 	var owner_name: String = owner_character.character_name
 	var target_name: String = target_character.character_name
-	var damage: String = str(spell3d.calculate_damage())
+	var damage: String = str(spell3d.calculate_damage(SpellDamageType.DamageType.HEALTH))
+	var defense_descrease = str(spell3d.calculate_damage(SpellDamageType.DamageType.DEFENSE))
 	var health: String = str(target_character.health)
 	var spell_name: String = spell3d.spell.spell_name
 	var concentration: String = str(target_character.concentration)
@@ -44,6 +45,10 @@ func on_spell_effects_applied(
 				console_text += target_name + " is effected by "
 				console_text += spell_name + " spell"
 				console_text += " and forcing him to attack ally."
+			SpellEffects.Effects.DECREASE_MAGIC_DEFENSE:
+				console_text += target_name + " is effected by "
+				console_text += spell_name + " spell,"
+				console_text += " defense decreased by " + defense_descrease
 	
 	arena_console_message.add_text(console_text)
 	
