@@ -191,6 +191,7 @@ func add_spell_effect_particle(spell3d: Spell3D) -> void:
 	if spell3d.spell.spell_effect_particle:
 		var particle: Node3D = spell3d.spell.spell_effect_particle.instantiate()
 		particle.spell3D = spell3d
+		particle.total_duration = spell3d.spell_effect_duration
 		
 		add_child(particle)
 		
