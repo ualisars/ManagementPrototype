@@ -34,7 +34,6 @@ var total_duration: float
 var material: ShaderMaterial
 var process_material: ParticleProcessMaterial
 
-var default_scale: float = 1.0
 var current_scale: float
 
 func _ready():
