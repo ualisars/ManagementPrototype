@@ -51,8 +51,8 @@ radius = 0.4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0112109, 0)
 script = ExtResource("1_05fpn")
 concentration_to_max_damage = 15
-max_damage = 5
-min_damage = 2
+max_damage = 3
+min_damage = 1
 max_concentration_damage = 1
 min_concentration_damage = 1
 

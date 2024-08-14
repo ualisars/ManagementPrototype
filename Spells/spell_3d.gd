@@ -30,7 +30,12 @@ var cast_time: float
 var elapsed_time: float = 0.0
 var transition_amount: float = 0.0
 var total_duration: float
+
 var material: ShaderMaterial
+var process_material: ParticleProcessMaterial
+
+var default_scale: float = 1.0
+var current_scale: float
 
 func _ready():
 	Messenger.SPELL_CANCELED.connect(on_spell_canceled)
@@ -97,6 +102,8 @@ func cast_spell(delta):
 	transition_amount = lerp(0.0, 1.0, elapsed_time / total_duration)
 
 	transition_amount = clamp(transition_amount, 0.0, 1.0)
+	
+	process_material.scale_min = transition_amount
 
 	if transition_amount >= 1.0:
 		for effect in spell.effects:

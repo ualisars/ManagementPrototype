@@ -8,4 +8,6 @@ func _ready():
 	material = distraction_spell_cast_particle.material_override
 	material.set_shader_parameter("TransitionAmount", 0.0)
 	
+	process_material = distraction_spell_cast_particle.process_material
+	
 	total_duration = cast_usage_speed + cast_time
