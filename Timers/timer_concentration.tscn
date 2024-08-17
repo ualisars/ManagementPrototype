@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cwysgpmbw0hun"]
+
+[node name="ConcentrationTimer" type="Timer"]

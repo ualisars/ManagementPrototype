@@ -7,6 +7,7 @@ extends Node3D
 @export_file("*.tscn") var fight_over_scene
 
 var CharacterScene: PackedScene = preload("res://Characters/character.tscn")
+var Mage: PackedScene = preload("res://Models3D/mage.tscn")
 
 var current_task: Task
 
@@ -84,7 +85,7 @@ func place_characters(characteristics_list: Array, is_player: bool) -> void:
 		
 		var characteristics: Node = characteristics_list[index]
 		
-		var character: Area3D = CharacterScene.instantiate()
+		var character: Node3D = Mage.instantiate()
 		character.init(characteristics, is_player)
 		
 		add_child(character)
