@@ -85,10 +85,12 @@ func place_characters(characteristics_list: Array, is_player: bool) -> void:
 		
 		var characteristics: Node = characteristics_list[index]
 		
-		var character: Node3D = Mage.instantiate()
+		var character: Character3D = Mage.instantiate()
 		character.init(characteristics, is_player)
 		
 		add_child(character)
+		
+		character.face_to_enemy()
 		
 		character.global_position = location
 		

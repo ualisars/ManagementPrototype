@@ -30,18 +30,14 @@ var enemies_defeated: int = 0
 
 @export var concentration_restoration: int
 
-#@onready var timer: Timer = $Timer
-#@onready var concentration_timer = $ConcentrationTimer
-
 @export var timer_concentration: Timer
 @export var timer_spell_cast: Timer
+@export var character_rig: Node3D
 
 var player_color: String = "5e4086"
 var enemy_color: String = "fc4086"
 
 var disabled: bool = false
-
-#@onready var body: MeshInstance3D = $Body
 
 func init(_characteristics: Node, player_controlled: bool) -> void:
 	characteristics = _characteristics
@@ -66,15 +62,6 @@ func _ready() -> void:
 	timer_concentration.timeout.connect(_on_timer_concentration_timeout)
 	
 	timer_spell_cast.timeout.connect(_on_timer_spell_cast_timeout)
-	
-	#var material: StandardMaterial3D = StandardMaterial3D.new()
-	
-	#if is_player_controlled:
-		#material.albedo_color = player_color
-	#else:
-		#material.albedo_color = enemy_color
-		#
-	#body.material_override = material
 	
 func on_fight_started():
 	timer_spell_cast.wait_time = cast_time
@@ -192,7 +179,6 @@ func disable_unit() -> void:
 	
 	timer_spell_cast.stop()
 	timer_concentration.stop()
-	#body.rotate_z(90.0)
 
 func add_spell_effect_particle(spell3d: Spell3D) -> void:
 	if spell3d.spell.spell_effect_particle:
@@ -251,3 +237,9 @@ func on_defense_decrease_started(character3d: Character3D, amount: int, effect_d
 
 func _on_defense_decrease_timer_timeout(defense_decrease: int):
 	defense += defense_decrease
+	
+func face_to_enemy():
+	if is_belongs_to_player:
+		character_rig.rotate_y(60)
+	else:
+		character_rig.rotate_y(270)
