@@ -34,6 +34,9 @@ var enemies_defeated: int = 0
 @export var timer_spell_cast: Timer
 @export var character_rig: Node3D
 
+@export var anim_tree: AnimationTree
+var anim_state_machine: AnimationNodeStateMachinePlayback
+
 var player_color: String = "5e4086"
 var enemy_color: String = "fc4086"
 
@@ -63,6 +66,8 @@ func _ready() -> void:
 	
 	timer_spell_cast.timeout.connect(_on_timer_spell_cast_timeout)
 	
+	anim_state_machine = anim_tree.get("parameters/playback")
+	
 func on_fight_started():
 	timer_spell_cast.wait_time = cast_time
 	timer_spell_cast.start()
@@ -70,6 +75,8 @@ func on_fight_started():
 	timer_concentration.start()
 	
 func cast_spell(enemy: Node3D):
+	animate_prepare_spell()
+	
 	var spell: CharacterSpell = characteristics.choose_spell()
 	var spell_particle = spell.spell_particle.instantiate()
 	
@@ -87,6 +94,8 @@ func cast_spell(enemy: Node3D):
 	spell_particle.global_position = global_position + spell.spell_position3d
 	
 	spell_particle.direction = global_position.direction_to(enemy.global_position)
+	
+	animate_cast_projectile()
 
 func on_spell_effects_applied(
 	owner_character: Character3D, 
@@ -179,6 +188,8 @@ func disable_unit() -> void:
 	
 	timer_spell_cast.stop()
 	timer_concentration.stop()
+	
+	animate_wound()
 
 func add_spell_effect_particle(spell3d: Spell3D) -> void:
 	if spell3d.spell.spell_effect_particle:
@@ -243,3 +254,15 @@ func face_to_enemy():
 		character_rig.rotate_y(60)
 	else:
 		character_rig.rotate_y(270)
+		
+func animate_prepare_spell():
+	anim_state_machine.travel("prepare_spell")
+	
+func animate_cast_projectile():
+	anim_state_machine.travel("cast_projectile")
+	
+func animate_cast_immaterial():
+	anim_state_machine.travel("cast_immaterial")
+	
+func animate_wound():
+	anim_state_machine.travel("wound")
