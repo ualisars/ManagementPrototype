@@ -69,3 +69,5 @@ signal CONCENTRATION_CHANGED(character3d: Character3D)
 signal DEFENSE_DECREASE_STARTED(character3d: Character3D, amount: int, effect_duration: float)
 
 signal DEFENSE_DECREASE_ENDED(character3d: Character3D, amount: int)
+
+signal RESET_CAST(character3d: Character3D)

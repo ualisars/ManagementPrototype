@@ -8,7 +8,7 @@ var process_material: ParticleProcessMaterial
 
 var current_scale: float
 
-@export var total_duration: float
+@export var total_duration: float = 0.8
 
 var spell3D: Spell3D
 

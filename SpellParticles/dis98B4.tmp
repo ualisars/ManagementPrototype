@@ -20,7 +20,7 @@ color = Color(0.678431, 0.113725, 0.823529, 1)
 
 [node name="DistractionEffectParticle" type="Node3D"]
 script = ExtResource("1_rk5bs")
-total_duration = 1.8
+total_duration = 3.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627343, 0)

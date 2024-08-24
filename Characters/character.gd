@@ -28,10 +28,9 @@ var is_wounded: bool = false
 var damage_dealt: int = 0
 var enemies_defeated: int = 0
 
-@export var concentration_restoration: int
+@export var concentration_restoration: int = 1
 
 @export var timer_concentration: Timer
-@export var timer_spell_cast: Timer
 @export var character_rig: Node3D
 
 @export var anim_tree: AnimationTree
@@ -62,23 +61,20 @@ func _ready() -> void:
 	
 	Messenger.DEFENSE_DECREASE_STARTED.connect(on_defense_decrease_started)
 	
-	timer_concentration.timeout.connect(_on_timer_concentration_timeout)
+	Messenger.RESET_CAST.connect(on_reset_cast)
 	
-	timer_spell_cast.timeout.connect(_on_timer_spell_cast_timeout)
+	timer_concentration.timeout.connect(_on_timer_concentration_timeout)
 	
 	anim_state_machine = anim_tree.get("parameters/playback")
 	
 func on_fight_started():
-	timer_spell_cast.wait_time = cast_time
-	timer_spell_cast.start()
+	choose_enemy_to_attack()
 	
 	timer_concentration.start()
 	
 func cast_spell(enemy: Node3D):
-	animate_prepare_spell()
-	
 	var spell: CharacterSpell = characteristics.choose_spell()
-	var spell_particle = spell.spell_particle.instantiate()
+	var spell_particle: Spell3D = spell.spell_particle.instantiate()
 	
 	spell_particle.cast_time = calculate_cast_time(cast_speed)
 	spell_particle.spell = spell
@@ -95,7 +91,16 @@ func cast_spell(enemy: Node3D):
 	
 	spell_particle.direction = global_position.direction_to(enemy.global_position)
 	
-	animate_cast_projectile()
+func on_reset_cast(character: Character3D):
+	if character.id != id:
+		return
+		
+	choose_enemy_to_attack()
+		
+func choose_enemy_to_attack() -> void:
+	if FightManager.check_enemy_exist(characteristics):
+		var enemy: Node = FightManager.choose_enemy(characteristics)
+		cast_spell(enemy)
 
 func on_spell_effects_applied(
 	owner_character: Character3D, 
@@ -165,9 +170,6 @@ func attack_ally(
 		Messenger.SPELL_CANCELED.emit(self)
 		add_spell_effect_particle(spell3d)
 		cast_spell(character_target)
-		timer_spell_cast.stop()
-		timer_spell_cast.start()
-		
 
 func decrease_magic_defense(
 	owner_character: Character3D,
@@ -186,7 +188,6 @@ func disable_unit() -> void:
 	disabled = true
 	is_wounded = true
 	
-	timer_spell_cast.stop()
 	timer_concentration.stop()
 	
 	animate_wound()
@@ -194,6 +195,7 @@ func disable_unit() -> void:
 func add_spell_effect_particle(spell3d: Spell3D) -> void:
 	if spell3d.spell.spell_effect_particle:
 		var particle: Node3D = spell3d.spell.spell_effect_particle.instantiate()
+		
 		particle.spell3D = spell3d
 		particle.total_duration = spell3d.spell_effect_duration
 		
@@ -215,12 +217,6 @@ func calculate_cast_time(cast_speed: int) -> float:
 
 	return cast_time
 	
-
-func _on_timer_spell_cast_timeout() -> void: 
-	if FightManager.check_enemy_exist(characteristics):
-		var enemy: Node = FightManager.choose_enemy(characteristics)
-		cast_spell(enemy)
-
 
 func _on_timer_concentration_timeout():
 	concentration += concentration_restoration
@@ -251,10 +247,10 @@ func _on_defense_decrease_timer_timeout(defense_decrease: int):
 	
 func face_to_enemy():
 	if is_belongs_to_player:
-		character_rig.rotate_y(60)
+		character_rig.rotate_y(200)
 	else:
-		character_rig.rotate_y(270)
-		
+		character_rig.rotate_y(70)
+
 func animate_prepare_spell():
 	anim_state_machine.travel("prepare_spell")
 	

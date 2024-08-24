@@ -37,21 +37,23 @@ var process_material: ParticleProcessMaterial
 var current_scale: float
 
 func _ready():
+	owner_character.animate_prepare_spell()
+	
 	Messenger.SPELL_CANCELED.connect(on_spell_canceled)
 	
-	match spell.spell_interaction_type:
-		CharacterSpell.SpellInterationType.PROJECTILE:
-			set_process(false)
-		CharacterSpell.SpellInterationType.IMMATERIAL:
-			set_physics_process(false)
+	set_physics_process(false)
 
 func _process(delta):
 	if owner_character.is_wounded:
 		set_process(false)
 		queue_free()
-	else:
-		cast_spell(delta)
-	
+		
+	match spell.spell_interaction_type:
+		CharacterSpell.SpellInterationType.PROJECTILE:
+			prepare_projectile(delta)
+		CharacterSpell.SpellInterationType.IMMATERIAL:
+			prepare_immaterial(delta)
+
 
 func _physics_process(delta: float) -> void:
 	if owner_character and owner_character.is_wounded:
@@ -95,7 +97,20 @@ func calculate_damage(damage_type: SpellDamageType.DamageType) -> int:
 		var damage: float = _min_damage + slope * (owner_character.concentration - concentration_to_min_damage)
 		return int(damage)
 		
-func cast_spell(delta):
+func prepare_projectile(delta):
+	elapsed_time += delta
+
+	transition_amount = lerp(0.0, 1.0, elapsed_time / total_duration)
+	
+	if transition_amount >= 1.0:
+		set_process(false)
+		set_physics_process(true)
+		
+		owner_character.animate_cast_projectile()
+		
+		Messenger.RESET_CAST.emit(owner_character)
+		
+func prepare_immaterial(delta):
 	elapsed_time += delta
 
 	transition_amount = lerp(0.0, 1.0, elapsed_time / total_duration)
@@ -111,7 +126,10 @@ func cast_spell(delta):
 				target_character,
 				self
 			)
-		
+			
+			owner_character.animate_cast_immaterial()
+			Messenger.RESET_CAST.emit(owner_character)
+			
 		set_process(false)
 		queue_free()
 

@@ -4,3 +4,4 @@
 
 [node name="SpellEffectParticle" type="Node3D"]
 script = ExtResource("1_pmtl3")
+total_duration = 1.0

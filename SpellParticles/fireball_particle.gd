@@ -3,6 +3,8 @@ extends Spell3D
 func _ready():
 	super()
 	
+	total_duration = cast_time
+	
 	connect("area_entered", on_area_entered)
 
 func on_area_entered(body: Node3D):

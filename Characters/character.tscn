@@ -10,7 +10,6 @@
 
 [node name="Character" type="Area3D"]
 script = ExtResource("1_gnmmy")
-concentration_restoration = 1
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23, 0)
