@@ -106,10 +106,8 @@ func prepare_projectile(delta):
 		set_process(false)
 		set_physics_process(true)
 		
-		owner_character.animate_cast_projectile()
-		
 		Messenger.RESET_CAST.emit(owner_character)
-		
+
 func prepare_immaterial(delta):
 	elapsed_time += delta
 
