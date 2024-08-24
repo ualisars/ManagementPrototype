@@ -37,8 +37,6 @@ var process_material: ParticleProcessMaterial
 var current_scale: float
 
 func _ready():
-	owner_character.animate_prepare_spell()
-	
 	Messenger.SPELL_CANCELED.connect(on_spell_canceled)
 	
 	set_physics_process(false)
@@ -106,6 +104,7 @@ func prepare_projectile(delta):
 		set_process(false)
 		set_physics_process(true)
 		
+		Messenger.PROJECTILE_CASTED.emit(owner_character)
 		Messenger.RESET_CAST.emit(owner_character)
 
 func prepare_immaterial(delta):
@@ -125,7 +124,8 @@ func prepare_immaterial(delta):
 				self
 			)
 			
-			owner_character.animate_cast_immaterial()
+			Messenger.IMMATERIAL_CASTED.emit(owner_character)
+			
 			Messenger.RESET_CAST.emit(owner_character)
 			
 		set_process(false)

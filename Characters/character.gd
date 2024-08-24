@@ -63,7 +63,13 @@ func _ready() -> void:
 	
 	Messenger.RESET_CAST.connect(on_reset_cast)
 	
+	Messenger.SPELL_PREPARATION_STARTED.connect(on_spell_preparation_started)
+	Messenger.PROJECTILE_CASTED.connect(on_projectile_casted)
+	Messenger.IMMATERIAL_CASTED.connect(on_immaterial_casted)
+	
 	timer_concentration.timeout.connect(_on_timer_concentration_timeout)
+	
+	anim_tree.animation_finished.connect(on_animation_finished)
 	
 	anim_state_machine = anim_tree.get("parameters/playback")
 	
@@ -138,11 +144,12 @@ func damage_character(
 		
 	if health <= 0 and not disabled:
 		disable_unit()
+		
 		FightManager.clear_wounded_character(self)
 		FightManager.check_win_loss_condition()
 		
 		characteristics.add_defeated_enemy()
-
+		
 func decrease_concentration(
 	owner_character: Character3D,
 	target_character: Character3D,
@@ -189,6 +196,8 @@ func disable_unit() -> void:
 	is_wounded = true
 	
 	timer_concentration.stop()
+	
+	set_process(false)
 	
 	animate_wound()
 
@@ -250,7 +259,31 @@ func face_to_enemy():
 		character_rig.rotate_y(200)
 	else:
 		character_rig.rotate_y(70)
-
+		
+func on_animation_finished(anim_name: String) -> void:
+	if health <= 0:
+		return
+	if anim_name == "Spellcast_Shoot" or anim_name == "1H_Ranged_Aiming":
+		animate_prepare_spell()
+		
+func on_spell_preparation_started(character3d: Character3D):
+	if character3d.id != id:
+		return
+		
+	animate_prepare_spell()
+	
+func on_projectile_casted(character3d: Character3D):
+	if character3d.id != id:
+		return
+		
+	animate_cast_projectile()
+		
+func on_immaterial_casted(character3d: Character3D):
+	if character3d.id != id:
+		return
+		
+	animate_cast_immaterial()
+	
 func animate_prepare_spell():
 	anim_state_machine.travel("prepare_spell")
 	

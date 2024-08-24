@@ -71,3 +71,9 @@ signal DEFENSE_DECREASE_STARTED(character3d: Character3D, amount: int, effect_du
 signal DEFENSE_DECREASE_ENDED(character3d: Character3D, amount: int)
 
 signal RESET_CAST(character3d: Character3D)
+
+signal SPELL_PREPARATION_STARTED(character3d: Character3D)
+
+signal PROJECTILE_CASTED(character3d: Character3D)
+
+signal IMMATERIAL_CASTED(character3d: Character3D)
