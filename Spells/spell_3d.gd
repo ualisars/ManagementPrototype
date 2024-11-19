@@ -96,16 +96,11 @@ func calculate_damage(damage_type: SpellDamageType.DamageType) -> int:
 		return int(damage)
 		
 func prepare_projectile(delta):
-	elapsed_time += delta
-
-	transition_amount = lerp(0.0, 1.0, elapsed_time / total_duration)
+	set_process(false)
+	set_physics_process(true)
 	
-	if transition_amount >= 1.0:
-		set_process(false)
-		set_physics_process(true)
-		
-		Messenger.PROJECTILE_CASTED.emit(owner_character)
-		Messenger.RESET_CAST.emit(owner_character)
+	Messenger.PROJECTILE_CASTED.emit(owner_character)
+	Messenger.RESET_CAST.emit(owner_character)
 
 func prepare_immaterial(delta):
 	elapsed_time += delta

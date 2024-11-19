@@ -1616,9 +1616,10 @@ states/idle/position = Vector2(361, 107)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kvt8e"), "idle", "cast long", SubResource("AnimationNodeStateMachineTransition_n2601"), "idle", "cast quick", SubResource("AnimationNodeStateMachineTransition_378fo"), "cast long", "idle", SubResource("AnimationNodeStateMachineTransition_ej0vr"), "cast quick", "idle", SubResource("AnimationNodeStateMachineTransition_2j7us"), "cast long", "death", SubResource("AnimationNodeStateMachineTransition_7boek"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_b3ou0"), "cast quick", "death", SubResource("AnimationNodeStateMachineTransition_k43fk")]
 graph_offset = Vector2(-46, -24)
 
-[node name="apprentice_mage" type="Area3D" node_paths=PackedStringArray("timer_concentration", "character_rig", "anim_tree")]
+[node name="apprentice_mage" type="Area3D" node_paths=PackedStringArray("timer_concentration", "timer_spell_cast", "character_rig", "anim_tree")]
 script = ExtResource("1_vo2af")
 timer_concentration = NodePath("TimerConcentration")
+timer_spell_cast = NodePath("TimerSpellCast")
 character_rig = NodePath("Armature_003")
 anim_tree = NodePath("AnimationTree")
 
