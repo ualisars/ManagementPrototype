@@ -6,8 +6,7 @@ extends Node3D
 
 @export_file("*.tscn") var fight_over_scene
 
-var CharacterScene: PackedScene = preload("res://Characters/character.tscn")
-var Mage: PackedScene = preload("res://Models3D/mage.tscn")
+var Mage: PackedScene = preload("res://Models3D/apprentice_mage.tscn")
 
 var current_task: Task
 

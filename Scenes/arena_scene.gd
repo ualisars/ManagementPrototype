@@ -6,7 +6,7 @@ extends Node3D
 
 var rng = RandomNumberGenerator.new()
 
-var CharacterScene: PackedScene = preload("res://Characters/character.tscn")
+var Mage: PackedScene = preload("res://Models3D/apprentice_mage.tscn")
 @onready var fight_end_window: Control = $FightEndWindow
 
 var player_characters: Array = []
@@ -67,7 +67,7 @@ func place_characters_on_arena(
 		
 		var location = locations[index]
 		
-		var character: Node3D = CharacterScene.instantiate()
+		var character: Character3D = Mage.instantiate()
 		character.init(characteristic, is_player)
 		
 		locations.remove_at(index)

@@ -1,4 +1,4 @@
-extends Node3D
+extends Area3D
 
 class_name Character3D
 
@@ -68,8 +68,6 @@ func _ready() -> void:
 	Messenger.IMMATERIAL_CASTED.connect(on_immaterial_casted)
 	
 	timer_concentration.timeout.connect(_on_timer_concentration_timeout)
-	
-	anim_tree.animation_finished.connect(on_animation_finished)
 	
 	anim_state_machine = anim_tree.get("parameters/playback")
 	
@@ -255,16 +253,11 @@ func _on_defense_decrease_timer_timeout(defense_decrease: int):
 	defense += defense_decrease
 	
 func face_to_enemy():
+	pass
 	if is_belongs_to_player:
-		character_rig.rotate_y(200)
+		character_rig.rotate_y(90)
 	else:
-		character_rig.rotate_y(70)
-		
-func on_animation_finished(anim_name: String) -> void:
-	if health <= 0:
-		return
-	if anim_name == "Spellcast_Shoot" or anim_name == "1H_Ranged_Aiming":
-		animate_prepare_spell()
+		character_rig.rotate_y(-90)
 		
 func on_spell_preparation_started(character3d: Character3D):
 	if character3d.id != id:
@@ -285,13 +278,13 @@ func on_immaterial_casted(character3d: Character3D):
 	animate_cast_immaterial()
 	
 func animate_prepare_spell():
-	anim_state_machine.travel("prepare_spell")
+	anim_state_machine.travel("idle")
 	
 func animate_cast_projectile():
-	anim_state_machine.travel("cast_projectile")
+	anim_state_machine.travel("cast quick")
 	
 func animate_cast_immaterial():
-	anim_state_machine.travel("cast_immaterial")
+	anim_state_machine.travel("cast long")
 	
 func animate_wound():
-	anim_state_machine.travel("wound")
+	anim_state_machine.travel("death")

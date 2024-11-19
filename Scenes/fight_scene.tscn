@@ -35,6 +35,7 @@ environment = SubResource("Environment_781vr")
 [node name="MapObject" type="Node3D" parent="."]
 
 [node name="Terrain" type="CSGBox3D" parent="MapObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(60, 1, 60)
 material = SubResource("StandardMaterial3D_lw07f")
 
